@@ -1,6 +1,11 @@
 {% extends "base.html "%}
+{% load static %}
 
 {% block title %}The Blog{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
 
 {% block content %}
 <header id="main_navigation">
@@ -18,7 +23,7 @@
     <p>Hello, lets talk about Our Family</p>
 
 </section>
-<section id="latest-post">
+<section id="latest-posts">
     <h2>The Latest stuff</h2>
     <ul>
         <li>
@@ -33,7 +38,7 @@
         </li>
     </ul>
 </section>
-<section>
+<section id="about">
     <h2>What I do</h2>
     <p>This page info about why the blog exists</p>
     <p>more text about goals and shit</p>
