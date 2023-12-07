@@ -5,7 +5,7 @@ def starting_page(request):
 
 def posts(request):
     # Your code for posts view
-    pass
+    return render(request, "blog/all-posts.html")
 
 def post_detail(request, slug):
     # Your code for post_detail view

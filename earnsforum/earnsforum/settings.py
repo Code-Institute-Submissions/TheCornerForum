@@ -122,8 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIR = [
-    BASE_DIR / "static", # Path: earnsforum/earnsforum/static
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Path: earnsforum/earnsforum/static
 ]
 
 # Default primary key field type

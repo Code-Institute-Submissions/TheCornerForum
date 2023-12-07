@@ -4,16 +4,11 @@
 {% block title %}The Blog{% endblock %}
 
 {% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/posts.css" %}" /> 
     <link rel="stylesheet" href="{% static "blog/index.css" %}" />
 {% endblock %}
 
 {% block content %}
-<header id="main_navigation">
-    <h1><a href="">Earn's Founder</a></h1>
-    <nav>
-        <a href="">All Posts</a>
-    </nav>
-</header>
 <section id="welcome">
     <header>
         <img src="{% static "blog/images/ras4.png" %}" alt="The Earn's founder">
@@ -26,16 +21,7 @@
 <section id="latest-posts">
     <h2>The Latest stuff</h2>
     <ul>
-        <li>
-            <article class="post">
-                <a href=""></a>
-                <img src="{% static "blog/images/02727.png" %}" alt="Dystopic picture of the future">
-                <div class="post__content">
-                    <h3>Is the world coming to en end?</h3>
-                    <p>Global warming and wars text bla bla</p>
-                </div>
-            </article>
-        </li>
+        {% include "blog/includes/post.html" %}
     </ul>
 </section>
 <section id="about">
