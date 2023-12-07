@@ -9,4 +9,4 @@ def posts(request):
 
 def post_detail(request, slug):
     # Your code for post_detail view
-    pass
+    return render(request, "blog/post-detail.html")

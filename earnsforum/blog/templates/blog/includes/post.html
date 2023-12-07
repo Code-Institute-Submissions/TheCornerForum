@@ -2,11 +2,12 @@
 
 <li>
     <article class="post">
-        <a href=""></a>
-        <img src="{% static "blog/images/02727.png" %}" alt="Dystopic picture of the future">
-        <div class="post__content">
-            <h3>Is the world coming to en end?</h3>
-            <p>Global warming and wars text bla bla</p>
-        </div>
+        <a href="{% url "post-detail-page" "the-mountains" %}">
+            <img src="{% static "blog/images/02727.png" %}" alt="Dystopic picture of the future">
+            <div class="post__content">
+                <h3>Is the world coming to en end?</h3>
+                <p>Global warming and wars text bla bla</p>
+            </div>
+        </a>
     </article>
 </li>
