@@ -1,14 +1,12 @@
 from django.shortcuts import render
 
-
-# Create your views here.
-
 def starting_page(request):
-    pass
+    return render(request, "blog/index.html")
 
 def posts(request):
+    # Your code for posts view
     pass
 
-
 def post_detail(request, slug):
+    # Your code for post_detail view
     pass
