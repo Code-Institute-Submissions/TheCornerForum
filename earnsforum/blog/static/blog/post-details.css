@@ -47,6 +47,11 @@ body {
     font-weight: bold;
   }
   
+  #summary a{
+    color: goldenrod;
+    text-decoration: none;
+  }
+
   #summary time {
     font-weight: bold;
   } 
@@ -59,4 +64,10 @@ body {
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+  .tag {
+    background-color: #390281;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
   }
