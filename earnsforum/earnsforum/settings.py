@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / "templates", # Path: earnsforum/earnsforum/templates
+            BASE_DIR / "templates",  # Path: earnsforum/earnsforum/templates
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,6 +126,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",  # Path: earnsforum/earnsforum/static
 ]
 
+MEDIA_URL = BASE_DIR / "uploads"  # Path: earnsforum/earnsforum/uploads
+MEDIA_URL = "/uploads/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
