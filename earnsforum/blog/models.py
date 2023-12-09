@@ -31,3 +31,14 @@ class Post(models.Model):
     author = models.ForeignKey(
         Author, on_delete=models.SET_NULL, null=True, blank=True, related_name='posts')
     tags = models.ManyToManyField(Tag, blank=True)
+
+class Comment(models.Model):
+    user_name = models.CharField(max_length=100)
+    user_email = models.EmailField( blank=True)
+    date = models.DateField(auto_now=True)
+    text = models.TextField(max_length=2000)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
+    
+    def __str__(self):
+        return f"{self.user_name} - {self.post.title}"
