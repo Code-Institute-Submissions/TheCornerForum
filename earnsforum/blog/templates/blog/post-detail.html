@@ -25,14 +25,41 @@
     </article>
 </section>
 
+{% if comment_form.errors %}
+    <div>
+        <strong>Your comment wasn't submitted, please correct the following error</strong>
+    </div>
+{% endif %}
+
 <main>
     {{ post.content|linebreaks}}
 </main>
 
-<div>
-    <form>
-       {{ comment_form }}
-       <button>Submit</button>
-    </form>
-</div>
+<section>
+    <ul>
+        {% for comment in post.comments.all %}
+        <li>
+            <h2>{{ comment.user_name }}</h2>
+            <p>{{ comment.text|linebreaks }}</p>
+        </li> <!-- Close the list item here -->
+        {% endfor %} <!-- Close the for loop here -->
+    </ul>
+</section> <!-- Close the section here -->
+
+<section id="comment-form">
+    <h2>Your Comments</h2>
+    <div>
+        <form action="{% url "post-detail-page" post.slug %}" method="POST">
+            {% csrf_token %}
+            {% for form_field in comment_form %}
+            <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+                {{ form_field.label_tag }}
+                {{ form_field }}
+                {{ form_field.errors }}
+            </div>
+            {% endfor %}
+            <button>Submit</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
