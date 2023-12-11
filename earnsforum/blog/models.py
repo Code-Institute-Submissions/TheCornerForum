@@ -15,10 +15,9 @@ class Author(models.Model):
 
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
-    
+
     def __str__(self):
         return self.full_name()
-
 
 
 class Post(models.Model):
@@ -35,13 +34,14 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Comment(models.Model):
     user_name = models.CharField(max_length=100)
-    user_email = models.EmailField( blank=True)
+    user_email = models.EmailField(blank=True)
     date = models.DateField(auto_now=True)
     text = models.TextField(max_length=2000)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name='comments')
-    
+
     def __str__(self):
         return f"{self.user_name} - {self.post.title}"

@@ -9,6 +9,13 @@
 
 {% block content %}
 
+{% if comment_form.errors %}
+    <div id="alert">
+        <strong>Your comment wasn't submitted, please correct the following error</strong>
+        <a href="#comment-form">FIX!</a>
+    </div>
+{% endif %}
+
 <section id="summary">
     <h2>{{ post.title }}</h2>
     <div>
@@ -16,20 +23,29 @@
         <span class="tag">{{ tag.caption }}</span>
         {% endfor %}
     </div>
+    <div id="read-later">
+        <form action="{% url "read-later" %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="post_id" value="{{ post.id }}" />
+            <button>
+                {% if saved_for_later %}
+                    Remove from Saved Article List               
+                {% else %}
+                    Save Article
+                {% endif %}
+            
+            </button>
+        </form>
+    </div>
+
     <article>
         <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-        <address>By <a href"mailto:{{ post.author.email_address }}">{{ post.author }}</a></address>
+        <address>By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a></address>
         <div>
             Last updated on <time>{{ post.date|date:"d M Y" }}</time>
         </div>
     </article>
 </section>
-
-{% if comment_form.errors %}
-    <div>
-        <strong>Your comment wasn't submitted, please correct the following error</strong>
-    </div>
-{% endif %}
 
 <main>
     {{ post.content|linebreaks}}
