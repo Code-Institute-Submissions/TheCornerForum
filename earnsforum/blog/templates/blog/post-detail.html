@@ -35,7 +35,7 @@
     {{ post.content|linebreaks}}
 </main>
 
-<section>
+<section id="comments">
     <ul>
         {% for comment in post.comments.all %}
         <li>
