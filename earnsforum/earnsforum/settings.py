@@ -74,8 +74,6 @@ WSGI_APPLICATION = 'earnsforum.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
