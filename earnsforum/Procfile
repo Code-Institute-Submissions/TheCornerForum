@@ -1,0 +1,1 @@
+web: gunicorn earnsforum.wsgi --log-file -
