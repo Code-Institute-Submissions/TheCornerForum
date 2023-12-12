@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
 
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = False
 
 ALLOWED_HOSTS = [os.getenv("APP_HOST", '127.0.0.1')]
 
