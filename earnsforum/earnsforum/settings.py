@@ -138,3 +138,11 @@ MEDIA_URL = "/uploads/" # Path: /uploads/
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#django-heroku
+import django_heroku
+django_heroku.settings(locals())
+
+import dj_database_url
+DATABASES = {'default': dj_database_url.config(conn_max_age=600, ssl_require=True)}
+
