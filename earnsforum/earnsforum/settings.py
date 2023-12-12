@@ -9,28 +9,22 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 from os import getenv
-import os
-
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
 
-SECRET_KEY = getenv('DJANGO_SECRET_KEY', 'default-secret-key')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-
-DEBUG = True
-
-ALLOWED_HOSTS = [
-    getenv("APP_HOST"),
-]
+AALLOWED_HOSTS = [os.getenv("APP_HOST", '127.0.0.1')]
 
 
 # Application definition
@@ -83,14 +77,7 @@ WSGI_APPLICATION = 'earnsforum.wsgi.application'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'earnsdatabase',
-        'USER': 'admin',
-        'PASSWORD': 'admin007',
-        'HOST': 'localhost',
-        'PORT': '8000',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 # Password validation
@@ -131,7 +118,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"  # Path: earnsforum/earnsforum/staticfile
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Path: earnsforum/earnsforum/static
+    BASE_DIR / "static",
 ]
 
 MEDIA_URL = BASE_DIR / "uploads"  # Path: earnsforum/earnsforum/uploads
@@ -143,8 +130,7 @@ MEDIA_URL = "/uploads/" # Path: /uploads/
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#django-heroku
-import django_heroku
+
 django_heroku.settings(locals())
 
 
