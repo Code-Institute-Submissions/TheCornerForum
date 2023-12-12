@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
 DEBUG = False
 
-ALLOWED_HOSTS = [os.getenv("APP_HOST", '127.0.0.1')]
+ALLOWED_HOSTS = [os.getenv("APP_HOST", 'https://earns-forum-c6b1585ec55f.herokuapp.com/')]
 
 
 # Application definition
@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'earnsforum.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 # Password validation
