@@ -1,0 +1,129 @@
+#welcome {
+  background: linear-gradient(to right top, #6305dd, #390281);
+  padding: 6rem 12%;
+}
+
+#welcome header {
+  display: flex;
+  align-items: flex-start;
+  margin: 3rem auto;
+}
+
+#welcome img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  object-position: top;
+  border: 5px solid white;
+  border-radius: 12px;
+  background-color: #ffe1bf;
+  transform: rotateZ(-5deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#welcome h2 {
+  font-size: 3.5rem;
+  margin: 0 0 0 2rem;
+  color: #e4e4e4;
+  width: 10rem;
+}
+
+#welcome p {
+  color: white;
+  font-size: 1.5rem;
+}
+
+#latest-posts {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 60rem;
+  margin: -6rem auto 2rem auto;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+#latest-posts h2 {
+  text-align: center;
+}
+
+#latest-posts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+#latest-posts li {
+  flex: 1;
+}
+
+#about {
+  text-align: center;
+  padding: 3rem;
+  background-color: #e48900;
+  margin-top: 5rem;
+}
+
+#about h2 {
+  font-size: 3rem;
+}
+
+#about p {
+  font-size: 1.5rem;
+  color: #353535;
+}
+
+  /* Responsive Styles */
+
+/* Small devices (phones, less than 768px) */
+@media (max-width: 768px) {
+    #welcome, #latest-posts, #about {
+      padding: 3rem 5%;
+    }
+  
+    #welcome img {
+      width: 8rem;
+      height: 8rem;
+    }
+  
+    #welcome h2 {
+      font-size: 2.5rem;
+    }
+  
+    #latest-posts {
+      width: 100%;
+      margin-top: 3rem;
+    }
+  
+    #latest-posts ul {
+      flex-direction: column;
+    }
+  
+    #about h2 {
+      font-size: 2rem;
+    }
+  
+    #about p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    #latest-posts {
+      width: 80%;
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    #latest-posts {
+      width: 60rem; /* You may adjust this value as needed */
+    }
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    /* Add specific styles for large desktops here if needed */
+  }
