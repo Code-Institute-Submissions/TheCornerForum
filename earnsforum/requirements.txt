@@ -12,6 +12,7 @@ click==8.1.7
 cloudinary==1.36.0
 colorama==0.4.6
 coverage==7.3.2
+crispy-bootstrap4==2023.1
 cryptography==41.0.4
 defusedxml==0.7.1
 distlib==0.3.7
@@ -21,6 +22,7 @@ Django==3.2.23
 django-allauth==0.57.0
 django-bootstrap-v5==1.0.11
 django-ckeditor==6.7.0
+django-crispy-forms==2.1
 django-heroku==0.3.1
 django-js-asset==2.1.0
 django-summernote==0.8.20.0
