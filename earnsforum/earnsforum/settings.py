@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv('DJANGO_SECRET_KEY', 'default-secret-key')
 
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     getenv("APP_HOST"),
