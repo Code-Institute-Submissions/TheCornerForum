@@ -24,7 +24,7 @@
         {% endfor %}
     </div>
     <div id="read-later">
-        <form action="{% url "read-later" %}" method="POST">
+        <form action="{% url 'blog:read-later' %}" method="POST">
             {% csrf_token %}
             <input type="hidden" name="post_id" value="{{ post.id }}" />
             <button>
@@ -33,7 +33,6 @@
                 {% else %}
                     Save Article
                 {% endif %}
-            
             </button>
         </form>
     </div>
@@ -65,7 +64,7 @@
 <section id="comment-form">
     <h2>Your Comments</h2>
     <div>
-        <form action="{% url "post-detail-page" post.slug %}" method="POST">
+        <form action="{% url 'blog:post-detail-page' post.slug %}" method="POST">
             {% csrf_token %}
             {% for form_field in comment_form %}
             <div class="form-control {% if form_field.errors %}invalid{% endif %}">

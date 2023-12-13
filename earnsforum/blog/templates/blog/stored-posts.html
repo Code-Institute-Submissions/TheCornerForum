@@ -9,17 +9,16 @@ Saved Articles:
 <link rel="stylesheet" href="{% static "blog/stored-posts.css" %}">
 {% endblock %}
 
-
-
 {% block content %}
 <section id="stored-posts">
     {% if not has_posts %}
         <p>You have no saved articles.</p>
+    {% else %}
+        <ul>
+            {% for post in posts %}
+            <li><a href="{% url 'blog:post-detail-page' post.slug %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
     {% endif %}
-    <ul>
-        {% for post in posts %}
-        <li><a href="{% url "post-detail-page" post.slug %}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
 </section>
 {% endblock %}
