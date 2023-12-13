@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [os.getenv("APP_HOST", 'https://earns-forum-c6b1585ec55f.herokuapp.com/')]
 
@@ -95,7 +95,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
