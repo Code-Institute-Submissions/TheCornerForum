@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
 DEBUG = False
 
-ALLOWED_HOSTS = [os.getenv("APP_HOST", 'https://earns-forum-c6b1585ec55f.herokuapp.com/')]
+ALLOWED_HOSTS = [os.getenv("APP_HOST", 'earns-forum-c6b1585ec55f.herokuapp.com')]
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # whitenoise
 ]
 
 ROOT_URLCONF = 'earnsforum.urls'
@@ -118,9 +119,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-MEDIA_URL = BASE_DIR / "uploads"  # Path: earnsforum/earnsforum/uploads
-MEDIA_URL = "/uploads/" # Path: /uploads/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+MEDIA_ROOT = BASE_DIR / "uploads"  # Path: earnsforum/earnsforum/uploads
+MEDIA_URL = "/uploads/"            # URL: /uploads/
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
