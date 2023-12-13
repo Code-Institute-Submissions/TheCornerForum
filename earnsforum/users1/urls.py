@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'user1'
+
 urlpatterns = [
     # path("", views.StartingPageView.as_view(),
     #      name="starting-page"),
@@ -10,8 +12,7 @@ urlpatterns = [
 ]
 
 
-
-#blog urls.py
+# blog urls.py
 # urlpatterns = [
 #     path("", views.StartingPageView.as_view(),
 #          name="starting-page"),  # /starting-page
