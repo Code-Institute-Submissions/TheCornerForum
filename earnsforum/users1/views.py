@@ -38,4 +38,4 @@ def user_login(request):
 # logout page
 def user_logout(request):
     logout(request)
-    return redirect('users1:login')
+    return redirect('starting-page')
