@@ -10,8 +10,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ("user", "post", "text",)
-    list_filter = ("user", "post", "date",)
+    list_display = ("user", "post", "text", "date")
+    list_filter = ("user", "post", "date")
 
 
 admin.site.register(Author)
