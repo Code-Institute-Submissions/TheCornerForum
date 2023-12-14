@@ -15,7 +15,7 @@ def user_signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('users1:login')
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
@@ -30,7 +30,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)    
-                return redirect('home')
+                return redirect('starting-page')
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
