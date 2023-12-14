@@ -54,7 +54,7 @@
     <ul>
         {% for comment in post.comments.all %}
         <li>
-            <h2>{{ comment.user_name }}</h2>
+            <h2>{{ comment.user.username }}</h2>
             <p>{{ comment.text|linebreaks }}</p>
         </li> <!-- Close the list item here -->
         {% endfor %} <!-- Close the for loop here -->
