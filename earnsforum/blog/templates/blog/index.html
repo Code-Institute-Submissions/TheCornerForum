@@ -22,14 +22,18 @@
     <h2>The Latest stuff</h2>
     <ul>
         {% for post in posts %}
-        {% include "blog/includes/post.html" %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <!-- Other post details -->
+            </li>
         {% endfor %}
     </ul>
 </section>
 <section id="about">
-    <h2>What I do</h2>
-    <p>This page info about why the blog exists</p>
-    <p>more text about goals and shit</p>
+    <h2>What I do?</h2>
 </section>
 
 {% endblock %}
