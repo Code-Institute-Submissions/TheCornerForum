@@ -3,6 +3,9 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views import View
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -60,10 +63,10 @@ class SinglePostView(View):
     def post(self, request, slug):
         comment_form = CommentForm(request.POST)
         post = Post.objects.get(slug=slug)
-        
 
-        if comment_form.is_valid():
+        if request.user.is_authenticated and comment_form.is_valid():
             comment = comment_form.save(commit=False)
+            comment.user = request.user
             comment.post = post
             comment.save()
 
@@ -74,7 +77,7 @@ class SinglePostView(View):
             "post_tags": post.tags.all(),
             "comment_form": comment_form,
             "comments": post.comments.all().order_by('-id'),
-            #"saved_for_later": self.is_stored_posts(request, post.id)
+            # "saved_for_later": self.is_stored_posts(request, post.id)
         }
         return render(request, "blog/post-detail.html", context)
 

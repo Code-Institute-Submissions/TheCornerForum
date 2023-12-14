@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Tag(models.Model):
     caption = models.CharField(max_length=20)
@@ -18,7 +18,7 @@ class Author(models.Model):
 
     def __str__(self):
         return self.full_name()
-
+ 
 
 class Post(models.Model):
     title = models.CharField(max_length=175)
@@ -36,12 +36,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    user_name = models.CharField(max_length=100)
-    user_email = models.EmailField(blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
     date = models.DateField(auto_now=True)
     text = models.TextField(max_length=2000)
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
 
     def __str__(self):
-        return f"{self.user_name} - {self.post.title}"
+        return f"{self.user.username} - {self.post.title}"
