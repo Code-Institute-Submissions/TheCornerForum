@@ -59,7 +59,7 @@ class SinglePostView(View):
         return render(request, "blog/post-detail.html", context)
 
         
-    
+    @method_decorator(login_required)
     def post(self, request, slug):
         comment_form = CommentForm(request.POST)
         post = Post.objects.get(slug=slug)
@@ -82,7 +82,7 @@ class SinglePostView(View):
         return render(request, "blog/post-detail.html", context)
 
 
-class ReadLaterView(View):
+class ReadLaterView(LoginRequiredMixin, View):
     def get(self, request):
         stored_posts = request.session.get("stored_posts")
         print("Stored posts:", stored_posts)
