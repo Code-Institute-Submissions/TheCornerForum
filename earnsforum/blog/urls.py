@@ -4,11 +4,9 @@ from . import views
 app_name = 'blog'
 
 urlpatterns = [
-    path("", views.StartingPageView.as_view(),
-         name="starting-page"),  # /starting-page
-    path("posts/", views.AllPostsView.as_view(), name="posts-page"),  # /posts
-    path("posts/<slug:slug>", views.SinglePostView.as_view(),
-         name="post-detail-page"),  # /posts/my-first-post
+    path("", views.StartingPageView.as_view(), name="starting-page"),
+    path("posts/", views.AllPostsView.as_view(), name="posts-page"),
+    path("posts/<slug:slug>", views.SinglePostView.as_view(), name="post-detail-page"), 
     path("read-later", views.ReadLaterView.as_view(), name="read-later"),
 
 ]
