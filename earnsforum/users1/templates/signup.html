@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <section id="comment-form">
-<h1>Signup</h1>
+    <h1>Signup</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
