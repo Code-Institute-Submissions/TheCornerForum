@@ -25,7 +25,7 @@ urlpatterns = (
     path('', StartingPageView.as_view(), namespace='starting-page'),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('users1/', include('users1.urls', namespace='users1'))
+    path('users1/', include('users1.urls', namespace='users1')),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
