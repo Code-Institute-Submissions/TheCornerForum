@@ -2,12 +2,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'app.css' %}" type="text/css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'app.css' %}" type="text/css">
+        {% block css_files %}
+        {% endblock %}
+    </head>
 <body>
     <header id="main-navigation">
         <h1><a href="{% url 'blog:starting-page' %}">Earn's Blog</a></h1>
