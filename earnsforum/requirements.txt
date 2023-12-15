@@ -1,9 +1,11 @@
+alabaster==0.7.13
 asgiref==3.7.2
 Babel==2.13.1
 beautifulsoup4==4.12.2
 bleach==6.1.0
 blinker==1.7.0
 bootstrap-py==2.0.0
+certifi==2023.7.22
 cffi==1.16.0
 charset-normalizer==3.3.1
 click==8.1.7
@@ -20,6 +22,7 @@ Django>=4.2,<4.3
 django-allauth==0.57.0
 django-bootstrap-v5==1.0.11
 django-ckeditor==6.7.0
+django-cloudinary-storage==0.3.0
 django-crispy-forms==2.1
 django-heroku==0.3.1
 django-js-asset==2.1.0
@@ -79,4 +82,3 @@ webencodings==0.5.1
 Werkzeug==3.0.1
 whitenoise==6.6.0
 zipp==3.17.0
-django-cloudinary-storage==0.3.0
