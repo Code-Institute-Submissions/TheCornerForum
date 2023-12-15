@@ -71,33 +71,28 @@ form a {
 form a:hover {
     text-decoration: underline;
 }
-
-.helptext{
+.helptext {
     display: none;
     font-size: 12px;
     color: #999;
     margin-top: 5px;
     margin-bottom: 15px;
 }
-.helptext input:hover{
-    display: grid;
-    list-style-type: disc;
-    align-content: space-between;
-    justify-content: center;
-    align-items: start;
-    font-size: 8px;
-    border: 1px solid blue;
-    color:#333;
-    background-color: aliceblue;
-    cursor: pointer;
+
+input:hover + .helptext {
+    display: block;
 }
 
 ul {    
     display: none;
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
-ul input:hover{
-    display: grid;
+input#id_password1:hover + ul {
+    display: block;
     list-style-type: disc;
     align-content: space-between;
     justify-content: center;
