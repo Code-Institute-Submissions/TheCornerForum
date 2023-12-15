@@ -90,16 +90,3 @@ ul {
     margin-top: 5px;
     margin-bottom: 15px;
 }
-
-input#id_password1:hover + ul {
-    display: block;
-    list-style-type: disc;
-    align-content: space-between;
-    justify-content: center;
-    align-items: start;
-    font-size: 8px;
-    border: 1px solid blue;
-    color:#333;
-    background-color: aliceblue;
-    cursor: pointer;
-}
