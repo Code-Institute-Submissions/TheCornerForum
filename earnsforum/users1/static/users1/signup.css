@@ -93,4 +93,5 @@ ul input#id_password:hover{
     border: 1px solid blue;
     color:#333;
     background-color: aliceblue;
+    cursor: pointer;
 }
