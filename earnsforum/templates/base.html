@@ -18,7 +18,9 @@
         {% if request.user.is_authenticated %}
             <a class="yarchive" href="{% url 'blog:read-later' %}">Your Archive</a>
         {% endif %}
-
+        {% if request.user.is_authenticated %}
+            <a class="yarchive" href="{% url 'blog:cartoon' %}">Your Cartoons</a>
+        {% endif %}
         <!-- User Authentication Links -->
         {% if request.user.is_authenticated %}
             <span>{{ request.user.username }}!</span>
