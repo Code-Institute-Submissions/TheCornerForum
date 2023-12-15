@@ -10,6 +10,7 @@ body, html {
 
 /* Form Section Styles */
 section#comment-form {
+    margin-top: 260px;
     width: 100%;
     max-width: 400px; /* Adjust the width as needed */
     padding: 20px;
