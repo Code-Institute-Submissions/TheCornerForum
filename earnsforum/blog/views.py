@@ -6,8 +6,9 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post
+from .models import Post, Cartoon, CartoonPanel
 from .form import CommentForm
+
 
 class StartingPageView(ListView):
     template_name = "blog/index.html"
@@ -101,3 +102,16 @@ class ReadLaterView(LoginRequiredMixin, View):
         request.session["stored_posts"] = stored_posts    
 
         return HttpResponseRedirect("/")
+
+class CartoonView(ListView):
+    template_name = "blog/cartoon.html"
+    model = Cartoon
+    context_object_name = "cartoons"
+
+def cartoon_detail(request, slug): 
+    cartoon = get_object_or_404(Cartoon, slug=slug)
+    cartoon_panels = cartoon.panels.all().order_by('order')
+    return render(request, "blog/cartoon-detail.html", {
+        "cartoon": cartoon,
+        "cartoon_panels": cartoon_panels,
+    })

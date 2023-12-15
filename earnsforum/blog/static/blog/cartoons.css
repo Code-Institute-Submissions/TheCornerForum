@@ -1,0 +1,69 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e7e7e7;
+}
+
+.cartoons-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.cartoon {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.cartoon h2 {
+    color: #390281;
+    margin: 0 0 10px 0;
+}
+
+.cartoon h2 a {
+    color: inherit; /* Use the parent color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cartoon h2 a:hover {
+    color: #007bff;
+}
+
+.cartoon p {
+    color: #333;
+    font-size: 16px;
+}
+/* Cartoon Detail Styles */
+article.cartoon {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.cartoon-panels {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.cartoon-panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.cartoon-panel p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}

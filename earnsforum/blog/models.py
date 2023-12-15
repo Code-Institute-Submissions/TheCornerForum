@@ -43,3 +43,25 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.post.title}"
+
+class Cartoon(models.Model):
+    title = models.CharField(max_length=200)
+    excerpt = models.CharField(max_length=200, null=True, blank=True)
+    slug = models.SlugField(unique=True)
+    date = models.DateField(auto_now=True)
+    tags = models.ManyToManyField(Tag, blank=True)
+
+    def __str__(self):
+        return self.title
+
+class CartoonPanel(models.Model):
+    cartoon = models.ForeignKey(Cartoon, on_delete=models.CASCADE, related_name='panels')
+    image = models.ImageField(upload_to='cartoons')
+    caption = models.TextField()
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"{self.cartoon.title} Panel {self.order}"

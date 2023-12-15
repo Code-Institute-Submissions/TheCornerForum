@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'blog/cartoons.css' %}">
+{% endblock %}
+{% block title %}{{ cartoon.title }}{% endblock %}
+
+{% block content %}
+<article class="cartoon">
+    <h1>{{ cartoon.title }}</h1>
+    <p>{{ cartoon.excerpt }}</p>
+    <div class="cartoon-panels">
+        {% for panel in cartoon_panels %}
+            <div class="cartoon-panel">
+                <img src="{{ panel.image.url }}" alt="Panel {{ forloop.counter }}">
+                <p>{{ panel.caption }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}
