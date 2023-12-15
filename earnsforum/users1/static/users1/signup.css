@@ -1,12 +1,12 @@
 /* General Styles */
 body {
-  background-color: #e7e7e7;
-}
-
-#main-navigation {
-  background-color: #390281;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
+    background-color: #e7e7e7;
+  }
+  
+  #main-navigation {
+    background-color: #390281;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
 
 /* Form Section Styles */
 section#comment-form {
@@ -17,67 +17,58 @@ section#comment-form {
     justify-content: center;
     align-items: start;
     justify-items: stretch;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    border: solid 1px #3759f1;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* Form Title */
 section#comment-form h1 {
-  text-align: center;
-  color: #333;
+    text-align: center;
+    color: #333;
 }
 
 /* Form Styles */
 form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Input and Button Styles */
-form input[type="text"],
-form input[type="password"],
-form input[type="email"],
-form button {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+form input[type="text"], form input[type="password"], form input[type="email"], form button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 /* Button Styles */
 form button {
-  background-color: #28a745; /* Different color for signup */
-  color: white;
-  cursor: pointer;
-  border: none;
+    background-color: #28a745; /* Different color for signup */
+    color: white;
+    cursor: pointer;
+    border: none;
 }
 
 /* Button Hover Effect */
 form button:hover {
-  background-color: #218838; /* Darker shade for hover */
+    background-color: #218838; /* Darker shade for hover */
 }
 
 /* Link Styles */
 form a {
-  text-align: center;
-  display: block;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
 }
 
 /* Link Hover Effect */
 form a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  section#comment-form {
-    display: grid;
-    margin: 15% auto;
-    box-shadow: none;
-    align-content: space-between;
-    justify-content: center;
-    align-items: start;
-    justify-items: stretch;
-  }
-}

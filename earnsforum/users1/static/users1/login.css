@@ -9,13 +9,19 @@ body {
 
 /* Form Section Styles */
 section#comment-form {
-  border: solid 1px #3759f1;
-  width: 100%;
-  max-width: 400px; /* Maximum width of the form */
-  padding: 20px;
+  display: grid;
+  margin: 15% auto;
+  box-shadow: none;
+  align-content: space-between;
+  justify-content: center;
+  align-items: start;
+  justify-items: stretch;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #fff;
+  border: solid 1px #3759f1;
+  width: 100%;
+  max-width: 400px;
 }
 
 /* Form Title */
@@ -65,12 +71,4 @@ form a {
 /* Link Hover Effect */
 form a:hover {
   text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  section#comment-form {
-    margin: 10px;
-    box-shadow: none;
-  }
 }
