@@ -79,7 +79,11 @@ form a:hover {
     margin-bottom: 15px;
 }
 
-ul {
+ul {    
+    display: none;
+}
+
+ul input#id_password:hover{
     display: grid;
     list-style-type: disc;
     align-content: space-between;
