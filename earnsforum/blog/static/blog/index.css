@@ -34,16 +34,40 @@
 }
 
 #latest-posts {
-  background-color: white;
+  /* background-color: white;
   padding: 2rem;
   border-radius: 12px;
   width: 60rem;
   margin: -6rem auto 2rem auto;
-  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4); */
+
+
+
+
+
+  margin: 7rem auto;
+  width: 90%;
+  max-width: 60rem;
 }
 
 #latest-posts h2 {
   text-align: center;
+  font-size: 2rem;
+  color: #2e2e2e;
+  margin: 3rem 0;
+
+
+
+
+
+
+
+
+
+
+
+
+  /* text-align: center; */
 }
 
 #latest-posts ul {
@@ -62,6 +86,11 @@
 
 #latest-posts li {
   flex: 1;
+}
+
+#latest-post img {
+  width: 7rem;
+  height: 7rem;
 }
 
 #about {
