@@ -21,16 +21,12 @@ body {
 }
 
 ul {
-  width: 5rem;
-  height: 5rem;
-  object-fit: cover;
-
-  /* list-style: none;
+  list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  gap: 1.5rem; */
+  gap: 1.5rem;
 }
 
 .post img {

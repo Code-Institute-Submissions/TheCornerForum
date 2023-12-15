@@ -47,11 +47,14 @@
 }
 
 #latest-posts ul {
-  list-style: none;
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  /* list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1rem;
+  gap: 1rem; */
 }
 
 #latest-posts li {
