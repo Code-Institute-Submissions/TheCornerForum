@@ -21,6 +21,7 @@ class CartoonPanelInline(admin.TabularInline):
 class CartoonAdmin(admin.ModelAdmin):
     list_display = ('title', 'date')
     inlines = [CartoonPanelInline]
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Author)
