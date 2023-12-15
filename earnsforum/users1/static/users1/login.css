@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   background-color: #e7e7e7;
 }
@@ -10,8 +11,7 @@ body {
 /* Form Section Styles */
 section#comment-form {
   display: grid;
-  margin: 15% auto;
-  box-shadow: none;
+  margin: 5% auto;
   align-content: space-between;
   justify-content: center;
   align-items: start;
@@ -22,12 +22,14 @@ section#comment-form {
   border: solid 1px #3759f1;
   width: 100%;
   max-width: 400px;
+  padding: 20px;
 }
 
 /* Form Title */
 section#comment-form h1 {
   text-align: center;
   color: #333;
+  margin-bottom: 20px;
 }
 
 /* Form Styles */
@@ -40,10 +42,19 @@ form {
 form input[type="text"],
 form input[type="password"],
 form button {
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Input Focus Styles */
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  border-color: #3759f1;
+  box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
+  outline: none;
 }
 
 /* Button Styles */
@@ -52,6 +63,8 @@ form button {
   color: white;
   cursor: pointer;
   border: none;
+  font-size: 18px;
+  padding: 15px 0;
 }
 
 /* Button Hover Effect */
@@ -66,9 +79,24 @@ form a {
   margin-top: 10px;
   color: #007bff;
   text-decoration: none;
+  font-size: 16px;
 }
 
 /* Link Hover Effect */
 form a:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  section#comment-form {
+    margin: 10% auto;
+    width: 90%;
+  }
+
+  form input[type="text"],
+  form input[type="password"],
+  form button {
+    padding: 12px;
+  }
 }
