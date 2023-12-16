@@ -1,37 +1,32 @@
 /* General Styles */
 body {
   background-color: #e7e7e7;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 #main-navigation {
   background-color: #390281;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  text-align: center;
 }
 
 /* Form Section Styles */
 section#comment-form {
-  display: grid;
-  margin: auto;
-  margin-top: 20%;
-  align-content: space-between;
-  justify-content: center;
-  align-items: start;
-  justify-items: stretch;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  margin: 2rem;
+  padding: 1rem;
   background-color: #fff;
   border: solid 1px #3759f1;
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Form Title */
 section#comment-form h1 {
-  text-align: center;
   color: #333;
-  margin-bottom: 20px;
-  font-size: 2.5em;
+  margin-bottom: 1rem;
+  font-size: 1.5em;
 }
 
 /* Form Styles */
@@ -44,12 +39,11 @@ form {
 form input[type="text"],
 form input[type="password"],
 form button {
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
-  width: 100%;
+  font-size: 1rem;
 }
 
 /* Input Focus Styles */
@@ -66,8 +60,7 @@ form button {
   color: white;
   cursor: pointer;
   border: none;
-  font-size: 18px;
-  padding: 15px 0;
+  padding: 10px 0;
 }
 
 /* Button Hover Effect */
@@ -75,45 +68,41 @@ form button:hover {
   background-color: #0056b3;
 }
 
-/* Link Styles */
-form a {
-  text-align: center;
-  display: block;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
-  font-size: 16px;
-}
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+  #main-navigation {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+  }
 
-/* Link Hover Effect */
-form a:hover {
-  text-decoration: underline;
-}
-
-/* Help Text */
-.helptext {
-  display: none;
-  font-size: 12px;
-  color: #999;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-input:hover + .helptext {
-  display: block;
-  cursor: pointer;
-}
-
-/* Responsive Design Adjustments */
-@media (max-width: 768px) {
   section#comment-form {
-    margin: 10% auto;
-    width: 90%;
+    margin-top: 10%;
+    width: 50%;
+    max-width: 600px;
+  }
+
+  section#comment-form h1 {
+    font-size: 2em;
   }
 
   form input[type="text"],
   form input[type="password"],
   form button {
-    padding: 12px;
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Additional Media Queries for even larger screens */
+@media (min-width: 1024px) {
+  section#comment-form {
+    max-width: 700px;
+  }
+
+  section#comment-form h1 {
+    font-size: 2.5em;
   }
 }
