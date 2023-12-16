@@ -14,6 +14,7 @@ body {
 #all-posts {
   margin: 2rem auto;
   width: 90%;
+  margin-top: 100px;
 }
 
 #all-posts h2 {
@@ -49,9 +50,8 @@ li {
 .post a {
   display: block;
   background-color: white;
-  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  overflow: hidden; /* ensures content fits within the border radius */
+  overflow: hidden;
 }
 
 /* Media Queries for larger screens */
