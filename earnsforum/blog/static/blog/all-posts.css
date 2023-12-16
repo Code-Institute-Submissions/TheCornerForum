@@ -29,6 +29,10 @@ ul {
   gap: 1.5rem;
 }
 
+li {
+  margin: 0;
+  width: 100%;
+}
 .post img {
   width: 7rem;
   height: 7rem;
@@ -42,51 +46,4 @@ ul {
   background-color: white;
 }
 
-  /* Responsive Styles */
   
-  /* Small devices (phones, less than 768px) */
-  @media (max-width: 768px) {
-    #all-posts {
-      margin: 3rem auto;
-      width: 95%;
-    }
-  
-    #all-posts h2 {
-      font-size: 1.5rem;
-      margin: 2rem 0;
-    }
-  
-    .post img {
-      width: 5rem;
-      height: 5rem;
-    }
-  
-    .post a {
-      height: 20rem;
-    }
-  
-    ul {
-      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    }
-  }
-  
-  /* Medium devices (tablets, 768px and up) */
-  @media (min-width: 768px) {
-    #all-posts {
-      width: 80%;
-    }
-  
-    .post a {
-      height: 20rem;
-    }
-  }
-  
-  /* Large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-    /* Custom styles for large devices can be added here if needed */
-  }
-  
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-    /* Custom styles for extra large devices can be added here if needed */
-  }
