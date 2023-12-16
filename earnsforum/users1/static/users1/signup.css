@@ -9,11 +9,10 @@ body {
 #comment-form {
     margin: 2rem auto;
     padding: 1rem;
-    background-color: #fff;
-    border: solid 1px #3759f1;
-    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: solid 1px #4d4d4d;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 120px;
+    margin-top: 80px;
     width: 100%;
     max-width: 400px;
 }
