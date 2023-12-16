@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
-
 /* General Styles */
 body {
   background-color: #e7e7e7;
@@ -7,27 +6,20 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#main-navigation {
-  background-color: #390281;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 1rem;
-  text-align: center;
-}
-
-/* Form Section Styles */
-section#comment-form {
-  margin: 2rem;
+#comment-form {
+  margin: 2rem auto;
   padding: 1rem;
   background-color: #fff;
   border: solid 1px #3759f1;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 120px;
-  height: 90%;
+  width: 100%;
+  max-width: 400px;
 }
 
 /* Form Title */
-section#comment-form h1 {
+#comment-form h1 {
   text-align: center;
   color: #333;
   margin-bottom: 1rem;
@@ -75,41 +67,45 @@ form button:hover {
   background-color: #0056b3;
 }
 
+/* Help Text */
+.helptext {
+  display: none;
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+input:hover + .helptext {
+  display: block;
+}
+
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
-  #main-navigation {
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10%;
+  #comment-form {
+      margin-top: 10%;
+      width: 50%;
+      max-width: 600px;
   }
 
-  section#comment-form {
-    margin-top: 10%;
-    width: 50%;
-    max-width: 600px;
-  }
-
-  section#comment-form h1 {
-    font-size: 2em;
+  #comment-form h1 {
+      font-size: 2em;
   }
 
   form input[type="text"],
   form input[type="password"],
   form button {
-    padding: 15px;
-    font-size: 1.2rem;
+      padding: 15px;
+      font-size: 1.2rem;
   }
 }
 
 /* Additional Media Queries for even larger screens */
 @media (min-width: 1024px) {
-  section#comment-form {
-    max-width: 700px;
+  #comment-form {
+      max-width: 700px;
   }
 
-  section#comment-form h1 {
-    font-size: 2.5em;
+  #comment-form h1 {
+      font-size: 2.5em;
   }
 }

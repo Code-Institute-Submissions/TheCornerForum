@@ -1,38 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
-
 /* General Styles */
 body {
     background-color: #e7e7e7;
     margin: 0;
-    font-family: 'Open Sans', 'Lato', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-#main-navigation {
-    background-color: #390281;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    padding: 1rem;
-    text-align: center;
-    color: white;
-}
-
-/* Form Section Styles */
-section#comment-form {
+#comment-form {
     margin: 2rem auto;
     padding: 1rem;
     background-color: #fff;
     border: solid 1px #3759f1;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    height: auto;
+    margin-top: 120px;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* Form Title */
-section#comment-form h1 {
+#comment-form h1 {
     text-align: center;
     color: #333;
     margin-bottom: 1rem;
-    font-size: 2em;
+    font-size: 2.5em;
     text-transform: uppercase;
 }
 
@@ -43,7 +34,9 @@ form {
 }
 
 /* Input and Button Styles */
-form input[type="text"], form input[type="password"], form button {
+form input[type="text"],
+form input[type="password"],
+form button {
     padding: 10px;
     margin-bottom: 1rem;
     border: 1px solid #ddd;
@@ -53,7 +46,8 @@ form input[type="text"], form input[type="password"], form button {
 }
 
 /* Input Focus Styles */
-form input[type="text"]:focus, form input[type="password"]:focus {
+form input[type="text"]:focus,
+form input[type="password"]:focus {
     border-color: #3759f1;
     box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
     outline: none;
@@ -73,36 +67,45 @@ form button:hover {
     background-color: #0056b3;
 }
 
-/* Media Queries for Larger Screens */
-@media (min-width: 600px) {
-    #main-navigation {
-        text-align: left;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10%;
-    }
+/* Help Text */
+.helptext {
+    display: none;
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
 
-    section#comment-form {
-        margin-top: 5%;
+input:hover + .helptext {
+    display: block;
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+    #comment-form {
+        margin-top: 10%;
         width: 50%;
         max-width: 600px;
+    }
+
+    #comment-form h1 {
+        font-size: 2em;
     }
 
     form input[type="text"],
     form input[type="password"],
     form button {
+        padding: 15px;
         font-size: 1.2rem;
     }
 }
 
-/* Additional Media Queries for Even Larger Screens */
+/* Additional Media Queries for even larger screens */
 @media (min-width: 1024px) {
-    section#comment-form {
+    #comment-form {
         max-width: 700px;
     }
 
-    section#comment-form h1 {
+    #comment-form h1 {
         font-size: 2.5em;
     }
 }
