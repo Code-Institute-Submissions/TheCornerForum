@@ -27,6 +27,16 @@ body {
   text-transform: uppercase;
 }
 
+#comment-form a {
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+#comment-form a:hover {
+  text-decoration: underline;
+}
+
 /* Form Styles */
 form {
   display: flex;
