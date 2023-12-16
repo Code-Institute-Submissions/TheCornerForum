@@ -1,44 +1,43 @@
 /* General Styles */
 body {
     background-color: #e7e7e7;
-}
-
-#main-navigation {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  #main-navigation {
     background-color: #390281;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
+    padding: 1rem;
+    text-align: center;
+  }
 
 /* Form Section Styles */
 section#comment-form {
-    display: grid;
-    margin: auto;
-    margin-top: 20%;
-    align-content: space-between;
-    justify-content: center;
-    align-items: start;
-    justify-items: stretch;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    margin: 2rem;
+    padding: 1rem;
     background-color: #fff;
     border: solid 1px #3759f1;
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-}
-
-/* Form Title */
-section#comment-form h1 {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 120px;
+    height: 90%;
+  }
+  
+  /* Form Title */
+  section#comment-form h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     font-size: 2.5em;
-}
-
-/* Form Styles */
-form {
+    text-transform: uppercase;
+  }
+  
+  /* Form Styles */
+  form {
     display: flex;
     flex-direction: column;
-}
+  }
 
 /* Input and Button Styles */
 form input[type="text"], form input[type="password"], form input[type="email"], form button {
