@@ -11,7 +11,8 @@ body {
 /* Form Section Styles */
 section#comment-form {
     display: grid;
-    margin: 5% auto;
+    margin: auto;
+    margin-top: 20%;
     align-content: space-between;
     justify-content: center;
     align-items: start;
@@ -45,14 +46,22 @@ form input[type="text"], form input[type="password"], form input[type="email"], 
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
+    width: 100%;
 }
 
+form h1{
+    color: #020005;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+}
 /* Input Focus Styles */
 form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {
     border-color: #3759f1;
     box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
     outline: none;
 }
+
 
 /* Button Styles */
 form button {
