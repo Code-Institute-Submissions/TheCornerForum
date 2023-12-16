@@ -1,49 +1,91 @@
 body {
   background-color: #e7e7e7;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 #main-navigation {
   background-color: #390281;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  text-align: center;
 }
 
 #all-posts {
-  margin: 7rem auto;
+  margin: 2rem auto;
   width: 90%;
-  max-width: 60rem;
 }
 
 #all-posts h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem; /* smaller font-size for smaller screens */
   color: #2e2e2e;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
 }
 
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  gap: 1rem; /* smaller gap for smaller screens */
+  flex-direction: column;
 }
 
 li {
-  margin: 0;
-  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
 .post img {
-  width: 7rem;
-  height: 7rem;
+  width: 100%; /* make image responsive */
+  height: auto; /* maintain aspect ratio */
+  border-radius: 12px;
 }
 
 .post a {
-  height: 22rem;
-  transform-origin: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
+  display: block;
   background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  overflow: hidden; /* ensures content fits within the border radius */
 }
 
-  
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+  #main-navigation {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+  }
+
+  #all-posts h2 {
+    font-size: 2rem; /* back to larger font-size for larger screens */
+    margin: 3rem 0;
+  }
+
+  ul {
+    gap: 1.5rem; /* larger gap for larger screens */
+  }
+
+  .post img {
+    width: 7rem; /* fixed width for larger screens */
+    height: 7rem; /* fixed height for larger screens */
+  }
+
+  .post a {
+    height: 22rem; /* fixed height for links */
+  }
+}
+
+/* Additional Media Queries for even larger screens */
+@media (min-width: 768px) {
+  #all-posts {
+    max-width: 60rem; /* maximum width for larger screens */
+  }
+}
