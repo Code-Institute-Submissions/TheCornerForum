@@ -21,11 +21,9 @@ h1, h2, h3 {
 #main-navigation {
   background: #390281;
   color: #fff;
-  width: 100%;
   height: 5rem;
   display: flex;
   justify-content: space-between;
-  padding: 0 15%;
   position: fixed;
   top: 0;
   left: 0;
@@ -36,8 +34,8 @@ h1, h2, h3 {
 #main-navigation a {
   text-decoration: none;
   color: white;
-  /* margin-left: 1rem; */
-  font-size: 2rem;
+  margin-left: 1rem;
+  font-size: 1.6rem;
 }
 
 header#main-navigation {

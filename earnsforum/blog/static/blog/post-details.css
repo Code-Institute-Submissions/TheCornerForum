@@ -1,5 +1,16 @@
 body {
-  background-color: #f10f0f;
+  background-color: #f8f6f6;
+}
+
+main {
+  width: 90%;
+  max-width: 90rem;
+  margin: 3rem auto;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  /* border-radius: 12px; */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: 5px solid aliceblue;
 }
 
 #main-navigation {
@@ -8,46 +19,54 @@ body {
 }
 
 #summary {
-  margin: 8rem auto 3rem auto;
-  padding: 2rem;
-  width: 90%;
-  max-width: 90rem;
-  border-radius: 16px;
+  margin-top: 80px;
+  /* display: flex; */
+  padding: 1rem;
+  width: 100%;
+  /* max-width: 90rem; */
+  /* border-radius: 16px; */
   background-color: #5706c0;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 22rem;
+  /* position: relative; */
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
+  height: 30rem;
 }
 
 #summary h2 {
-  position: relative;
-  z-index: 2;
+  /* position: absolute; */
+  z-index: 5;
   color: white;
-  font-size: 3.5rem;
-  margin-bottom: 0.25rem;
-  padding: 2rem;
+  /* font-size: 1.5rem; */
+  /* margin-bottom: 2.25rem; */
+  padding: 0.5rem;
   text-shadow: #464646 0 2px 8px;
+  /* width: 200px; */
+  /* font-size: medium; */
 }
 
 #summary article {
+  display: flex;
   position: absolute;
-  top: 2rem;
-  right: 3rem;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  text-align: right;
+  /* top: 200px; */
+  /* right: 3rem; */
+  /* padding: 1rem 2rem; */
+  /* border-radius: 12px; */
+  /* text-align: right; */
   color: white;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: center;
 }
 
 #summary article img {
   position: relative;
-  z-index: 1;
-  width: 12rem;
-  height: 12rem;
-  border-radius: 12px;
-  transform: rotateZ(5deg);
+  /* z-index: 1; */
+  width: 14rem;
+  height: auto;
+  /* border-radius: 12px; */
+  /* transform: rotateZ(5deg); */
   border: 5px solid white;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 #summary address {
@@ -64,7 +83,8 @@ body {
 }
 
 #read-later {
-  margin: 2rem 0;
+  margin-top: 1rem;
+  margin-left: 5rem;
 }
 
 #read-later button {
@@ -93,10 +113,13 @@ main {
 }
 
 .tag {
+  margin-left: 9.3rem;
+  margin-top: 18rem;
   background-color: white;
   color: #390281;
   padding: 0.5rem 1rem;
   border-radius: 8px;
+  /* padding-left: 1rem; */
 }
 
 #comment-form {
