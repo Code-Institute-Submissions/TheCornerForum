@@ -7,30 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'app.css' %}" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWecC7o1e8w5DDZ9K/rB5jBB8vHbRo5I9G5RJyIvowI4qAB5yJ9AXZ0yj/3x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     {% block css_files %}
     {% endblock %}
 </head>
 <body>
-<header id="main-navigation">
-    <h1><a href="{% url 'blog:starting-page' %}">Earn's Blog</a></h1>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
-    <nav>
-        <a href="{% url 'blog:posts-page' %}">Archive</a>
-        {% if request.user.is_authenticated %}
-            <a class="yarchive" href="{% url 'blog:read-later' %}">Your Archive</a>
-            <a class="yarchive" href="{% url 'blog:cartoons-page' %}">Your Cartoons</a>
-            <span>{{ request.user.username }}!</span>
-            <a href="{% url 'users1:logout' %}">Logout</a>
-        {% else %}
-            <a href="{% url 'users1:login' %}">Login</a>
-            <a href="{% url 'users1:signup' %}">Signup</a>
-        {% endif %}
-    </nav>
-</header>   
+    <header id="main-navigation">
+        <h1><a href="{% url 'blog:starting-page' %}">Earn's Blog</a></h1>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
+        <label for="menu-toggle" class="hamburger-icon"><i class="fas fa-bars"></i></label>
+        <nav class="menu">
+            <a href="{% url 'blog:posts-page' %}">Archive</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'blog:read-later' %}">Your Archive</a>
+                <a href="{% url 'blog:cartoons-page' %}">Your Cartoons</a>
+                <span>{{ request.user.username }}!</span>
+                <a href="{% url 'users1:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'users1:login' %}">Login</a>
+                <a href="{% url 'users1:signup' %}">Signup</a>
+            {% endif %}
+        </nav>
+    </header>   
 
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
