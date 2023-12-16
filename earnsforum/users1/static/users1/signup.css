@@ -1,62 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
 /* General Styles */
 body {
     background-color: #e7e7e7;
     margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  #main-navigation {
+    font-family: 'Open Sans', 'Lato', sans-serif;
+}
+
+#main-navigation {
     background-color: #390281;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     padding: 1rem;
     text-align: center;
-  }
+    color: white;
+}
 
 /* Form Section Styles */
 section#comment-form {
-    margin: 2rem;
+    margin: 2rem auto;
     padding: 1rem;
     background-color: #fff;
     border: solid 1px #3759f1;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 120px;
-    height: 90%;
-  }
-  
-  /* Form Title */
-  section#comment-form h1 {
+    max-width: 600px;
+    height: auto;
+}
+
+/* Form Title */
+section#comment-form h1 {
     text-align: center;
     color: #333;
     margin-bottom: 1rem;
-    font-size: 2.5em;
+    font-size: 2em;
     text-transform: uppercase;
-  }
-  
-  /* Form Styles */
-  form {
+}
+
+/* Form Styles */
+form {
     display: flex;
     flex-direction: column;
-  }
+}
 
 /* Input and Button Styles */
-form input[type="text"], form input[type="password"], form input[type="email"], form button {
-    padding: 15px;
-    margin-bottom: 20px;
+form input[type="text"], form input[type="password"], form button {
+    padding: 10px;
+    margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1rem;
     width: 100%;
 }
 
-
 /* Input Focus Styles */
-form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {
+form input[type="text"]:focus, form input[type="password"]:focus {
     border-color: #3759f1;
     box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
     outline: none;
 }
-
 
 /* Button Styles */
 form button {
@@ -64,8 +65,7 @@ form button {
     color: white;
     cursor: pointer;
     border: none;
-    font-size: 18px;
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
 /* Button Hover Effect */
@@ -73,52 +73,36 @@ form button:hover {
     background-color: #0056b3;
 }
 
-/* Link Styles */
-form a {
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-/* Link Hover Effect */
-form a:hover {
-    text-decoration: underline;
-}
-
-/* Help Text */
-.helptext {
-    display: none;
-    font-size: 12px;
-    color: #999;
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-
-input:hover + .helptext {
-    display: block;
-    cursor: pointer;
-}
-
-/* Unordered List Styles */
-ul {
-    display: none;
-    font-size: 12px;
-    color: #999;
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-
-/* Responsive Design Adjustments */
-@media (max-width: 768px) {
-    section#comment-form {
-        margin: 10% auto;
-        width: 90%;
+/* Media Queries for Larger Screens */
+@media (min-width: 600px) {
+    #main-navigation {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10%;
     }
 
-    form input[type="text"], form input[type="password"], form input[type="email"], form button {
-        padding: 12px;
+    section#comment-form {
+        margin-top: 5%;
+        width: 50%;
+        max-width: 600px;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form button {
+        font-size: 1.2rem;
+    }
+}
+
+/* Additional Media Queries for Even Larger Screens */
+@media (min-width: 1024px) {
+    section#comment-form {
+        max-width: 700px;
+    }
+
+    section#comment-form h1 {
+        font-size: 2.5em;
     }
 }
