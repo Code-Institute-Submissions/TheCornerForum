@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +12,30 @@
 <body>
     <header id="main-navigation">
         <h1><a href="{% url 'blog:starting-page' %}">Earn's Blog</a></h1>
-        <input type="checkbox" id="menu-toggle" class="menu-toggle"/>
-        <label for="menu-toggle" class="hamburger-icon"><i class="fas fa-bars"></i></label>
-        <nav class="menu">
-            <a href="{% url 'blog:posts-page' %}">Archive</a>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'blog:read-later' %}">Your Archive</a>
-                <a href="{% url 'blog:cartoons-page' %}">Your Cartoons</a>
-                <span>{{ request.user.username }}!</span>
-                <a href="{% url 'users1:logout' %}">Logout</a>
-            {% else %}
-                <a href="{% url 'users1:login' %}">Login</a>
-                <a href="{% url 'users1:signup' %}">Signup</a>
-            {% endif %}
+        <button id="hamburger-btn" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav-menu">
+            <!-- Navigation links -->
         </nav>
     </header>   
 
     {% block content %}
     {% endblock %}
+
+    <script>
+        // When the document is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the hamburger button and the navigation menu
+            var hamburgerBtn = document.getElementById('hamburger-btn');
+            var navMenu = document.getElementById('nav-menu');
+
+            // Listen for click events on the hamburger button
+            hamburgerBtn.addEventListener('click', function() {
+                // Toggle the 'active' class on the navigation menu
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>

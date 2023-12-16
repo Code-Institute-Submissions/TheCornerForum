@@ -33,46 +33,42 @@ h1, h2, h3 {
     z-index: 1000;
 }
 
-.hamburger-icon {
+#main-navigation a {
+    text-decoration: none;
+    color: white;
+    margin-left: 1rem;
+}
+
+#main-navigation a:hover,
+#main-navigation a:active {
+    color: #cf79f1;
+}
+
+#hamburger-btn {
     display: none; /* Hide initially */
     font-size: 2rem; /* Size of hamburger icon */
     cursor: pointer;
+    border: none; /* Remove button border */
+    background: transparent; /* Remove button background */
 }
 
-.menu-toggle {
-    display: none; /* Hide checkbox */
-}
-
-/* Show menu when the hamburger icon (label for menu-toggle) is clicked */
-.menu-toggle:checked + .menu {
-    display: flex;
+#nav-menu {
+    display: none; /* Hide initially */
     flex-direction: column;
     align-items: center;
     width: 100%;
-    position: absolute;
-    right: 0;
-    top: 5rem; /* Height of the nav bar */
-    background-color: #333;
 }
 
-.menu a {
-    color: white;
-    padding: 10px;
-    text-decoration: none;
+#nav-menu.active {
+    display: flex; /* Show when active */
 }
 
-.menu a:hover {
-    background-color: #cf79f1;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    .hamburger-icon {
+    #hamburger-btn {
         display: block; /* Show hamburger icon on smaller screens */
     }
 
-    .menu {
-        display: none; /* Hide menu initially */
+    #nav-menu.active {
         position: absolute;
         right: 0;
         top: 5rem; /* Height of the nav bar */
@@ -81,10 +77,10 @@ h1, h2, h3 {
         flex-direction: column;
     }
 
-    .menu a {
-        text-align: center;
+    #nav-menu.active a {
         padding: 10px 0;
         border-top: 1px solid #444;
         width: 100%; /* Full width links */
+        text-align: center;
     }
 }
