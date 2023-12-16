@@ -1,42 +1,52 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'app.css' %}" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    {% block css_files %}
-    {% endblock %}
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'app.css' %}" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    {% block css_files %} {% endblock %}
+  </head>
+  <body>
     <header id="main-navigation">
-        <h1><a href="{% url 'blog:starting-page' %}">Earn's Blog</a></h1>
-        <button id="hamburger-btn" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav id="nav-menu">
-            <!-- Navigation links -->
-        </nav>
-    </header>   
+      <h1><a href="{% url 'blog:starting-page' %}">Earn's Blog</a></h1>
+      <button id="hamburger-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="nav-menu">
+        <a href="{% url 'blog:posts-page' %}">Archive</a>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'blog:read-later' %}">Your Archive</a>
+        <a href="{% url 'blog:cartoons-page' %}">Your Cartoons</a>
+        <span>{{ request.user.username }}!</span>
+        <a href="{% url 'users1:logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'users1:login' %}">Login</a>
+        <a href="{% url 'users1:signup' %}">Signup</a>
+        {% endif %}
+      </nav>
+    </header>
 
-    {% block content %}
-    {% endblock %}
+    {% block content %} {% endblock %}
 
     <script>
-        // When the document is fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the hamburger button and the navigation menu
-            var hamburgerBtn = document.getElementById('hamburger-btn');
-            var navMenu = document.getElementById('nav-menu');
+      // When the document is fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the hamburger button and the navigation menu
+        var hamburgerBtn = document.getElementById("hamburger-btn");
+        var navMenu = document.getElementById("nav-menu");
 
-            // Listen for click events on the hamburger button
-            hamburgerBtn.addEventListener('click', function() {
-                // Toggle the 'active' class on the navigation menu
-                navMenu.classList.toggle('active');
-            });
+        // Listen for click events on the hamburger button
+        hamburgerBtn.addEventListener("click", function () {
+          // Toggle the 'active' class on the navigation menu
+          navMenu.classList.toggle("active");
         });
+      });
     </script>
-</body>
+  </body>
 </html>
