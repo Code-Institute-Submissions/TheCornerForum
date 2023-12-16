@@ -23,12 +23,13 @@ h3 {
   width: 100%;
   height: 5rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
   padding: 0 10%;
   position: absolute;
   top: 0;
   left: 0;
+  align-items: center;
+  flex-direction: column;
 }
 
 #main-navigation a {
@@ -36,6 +37,10 @@ h3 {
   color: white;
   font-weight: bold;
   margin-left: 1rem;
+}
+
+main-navigation span{
+  display:none;
 }
 
 #main-navigation a:hover,
