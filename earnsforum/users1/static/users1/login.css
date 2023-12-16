@@ -11,7 +11,8 @@ body {
 /* Form Section Styles */
 section#comment-form {
   display: grid;
-  margin: 5% auto;
+  margin: auto;
+  margin-top: 20%;
   align-content: space-between;
   justify-content: center;
   align-items: start;
@@ -30,6 +31,7 @@ section#comment-form h1 {
   text-align: center;
   color: #333;
   margin-bottom: 20px;
+  font-size: 2.5em;
 }
 
 /* Form Styles */
@@ -47,6 +49,7 @@ form button {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  width: 100%;
 }
 
 /* Input Focus Styles */
@@ -85,6 +88,20 @@ form a {
 /* Link Hover Effect */
 form a:hover {
   text-decoration: underline;
+}
+
+/* Help Text */
+.helptext {
+  display: none;
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+input:hover + .helptext {
+  display: block;
+  cursor: pointer;
 }
 
 /* Responsive Design Adjustments */

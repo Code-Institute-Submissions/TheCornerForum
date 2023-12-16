@@ -31,6 +31,7 @@ section#comment-form h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    font-size: 2.5em;
 }
 
 /* Form Styles */
@@ -49,12 +50,7 @@ form input[type="text"], form input[type="password"], form input[type="email"], 
     width: 100%;
 }
 
-form h1{
-    color: #020005;
-    font-size: 2.5em;
-    font-weight: 700;
-    text-align: center;
-}
+
 /* Input Focus Styles */
 form input[type="text"]:focus, form input[type="password"]:focus, form input[type="email"]:focus {
     border-color: #3759f1;
@@ -65,7 +61,7 @@ form input[type="text"]:focus, form input[type="password"]:focus, form input[typ
 
 /* Button Styles */
 form button {
-    background-color: #28a745;
+    background-color: #007bff;
     color: white;
     cursor: pointer;
     border: none;
@@ -75,7 +71,7 @@ form button {
 
 /* Button Hover Effect */
 form button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
 }
 
 /* Link Styles */
