@@ -15,21 +15,23 @@ body {
     background-color: var(--primary-color);
     color: var(--text-color);
     margin: 0;
-    padding-top: 5rem; /* Space for the fixed header */
+    
 }
 
 main {
     width: 90%;
     max-width: 90rem;
-    margin: 3rem auto;
+    margin: 7rem 3rem 3rem;
     background-color: var(--light-color);
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border: 5px solid var(--secondary-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     color: black;
+    align-content: flex-start;
+    justify-content: flex-end;
 }
 
 #main-navigation {
@@ -38,7 +40,7 @@ main {
 }
 
 #summary {
-    margin-top: 80px;
+    margin-top: 30%;
     padding: 1rem;
     background-color: var(--secondary-color);
     height: 30rem;
@@ -49,12 +51,15 @@ main {
 }
 
 #summary h2{
-    /* color: var(--text-color); */
+    color: var(--text-color);
     width: 100%;
     display: flex;
-    align-content: stretch;
-    justify-content: space-between;
-
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: xxx-large;
+    margin: 0;
 }
 
 #summary article{
@@ -100,11 +105,73 @@ main {
 }
 
 #summary article img {
-    width: 14rem;
+    width: 65%;
     height: auto;
     border: 5px solid var(--text-color);
 }
 
+#summary div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#summary form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tag{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+ #comments-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#comments-form p{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#comments-form input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#comments-form button{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#comments{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 /* ... other styles ... */
 
 /* Media Queries */
