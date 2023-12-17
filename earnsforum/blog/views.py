@@ -69,39 +69,37 @@ class SinglePostView(View):
 
 class ReadLaterView(LoginRequiredMixin, View):
     def get(self, request):
-        stored_posts = request.session.get("stored_posts")
-        print("Stored posts:", stored_posts)
+        stored_contents = request.session.get("stored_contents", {})
 
-        context = {}
+        posts = Post.objects.filter(id__in=stored_contents.get("posts", []))
+        cartoons = Cartoon.objects.filter(id__in=stored_contents.get("cartoons", []))
 
-        if stored_posts is None or len(stored_posts) == 0:
-            context["posts"] = []
-            context["has_posts"] = False
-        else:
-            posts = Post.objects.filter(id__in=stored_posts)
-            context["posts"] = posts
-            context["has_posts"] = True
-
-        print("Debug test", context)
+        context = {
+            "posts": posts,
+            "cartoons": cartoons,
+            "has_contents": bool(posts or cartoons)
+        }
         return render(request, "blog/stored-posts.html", context)
-    
 
     def post(self, request):
-        stored_posts = request.session.get("stored_posts")
+        stored_contents = request.session.get("stored_contents", {"posts": [], "cartoons": []})
 
-        if stored_posts is None:
-            stored_posts = []
+        content_type = request.POST.get("content_type")
+        content_id = int(request.POST["content_id"])
 
-        post_id = int(request.POST["post_id"])
-
-        if post_id not in stored_posts:
-            stored_posts.append(post_id)
-        else:
-            stored_posts.remove(post_id)
-            
-        request.session["stored_posts"] = stored_posts    
-
-        return HttpResponseRedirect("/")
+        if content_type == "post":
+            if content_id not in stored_contents["posts"]:
+                stored_contents["posts"].append(content_id)
+            else:
+                stored_contents["posts"].remove(content_id)
+        elif content_type == "cartoon":
+            if content_id not in stored_contents["cartoons"]:
+                stored_contents["cartoons"].append(content_id)
+            else:
+                stored_contents["cartoons"].remove(content_id)
+        
+        request.session["stored_contents"] = stored_contents
+        return HttpResponseRedirect(request.POST.get("next", "/"))
 
 class CartoonView(ListView):
     template_name = "blog/cartoon.html"

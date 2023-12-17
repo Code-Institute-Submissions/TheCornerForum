@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Saved Articles: 
+Saved Content: 
 {% endblock %}
 
 {% block css_files %}
@@ -10,15 +10,35 @@ Saved Articles:
 {% endblock %}
 
 {% block content %}
-<section id="stored-posts">
-    {% if not has_posts %}
-        <p>You have no saved articles.</p>
+<section id="stored-content">
+    <h2>Saved Content</h2>
+    {% if not has_contents %}
+        <p>You have no saved content.</p>
     {% else %}
-        <ul>
-            {% for post in posts %}
-            <li><a href="{% url 'blog:post-detail-page' post.slug %}">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
+        <div class="saved-posts">
+            <h3>Saved Articles</h3>
+            {% if posts %}
+            <ul>
+                {% for post in posts %}
+                <li><a href="{% url 'blog:post-detail-page' post.slug %}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No saved articles.</p>
+            {% endif %}
+        </div>
+        <div class="saved-cartoons">
+            <h3>Saved Cartoons</h3>
+            {% if cartoons %}
+            <ul>
+                {% for cartoon in cartoons %}
+                <li><a href="{% url 'blog:cartoon_detail' cartoon.slug %}">{{ cartoon.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No saved cartoons.</p>
+            {% endif %}
+        </div>
     {% endif %}
 </section>
 {% endblock %}
