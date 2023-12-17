@@ -10,6 +10,9 @@
 <div class="cartoons-list">
     {% for cartoon in cartoons %}
         <article class="cartoon">
+            <div class="cartoon-image">
+                <img src="{{ cartoon.image.url }}" alt="{{ cartoon.title }}">
+            </div>
             <h2><a href="{% url 'blog:cartoon_detail' slug=cartoon.slug %}">{{ cartoon.title }}</a></h2>
             <p>{{ cartoon.excerpt }}</p>
         </article>
