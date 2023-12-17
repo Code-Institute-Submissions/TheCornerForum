@@ -7,8 +7,11 @@ body {
 .cartoons-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* This will center the cartoons horizontally */
+    justify-content: center; /* This will center the cartoons vertically */
     padding: 20px;
+    min-height: 100vh; /* This ensures that the cartoons-list takes up at least the full height of the viewport */
+    margin-top: 5rem; /* Adjusted to account for the fixed header */
 }
 
 .cartoon {
@@ -81,10 +84,10 @@ article.cartoon {
     body {
         font-size: 14px; /* Smaller font size for Galaxy Fold */
     }
-    .cartoons-list, .cartoon, article.cartoon {
-        width: 100%; /* Use full width on Galaxy Fold to maximize space */
-        margin-top: 60px; /* Add more space on the top */
-        padding: 15px; /* Reduce padding */
+    .cartoons-list {
+        margin-top: 5rem; /* Height of the navigation bar, adjust if different */
+        padding-top: 1rem; /* Additional padding if required */
+        min-height: calc(100vh - 5rem); /* Adjust the height calculation based on the height of the navigation */
     }
     .cartoon-panels {
         grid-gap: 15px; /* Reduce gap size */

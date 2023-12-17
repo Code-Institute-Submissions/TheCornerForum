@@ -1,120 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
 /* General Styles */
 body {
-  background-color: #e7e7e7;
-  margin: 0;
-  font-family: Arial, sans-serif;
+    background-color: #e7e7e7;
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
 }
 
 #comment-form {
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #e7e7e7;
-  border: solid 1px #4d4d4d;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 80px;
-  width: 100%;
-  max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #e7e7e7;
+    border: solid 1px #4d4d4d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* Form Title */
 #comment-form h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 1rem;
-  font-size: 2.5em;
-  text-transform: uppercase;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2.5em;
+    text-transform: uppercase;
 }
 
 #comment-form a {
-  font-size: 1rem;
-  color: #007bff;
-  text-decoration: none;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
 }
 
 #comment-form a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Form Styles */
 form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Input and Button Styles */
 form input[type="text"],
 form input[type="password"],
 form button {
-  padding: 10px;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-  width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
 }
 
 /* Input Focus Styles */
 form input[type="text"]:focus,
 form input[type="password"]:focus {
-  border-color: #3759f1;
-  box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
-  outline: none;
+    border-color: #3759f1;
+    box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
+    outline: none;
 }
 
 /* Button Styles */
 form button {
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  border: none;
-  padding: 10px 0;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 0;
 }
 
 /* Button Hover Effect */
 form button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 /* Help Text */
 .helptext {
-  display: none;
-  font-size: 12px;
-  color: #999;
-  margin-top: 5px;
+    display: none;
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
 }
 
 input:hover + .helptext {
-  display: block;
+    display: block;
 }
 
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
-  #comment-form {
-      margin-top: 10%;
-      width: 50%;
-      max-width: 600px;
-  }
+    #comment-form {
+        margin-top: 10%;
+        width: 50%;
+        max-width: 600px;
+    }
 
-  #comment-form h1 {
-      font-size: 2em;
-  }
+    #comment-form h1 {
+        font-size: 2em;
+    }
 
-  form input[type="text"],
-  form input[type="password"],
-  form button {
-      padding: 15px;
-      font-size: 1.2rem;
-  }
+    form input[type="text"],
+    form input[type="password"],
+    form button {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
 }
 
 /* Additional Media Queries for even larger screens */
 @media (min-width: 1024px) {
-  #comment-form {
-      max-width: 700px;
-  }
+    #comment-form {
+        max-width: 700px;
+    }
 
-  #comment-form h1 {
-      font-size: 2.5em;
-  }
+    #comment-form h1 {
+        font-size: 2.5em;
+    }
 }
