@@ -13,14 +13,39 @@
     <header>
         <img src="{% static "images/ras4.png" %}" alt="The Earn's founder">
     </header>
-    <p></p>
+    <p>The Latest stuff</p>
 
 </section>
 <section id="latest-posts">
-    <h2></h2>
     <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <!-- Other post details -->
+                
+                <!-- Link to the post detail page -->
+                <a href="{% url 'blog:post-detail-page' slug=post.slug %}">Read More</a>
+            </li>
+        {% endfor %}
     </ul>
 </section>
+{% comment %} <section id="latest-posts">
+    <h2></h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <!-- Other post details -->
+            </li>
+        {% endfor %}
+    </ul>
+</section> {% endcomment %}
 <section id="about">
     <h2>This is a storyblog with some alternitive stories that could be true.</h2>
 </section>
