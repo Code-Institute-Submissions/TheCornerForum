@@ -1,21 +1,21 @@
-{% extends "base.html" %} {% load static %} {% block css_files %}
-<link rel="stylesheet" href="{% static 'blog/cartoons.css' %}" />
-{% endblock %} {% block title %}Cartoons{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/cartoons.css' %}" />
+{% endblock %}
+{% block title %}Cartoons{% endblock %}
+
+{% block content %}
 <div class="cartoons-list">
-  {% for cartoon in cartoons %}
-  <li>
-    {% if cartoon.image %}
-    <img src="{{ cartoon.image.url }}" alt="{{ cartoon.title }}" />
-    {% endif %}
-    <article class="cartoon">
-      <h2>
-        <a href="{% url 'blog:cartoon_detail' slug=cartoon.slug %}"
-          >{{ cartoon.title }}</a
-        >
-      </h2>
-      <p>{{ cartoon.excerpt }}</p>
-    </article>
-  </li>
-  {% endfor %}
+    {% for cartoon in cartoons %}
+    <div class="cartoon">
+        {% if cartoon.image %}
+        <img src="{{ cartoon.image.url }}" alt="{{ cartoon.title }}" />
+        {% endif %}
+        <h2><a href="{% url 'blog:cartoon_detail' slug=cartoon.slug %}">{{ cartoon.title }}</a></h2>
+        <p>{{ cartoon.excerpt }}</p>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
