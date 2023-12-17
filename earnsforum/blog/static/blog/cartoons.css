@@ -69,3 +69,31 @@ article.cartoon {
     color: #555;
     text-align: center;
 }
+/* Media query for tablets and smaller devices */
+@media only screen and (max-width: 768px) {
+    .cartoons-list, .cartoon, article.cartoon {
+        width: 95%; /* Slightly narrower on smaller screens */
+    }
+}
+
+/* Media query for Galaxy Fold */
+@media only screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+    body {
+        font-size: 14px; /* Smaller font size for Galaxy Fold */
+    }
+    .cartoons-list, .cartoon, article.cartoon {
+        width: 100%; /* Use full width on Galaxy Fold to maximize space */
+        margin-top: 60px; /* Add more space on the top */
+        padding: 15px; /* Reduce padding */
+    }
+    .cartoon-panels {
+        grid-gap: 15px; /* Reduce gap size */
+    }
+}
+
+/* Media query for desktops */
+@media only screen and (min-width: 769px) {
+    .cartoons-list, .cartoon, article.cartoon {
+        width: 70%; /* Wider for desktop screens */
+    }
+}
