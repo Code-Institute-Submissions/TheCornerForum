@@ -1,56 +1,68 @@
-/* General Styles */
+@import url('https://fonts.googleapis.com/css?family=Arial:400,700,400italic,700italic&subset=latin');
+
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+    --link-hover-color: #007bff; /* Blue for link hover */
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e7e7e7;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .cartoons-list {
     display: flex;
     flex-direction: column;
-    align-items: center; /* This will center the cartoons horizontally */
-    justify-content: center; /* This will center the cartoons vertically */
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    min-height: 100vh; /* This ensures that the cartoons-list takes up at least the full height of the viewport */
-    margin-top: 5rem; /* Adjusted to account for the fixed header */
+    min-height: 100vh;
+    margin-top: 5rem;
 }
 
 .cartoon {
-    background-color: #fff;
+    background-color: var(--accent-color);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     padding: 20px;
     width: 80%;
     max-width: 700px;
+    color: var(--secondary-color); /* Text color */
 }
 
 .cartoon h2 {
-    color: #390281;
     margin: 0 0 10px 0;
+    color: var(--secondary-color); /* Heading color */
 }
 
 .cartoon h2 a {
-    color: inherit; /* Use the parent color */
+    color: inherit; /* Inherits the parent color */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .cartoon h2 a:hover {
-    color: #007bff;
+    color: var(--link-hover-color); /* Color change on hover */
 }
 
 .cartoon p {
-    color: #333;
     font-size: 16px;
+    color: var(--light-color); /* Paragraph text color */
 }
+
 /* Cartoon Detail Styles */
 article.cartoon {
     margin-top: 80px;
     margin-left: 30px;
-    background-color: #fff;
+    background-color: var(--accent-color);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* margin: 20px auto; */
     padding: 20px;
     width: 80%;
     max-width: 700px;
@@ -69,34 +81,33 @@ article.cartoon {
 
 .cartoon-panel p {
     font-size: 14px;
-    color: #555;
+    color: var(--text-color); /* Color for text inside panels */
     text-align: center;
 }
-/* Media query for tablets and smaller devices */
+
+/* Media Queries */
 @media only screen and (max-width: 768px) {
     .cartoons-list, .cartoon, article.cartoon {
-        width: 95%; /* Slightly narrower on smaller screens */
+        width: 95%;
     }
 }
 
-/* Media query for Galaxy Fold */
 @media only screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
     body {
-        font-size: 14px; /* Smaller font size for Galaxy Fold */
+        font-size: 14px;
     }
     .cartoons-list {
-        margin-top: 5rem; /* Height of the navigation bar, adjust if different */
-        padding-top: 1rem; /* Additional padding if required */
-        min-height: calc(100vh - 5rem); /* Adjust the height calculation based on the height of the navigation */
+        margin-top: 5rem;
+        padding-top: 1rem;
+        min-height: calc(100vh - 5rem);
     }
     .cartoon-panels {
-        grid-gap: 15px; /* Reduce gap size */
+        grid-gap: 15px;
     }
 }
 
-/* Media query for desktops */
 @media only screen and (min-width: 769px) {
     .cartoons-list, .cartoon, article.cartoon {
-        width: 70%; /* Wider for desktop screens */
+        width: 70%;
     }
 }

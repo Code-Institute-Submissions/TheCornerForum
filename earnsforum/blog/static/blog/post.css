@@ -1,83 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Arial:400,700,400italic,700italic&subset=latin');
+
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+    --hover-bg-color: #390281; /* Deep purple for hover */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
 .post {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 .post a {
-  text-decoration: none;
-  color: black;
-  transition: all 0.2s ease;
-  padding: 0.5rem;
-  display: block;
-  background-color: #f5f5f5; /* Light background for the link */
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    display: block;
+    background-color: var(--light-color); /* Light background for the link */
 }
 
 .post a:hover,
 .post a:active {
-  transform: scale(1.05);
-  background-color: #390281; /* Purple background on hover/active */
-  color: white;
+    transform: scale(1.05);
+    background-color: var(--hover-bg-color); /* Purple background on hover/active */
+    color: var(--text-color);
 }
 
 .post img {
-  width: 100%;
-  max-width: 5rem;
-  height: auto;
-  object-fit: cover;
-  border-radius: 50%;
+    width: 100%;
+    max-width: 5rem;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .post h3 {
-  margin: 0.25rem 0;
-  font-size: 1rem;
-  color: #2e2e2e; /* Dark text color */
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    color: var(--secondary-color); /* Dark text color */
 }
 
 .post time {
-  color: #666;
-  margin: 0.25rem;
-  font-style: italic;
-  font-size: 0.75rem;
+    color: #666;
+    margin: 0.25rem;
+    font-style: italic;
+    font-size: 0.75rem;
 }
 
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
-  .post {
-      margin-bottom: 1.5rem;
-  }
+    .post {
+        margin-bottom: 1.5rem;
+    }
 
-  .post a {
-      padding: 1rem;
-  }
+    .post a {
+        padding: 1rem;
+    }
 
-  .post a:hover,
-  .post a:active {
-      transform: scale(1.1);
-  }
+    .post a:hover,
+    .post a:active {
+        transform: scale(1.1);
+    }
 
-  .post img {
-      max-width: 7rem;
-  }
+    .post img {
+        max-width: 7rem;
+    }
 
-  .post h3 {
-      font-size: 1.25rem;
-  }
+    .post h3 {
+        font-size: 1.25rem;
+    }
 
-  .post time {
-      font-size: 0.85rem;
-  }
+    .post time {
+        font-size: 0.85rem;
+    }
 }
 
 /* Additional Media Queries for even larger screens */
 @media (min-width: 768px) {
-  .post img {
-      max-width: 10rem;
-  }
+    .post img {
+        max-width: 10rem;
+    }
 
-  .post h3 {
-      font-size: 1.5rem;
-  }
+    .post h3 {
+        font-size: 1.5rem;
+    }
 }

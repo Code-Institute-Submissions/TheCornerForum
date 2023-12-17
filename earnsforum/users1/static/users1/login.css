@@ -1,27 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
-/* General Styles */
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+    --link-color: #007bff; /* Blue for links */
+    --link-hover-color: #0056b3; /* Darker blue on hover */
+    --input-border-focus-color: #3759f1; /* Highlight color for input focus */
+}
+
 body {
-    background-color: #e7e7e7;
-    margin: 0;
     font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 #comment-form {
     margin: 2rem auto;
     padding: 1rem;
-    background-color: #e7e7e7;
+    background-color: var(--light-color); /* Lighter background for form */
     border: solid 1px #4d4d4d;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 80px;
     width: 100%;
     max-width: 400px;
+    border-radius: 6px; /* Rounded corners for form */
 }
 
 /* Form Title */
 #comment-form h1 {
     text-align: center;
-    color: #333;
+    color: var(--secondary-color);
     margin-bottom: 1rem;
     font-size: 2.5em;
     text-transform: uppercase;
@@ -29,12 +40,13 @@ body {
 
 #comment-form a {
     font-size: 1rem;
-    color: #007bff;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 #comment-form a:hover {
     text-decoration: underline;
+    color: var(--link-hover-color);
 }
 
 /* Form Styles */
@@ -58,23 +70,24 @@ form button {
 /* Input Focus Styles */
 form input[type="text"]:focus,
 form input[type="password"]:focus {
-    border-color: #3759f1;
+    border-color: var(--input-border-focus-color);
     box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
     outline: none;
 }
 
 /* Button Styles */
 form button {
-    background-color: #007bff;
+    background-color: var(--link-color);
     color: white;
     cursor: pointer;
     border: none;
     padding: 10px 0;
+    border-radius: 4px; /* Rounded corners for button */
 }
 
 /* Button Hover Effect */
 form button:hover {
-    background-color: #0056b3;
+    background-color: var(--link-hover-color);
 }
 
 /* Help Text */
