@@ -254,14 +254,14 @@ main {
     padding: 0;
 }
 
-#comments-content {
+.comments-content {
     margin-bottom: 1rem;
     border-radius: 3px;
     background-color: var(--accent-color);
 }
 
-#comments-content h2,
-#comments-content p {
+.comments-content h2,
+.comments-content p {
     border-radius: 3px;
     box-shadow: 0.1rem 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
     display: flex;
