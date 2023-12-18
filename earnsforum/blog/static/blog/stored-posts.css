@@ -69,8 +69,8 @@ body {
 .saved-posts ul {
     list-style: none;
     margin: 0;
-    background-color: var(--secondary-color); /* Button background color */
-    color: var(--text-color); /* Button text color */
+    background-color: transparent; /* Button background color */
+    color: var(--secondary-color); /* Button text color */
     box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 8px;
@@ -93,9 +93,10 @@ body {
 
 .saved-cartoons ul {
     list-style: none;
+    text-decoration: none;
     margin: 0;
-    background-color: var(--secondary-color); /* Button background color */
-    color: var(--text-color); /* Button text color */
+    background-color: transparent; /* Button background color */
+    color: var(--secondary-color); /* Button text color */
     box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 8px;
