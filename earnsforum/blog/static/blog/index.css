@@ -66,7 +66,10 @@ body {
     font-size: 1.5rem;
     padding: 1rem;
     text-align: center;
-
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
+    line-height: 30px;
+    font-weight: bold;
 }
 
 #latest-posts,
@@ -86,12 +89,15 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-
 }
 
 #latest-posts li {
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0.1rem 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 #latest-posts li a {
@@ -99,18 +105,24 @@ body {
     margin: 0;
     background-color: var(--accent-color); /* Button background color */
     color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
     box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
 }
 
 #about {
     min-height: 30vh;
     margin-top: 2rem;
- 
+}
 /* Media Queries */ /*
 @media (max-width: 768px) {
     #welcome,
