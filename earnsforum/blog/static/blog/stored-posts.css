@@ -17,7 +17,7 @@ body {
     background-color: var(--secondary-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
-
+/*  ****** COMMENTED OUT BECAUSE WRONG ID NAME *******
 #stored-posts {
     margin: 8rem auto 3rem auto;
     padding: 2rem;
@@ -53,8 +53,7 @@ body {
 #stored-posts a:hover,
 #stored-posts a:active {
     background-color: var(--secondary-color);
-    color: var(--text-color);
-}
+   */
 
 .saved-posts {
     margin: 2rem auto;
@@ -64,6 +63,7 @@ body {
     background-color: var(--light-color);
     width: 90%;
     max-width: 30rem;
+    color: var(--secondary-color);
 }
 
 .saved-posts ul {
@@ -80,7 +80,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.saved-catroons {
+.saved-cartoons {
     margin: 2rem auto;
     padding: 1rem;
     border-radius: 12px;
@@ -88,9 +88,10 @@ body {
     background-color: var(--light-color);
     width: 90%;
     max-width: 30rem;
+    color: var(--secondary-color);
 }
 
-.saved-catroons ul {
+.saved-cartoons ul {
     list-style: none;
     margin: 0;
     background-color: var(--secondary-color); /* Button background color */
