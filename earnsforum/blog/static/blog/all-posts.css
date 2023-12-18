@@ -31,13 +31,12 @@ body {
     margin: 2rem auto;
     width: 90%;
     margin-top: 100px;
-    background-color: var(--light-color);
 }
 
 #all-posts h2 {
     text-align: center;
     font-size: 2rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
     margin: 1.5rem 0;
 }
 
