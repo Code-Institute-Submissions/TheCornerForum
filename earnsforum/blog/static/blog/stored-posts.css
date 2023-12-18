@@ -59,18 +59,20 @@ body {
     margin: 2rem auto;
     padding: 1rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    background-color: var(--accent-color);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
     width: 90%;
     max-width: 30rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
 }
 
 .saved-posts ul {
     list-style: none;
+    text-decoration: none;
     margin: 0;
-    background-color: transparent; /* Button background color */
-    color: var(--secondary-color); /* Button text color */
+    background-color: transparent;
     box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 8px;
@@ -78,25 +80,45 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+.saved-posts ul a {
+    text-decoration: none;
+    margin: 0;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .saved-cartoons {
     margin: 2rem auto;
     padding: 1rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    background-color: var(--accent-color);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
     width: 90%;
     max-width: 30rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
 }
 
 .saved-cartoons ul {
     list-style: none;
     text-decoration: none;
     margin: 0;
-    background-color: transparent; /* Button background color */
-    color: var(--secondary-color); /* Button text color */
+    background-color: transparent;
     box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
     border: none;
     border-radius: 8px;
@@ -104,6 +126,25 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+.saved-cartoons ul a {
+    text-decoration: none;
+    margin: 0;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* Media Queries */
