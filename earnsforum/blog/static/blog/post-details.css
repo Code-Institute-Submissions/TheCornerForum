@@ -157,6 +157,10 @@ main {
     text-align: center;
 }
 
+#read-later {
+    width: 100%;
+}
+
 #read-later button {
     background-color: var(--light-color); /* Button background color */
     color: var(--secondary-color); /* Button text color */
