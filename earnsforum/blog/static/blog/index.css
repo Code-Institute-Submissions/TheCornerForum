@@ -85,12 +85,17 @@ body {
 #latest-posts ul {
     list-style: none;
     margin: 0;
-    
+    padding: 0;
+
+}
+
+#latest-posts li {
+
 }
 
 #about {
     min-height: 30vh;
-}
+    margin-top: 2rem;
  
 /* Media Queries */ /*
 @media (max-width: 768px) {
