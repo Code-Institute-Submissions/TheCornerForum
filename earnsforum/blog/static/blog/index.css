@@ -122,6 +122,9 @@ body {
 #about {
     min-height: 30vh;
     margin-top: 2rem;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    text-align: center;
 }
 /* Media Queries */ /*
 @media (max-width: 768px) {
