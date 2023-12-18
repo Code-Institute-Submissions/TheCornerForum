@@ -17,7 +17,7 @@ body {
 
 .post {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: space-between;
@@ -29,6 +29,9 @@ body {
     order: 2;
 }
 
+.post__content p {
+    display: none;
+}
 
 .post a {
     text-decoration: none;
@@ -70,7 +73,10 @@ body {
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
     .post {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.5rem;    
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 5px 15px;
     }
 
     .post a {
