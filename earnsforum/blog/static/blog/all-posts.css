@@ -106,10 +106,15 @@ li {
         max-width: 60rem;
     }
 
-    
+
 }
 
 /* Media Queries for Galaxy Fold */
+
+
+/* comment out for now *********************************************
+
+
 @media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
     #main-navigation {
         flex-direction: column;
@@ -118,7 +123,7 @@ li {
 
     #all-posts {
         width: 100%;
-        margin-top: 5rem; /* Adjust for fixed header */
+        margin-top: 5rem; /* Adjust for fixed header */ /*
     }
 
     ul {
@@ -133,3 +138,5 @@ li {
         height: auto;
     }
 }
+
+***************** */
