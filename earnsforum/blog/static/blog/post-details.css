@@ -215,6 +215,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
 #comment-form input{
@@ -242,12 +243,18 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--accent-color);
     color: #000;
 }
 
 #comments ul {
     list-style: none;
+    width: 100%;
+}
+
+#comments ul li {
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    background-color: var(--accent-color);
 }
 /* ... other styles ... */
 
