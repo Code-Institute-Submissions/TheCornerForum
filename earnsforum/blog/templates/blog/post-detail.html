@@ -70,7 +70,7 @@
     <section id="comments">
         <ul>
             {% for comment in post.comments.all %}
-            <li>
+            <li class="comments-content">
                 <h2>{{ comment.user.username }}</h2>
                 <p>{{ comment.text|linebreaks }}</p>
             </li>
