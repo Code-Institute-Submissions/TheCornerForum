@@ -52,16 +52,20 @@ body {
 
 .post img {
     width: 100%;
-    max-width: 5rem;
+    max-width: 80%;
     height: auto;
     object-fit: cover;
     border-radius: 50%;
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 .post h3 {
-    margin: 0.25rem 0;
+    margin: 1.25rem 0 0.25px 0;
     font-size: 1rem;
-    color: var(--secondary-color); /* Dark text color */
+    color: var(--text-color); 
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    line-height: 20px;
 }
 
 .post time {

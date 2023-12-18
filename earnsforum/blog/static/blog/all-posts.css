@@ -31,6 +31,7 @@ body {
     margin: 2rem auto;
     width: 90%;
     margin-top: 100px;
+    text-transform: uppercase;
 }
 
 #all-posts h2 {
@@ -38,6 +39,8 @@ body {
     font-size: 2rem;
     color: var(--text-color);
     margin: 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
 }
 
 ul {
@@ -50,7 +53,7 @@ ul {
 }
 
 li {
-    background: var(--accent-color);
+    background: var(--secondary-color);
     border: none;
     padding: 10px;
     border-radius: 5px;
