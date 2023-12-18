@@ -56,6 +56,54 @@ body {
     color: var(--text-color);
 }
 
+.saved-posts {
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--light-color);
+    width: 90%;
+    max-width: 30rem;
+}
+
+.saved-posts ul {
+    list-style: none;
+    margin: 0;
+    background-color: var(--secondary-color); /* Button background color */
+    color: var(--text-color); /* Button text color */
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.saved-catroons {
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--light-color);
+    width: 90%;
+    max-width: 30rem;
+}
+
+.saved-catroons ul {
+    list-style: none;
+    margin: 0;
+    background-color: var(--secondary-color); /* Button background color */
+    color: var(--text-color); /* Button text color */
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
 /* Media Queries */
 @media (min-width: 600px) {
     #stored-posts {
