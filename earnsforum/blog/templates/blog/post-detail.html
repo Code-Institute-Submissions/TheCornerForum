@@ -16,39 +16,41 @@
     </div>
 {% endif %}
 
-<section id="summary">
-    <h2>{{ post.title }}</h2>
-    <div>
-        {% for tag in post_tags %}
-        <span class="tag">{{ tag.caption }}</span>
-        {% endfor %}
-    </div>
-    <div id="read-later">
-        {% if user.is_authenticated %}
-            <form action="{% url 'blog:read-later' %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="post_id" value="{{ post.id }}" />
-                <button type="submit">
-                    {% if saved_for_later %}
-                        Remove from Saved Article List               
-                    {% else %}
-                        Save Article
-                    {% endif %}
-                </button>
-            </form>
-        {% else %}
-            <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save articles</a>
-        {% endif %}
-    </div>
-
-    <article>
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-        <address>By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a></address>
+<div class="article-post-content">
+    <section id="summary">
+        <h2>{{ post.title }}</h2>
         <div>
-            Last updated on <time>{{ post.date|date:"d M Y" }}</time>
+            {% for tag in post_tags %}
+            <span class="tag">{{ tag.caption }}</span>
+            {% endfor %}
         </div>
-    </article>
-</section>
+        <div id="read-later">
+            {% if user.is_authenticated %}
+                <form action="{% url 'blog:read-later' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="post_id" value="{{ post.id }}" />
+                    <button type="submit">
+                        {% if saved_for_later %}
+                            Remove from Saved Article List               
+                        {% else %}
+                            Save Article
+                        {% endif %}
+                    </button>
+                </form>
+            {% else %}
+                <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save articles</a>
+            {% endif %}
+        </div>
+    
+        <article>
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+            <address>By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a></address>
+            <div>
+                Last updated on <time>{{ post.date|date:"d M Y" }}</time>
+            </div>
+        </article>
+    </section>
+</div>
 
 <main>
     <div class="article-content">

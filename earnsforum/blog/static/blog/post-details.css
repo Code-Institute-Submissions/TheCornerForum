@@ -41,6 +41,16 @@ main {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
+.article-post-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto 30% auto 0;
+    padding: 1rem;
+}
+
 #summary {
     margin-top: 30%;
     padding: 1rem;
