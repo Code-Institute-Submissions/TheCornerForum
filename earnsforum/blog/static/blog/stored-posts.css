@@ -84,7 +84,6 @@ body {
 
 .saved-posts ul a {
     text-decoration: none;
-    margin: 0;
     background-color: var(--accent-color); /* Button background color */
     color: var(--secondary-color); /* Button text color */
     font-weight: bold;
@@ -95,10 +94,10 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    margin: 10px 0;
-    width: 80%;
+    margin: 10px 5px;
     text-align: center;
     font-weight: bold;
+    display: block;
 }
 
 .saved-cartoons {
