@@ -136,6 +136,7 @@ main {
     justify-content: center;
 
 }
+
 #summary form {
     width: 100%;
     display: flex;
@@ -154,6 +155,18 @@ main {
     text-transform: uppercase;
     letter-spacing: 1.7px;
     font-size: 10px;
+    margin: 5px 0 5px  0;
+}
+
+.last-updated{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    font-size: 12px;
     margin: 5px 0 5px  0;
 }
 

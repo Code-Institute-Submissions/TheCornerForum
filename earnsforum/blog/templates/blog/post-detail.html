@@ -45,7 +45,7 @@
         <article>
             <img src="{{ post.image.url }}" alt="{{ post.title }}" />
             <address>By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a></address>
-            <div>
+            <div class="last-updated">
                 Last updated on <time>{{ post.date|date:"d M Y" }}</time>
             </div>
         </article>
