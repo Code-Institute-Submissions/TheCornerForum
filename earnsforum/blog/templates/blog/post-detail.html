@@ -50,13 +50,13 @@
             </div>
         </article>
     </section>
+    <main>
+        <div class="article-content">
+            {{ post.content|linebreaks}}
+        </div>
+    </main>
 </div>
 
-<main>
-    <div class="article-content">
-        {{ post.content|linebreaks}}
-    </div>
-</main>
 {% if user.is_authenticated %}
     <section id="comment-form">
         <form action="{% url 'blog:post-detail-page' slug=post.slug %}" method="post">
