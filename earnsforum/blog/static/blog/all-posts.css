@@ -58,12 +58,14 @@ li {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .post img {
     width: 100%;
     height: auto;
     border-radius: 12px;
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 .post a {
