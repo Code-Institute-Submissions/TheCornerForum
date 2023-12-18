@@ -58,6 +58,7 @@
 </div>
 
 {% if user.is_authenticated %}
+<div class="comment-section">
     <section id="comment-form">
         <form action="{% url 'blog:post-detail-page' slug=post.slug %}" method="post">
             {% csrf_token %}
@@ -76,6 +77,7 @@
             {% endfor %}
         </ul>
     </section>
+</div>
 {% else %}
 <p>Please <a href="{% url 'users1:login' %}?next={{ request.path }}">log in</a> to post a comment.</p>
 {% endif %}

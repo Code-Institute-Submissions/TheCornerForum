@@ -128,15 +128,6 @@ main {
     box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
 }
 
-#summary div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
-
 #summary form {
     width: 100%;
     display: flex;
@@ -160,14 +151,10 @@ main {
 
 .last-updated{
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
     letter-spacing: 1.7px;
-    font-size: 12px;
+    font-size: 10px;
     margin: 5px 0 5px  0;
+    text-align: center;
 }
 
 #read-later button {
@@ -201,7 +188,20 @@ main {
     border-radius: 3px;
 }
 
- #comments-form{
+.comment-section{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-color);
+    border-radius: 3px;
+}
+
+ #comment-form{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -209,7 +209,7 @@ main {
     justify-content: center;
 }
 
-#comments-form p{
+#comment-form p{
     width: 100%;
     display: flex;
     flex-direction: column;
