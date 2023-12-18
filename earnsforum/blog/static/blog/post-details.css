@@ -217,7 +217,7 @@ main {
     justify-content: center;
 }
 
-#comments-form input{
+#comment-form input{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -225,7 +225,7 @@ main {
     justify-content: center;
 }
 
-#comments-form button{
+#comment-form button{
     width: 100%;
     display: flex;
     flex-direction: column;
