@@ -17,11 +17,16 @@ body {
 
 .post {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
     width: 100%;
 }
+
+.post__content {
+    order: 2;
+}
+
 
 .post a {
     text-decoration: none;
