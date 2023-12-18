@@ -51,7 +51,9 @@
 </section>
 
 <main>
-    {{ post.content|linebreaks}}
+    <div class="article-content">
+        {{ post.content|linebreaks}}
+    </div>
 </main>
 {% if user.is_authenticated %}
     <section id="comment-form">

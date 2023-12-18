@@ -43,11 +43,12 @@ main {
     margin-top: 30%;
     padding: 1rem;
     background-color: var(--secondary-color);
-    height: 30rem;
+    height: 33rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
 #summary h2{
@@ -64,15 +65,6 @@ main {
     text-align: right;
     text-transform: uppercase;
     margin: 0;
-}
-
-#summary article{
-    /* color: var(--text-color); */
-    width: 100%;
-    display: flex;
-    align-content: stretch;
-    justify-content: space-between;
-
 }
 
 #summary address{
@@ -106,6 +98,9 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+    align-content: stretch;
+    justify-content: space-between
 }
 
 #summary article img {
@@ -156,6 +151,14 @@ main {
     transition: transform 0.3s ease;
     width: 100%;
     margin: 5px 0 5px 0;
+}
+
+.article-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
  #comments-form{
