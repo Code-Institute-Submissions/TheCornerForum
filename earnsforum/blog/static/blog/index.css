@@ -76,6 +76,10 @@ body {
     border-radius: 8px;
 }
 
+#latest-posts ul {
+    list-style: none;
+}
+
 #about {
     min-height: 30vh;
 }
