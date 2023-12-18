@@ -54,6 +54,11 @@ body {
     margin-top: 2rem;
 }
 
+#welcome p {
+    margin: 0;
+    text-shadow:  0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+}
+
 #welcome p,
 #latest-posts h2,
 #about p {
@@ -74,14 +79,14 @@ body {
 #about {
     min-height: 30vh;
 }
-
-/* Media Queries */
-@media only screen and (max-width: 768px) {
+ 
+/* Media Queries */ /*
+@media (max-width: 768px) {
     #welcome,
     #latest-posts,
     #about {
         padding: 1rem;
-        margin-top: 5rem; /* Adjust this if your header's height is different */
+        margin-top: 5rem; *//* Adjust this if your header's height is different */ /*
     }
 
     #welcome img,
@@ -91,13 +96,13 @@ body {
 }
 
 @media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
-    /* Adjustments for Galaxy Fold */
+   */ /* Adjustments for Galaxy Fold */ /*
     #welcome,
     #latest-posts,
     #about {
-        min-height: calc(100vh - 5rem); /* Adjust for fixed header */
+        min-height: calc(100vh - 5rem); /* Adjust for fixed header */ /*
         padding: 1rem;
-        margin-top: 5rem; /* Push content below the header */
+        margin-top: 5rem; /* Push content below the header */ /*
     }
 
     #welcome img,
@@ -108,7 +113,7 @@ body {
     #welcome p,
     #latest-posts h2,
     #about p {
-        font-size: 1.2rem; /* Smaller font size for smaller screens */
+        font-size: 1.2rem; */ /* Smaller font size for smaller screens */ /*
     }
 }
 
@@ -119,3 +124,5 @@ body {
         width: 70%;
     }
 }
+
+*/
