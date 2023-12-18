@@ -65,6 +65,8 @@ body {
     color: var(--text-color);
     font-size: 1.5rem;
     padding: 1rem;
+    text-align: center;
+
 }
 
 #latest-posts,
@@ -76,8 +78,14 @@ body {
     border-radius: 8px;
 }
 
+#latest-posts img {
+    margin: 0 auto;
+}
+
 #latest-posts ul {
     list-style: none;
+    margin: 0;
+    
 }
 
 #about {
