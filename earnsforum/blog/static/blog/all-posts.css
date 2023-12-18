@@ -53,7 +53,7 @@ ul {
 }
 
 li {
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     border: none;
     padding: 10px;
     border-radius: 5px;

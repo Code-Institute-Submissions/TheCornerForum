@@ -25,9 +25,9 @@ body {
 }
 
 .cartoon {
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   padding: 20px;
   width: 80%;
@@ -37,7 +37,8 @@ body {
 
 .cartoon h2 {
   margin: 0 0 10px 0;
-  color: var(--secondary-color); /* Heading color */
+  color: var(--text-color); /* Heading color */
+  cursor: pointer;
 }
 
 .cartoon h2 a {
@@ -62,8 +63,8 @@ body {
 }
 
 #read-later button {
-  background-color: var(--secondary-color); /* Button background color */
-  color: var(--text-color); /* Button text color */
+  background-color: var(--light-color); /* Button background color */
+  color: var(--secondary-color); /* Button text color */
   box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 8px;
