@@ -215,7 +215,7 @@ main {
     justify-content: center;
 }
 
-#comment-form p{
+#comment-text {
     width: 100%;
     display: flex;
     flex-direction: column;
