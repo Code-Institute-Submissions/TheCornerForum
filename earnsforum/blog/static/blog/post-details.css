@@ -226,18 +226,28 @@ main {
 }
 
 #comment-form button{
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px; /* Rounded corners for button */
+    font-weight: bold;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
+
 #comments{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+#comments ul {
+    list-style: none;
 }
 /* ... other styles ... */
 
