@@ -11,7 +11,7 @@
 
 {% if comment_form.errors %}
     <div id="alert">
-        <strong>Your comment wasn't submitted, please correct the following error</strong>
+        <strong>Your comment wasn't submitted, please correct the following errors</strong>
         <a href="#comment-form">FIX!</a>
     </div>
 {% endif %}
@@ -28,7 +28,7 @@
             {% if user.is_authenticated %}
                 <form action="{% url 'blog:read-later' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="post_id" value="{{ post.id }}" />
+                    <input type="hidden" name="post" value="{{ post }}" />
                     <button type="submit">
                         {% if saved_for_later %}
                             Remove from Saved Article List               
