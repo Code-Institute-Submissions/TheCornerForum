@@ -65,3 +65,8 @@ class CartoonPanel(models.Model):
 
     def __str__(self):
         return f"{self.cartoon.title} Panel {self.order}"
+    
+class SavedContent(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    posts = models.ManyToManyField(Post, related_name='saved_by_users')
+    cartoons = models.ManyToManyField(Cartoon, related_name='saved_by_users')    

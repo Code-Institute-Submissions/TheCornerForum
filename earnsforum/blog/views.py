@@ -74,15 +74,15 @@ class SinglePostView(View):
             "comments": post.comments.all().order_by('-id'),
         }
         return render(request, "blog/post-detail.html", context)
-
-
+    
 class ReadLaterView(LoginRequiredMixin, View):
     def get(self, request):
-        stored_contents = request.session.get("stored_contents", {})
-
-        posts = Post.objects.filter(id__in=stored_contents.get("posts", []))
-        cartoons = Cartoon.objects.filter(
-            id__in=stored_contents.get("cartoons", []))
+        try:
+            saved_content = SavedContent.objects.get(user=request.user)
+            posts = saved_content.posts.all()
+            cartoons = saved_content.cartoons.all()
+        except SavedContent.DoesNotExist:
+            posts = cartoons = []
 
         context = {
             "posts": posts,
@@ -92,28 +92,26 @@ class ReadLaterView(LoginRequiredMixin, View):
         return render(request, "blog/stored-posts.html", context)
 
     def post(self, request):
-        stored_contents = request.session.get(
-            "stored_contents", {"posts": [], "cartoons": []})
-
         content_type = request.POST.get("content_type")
         content_id = int(request.POST["content_id"])
 
-        if content_type == "post":
-            if content_id not in stored_contents["posts"]:
-                stored_contents["posts"].append(content_id)
-            else:
-                stored_contents["posts"].remove(content_id)
-        elif content_type == "cartoon":
-            if content_id not in stored_contents["cartoons"]:
-                stored_contents["cartoons"].append(content_id)
-            else:
-                stored_contents["cartoons"].remove(content_id)
+        saved_content, _ = SavedContent.objects.get_or_create(user=request.user)
 
-        request.session["stored_contents"] = stored_contents
-        request.session.modified = True
+        if content_type == "post":
+            post = get_object_or_404(Post, id=content_id)
+            if post in saved_content.posts.all():
+                saved_content.posts.remove(post)
+            else:
+                saved_content.posts.add(post)
+        elif content_type == "cartoon":
+            cartoon = get_object_or_404(Cartoon, id=content_id)
+            if cartoon in saved_content.cartoons.all():
+                saved_content.cartoons.remove(cartoon)
+            else:
+                saved_content.cartoons.add(cartoon)
 
         referer_url = request.META.get('HTTP_REFERER', '/')
-        return HttpResponseRedirect(referer_url)
+        return HttpResponseRedirect(referer_url)    
 
 
 class CartoonView(ListView):
@@ -129,3 +127,4 @@ def cartoon_detail(request, slug):
         "cartoon": cartoon,
         "cartoon_panels": cartoon_panels,
     })
+
