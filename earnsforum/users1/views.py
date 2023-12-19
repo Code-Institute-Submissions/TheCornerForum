@@ -22,6 +22,8 @@ def user_signup(request):
 
 # login page
 def user_login(request):
+    next_page = request.GET.get('next') or request.POST.get('next') or 'starting-page'
+
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -30,10 +32,11 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)    
-                return redirect('starting-page')
+                return redirect(next_page)
     else:
         form = LoginForm()
-    return render(request, 'login.html', {'form': form})
+
+    return render(request, 'login.html', {'form': form, 'next': next_page})
 
 # logout page
 def user_logout(request):
