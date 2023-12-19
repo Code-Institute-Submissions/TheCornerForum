@@ -30,6 +30,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="content_id" value="{{ post.id }}" />
                     <input type="hidden" name="content_type" value="post" />
+                    <input type="hidden" name="next" value="{{ request.path }}" />
                     <button type="submit">
                         {% if saved_for_later %}
                             Remove from Saved Article List               

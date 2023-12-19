@@ -98,8 +98,8 @@ class ReadLaterView(LoginRequiredMixin, View):
             else:
                 stored_contents["cartoons"].remove(content_id)
         
-        request.session["stored_contents"] = stored_contents
-        return HttpResponseRedirect(request.POST.get("next", "/"))
+        referer_url = request.META.get('HTTP_REFERER', '/')
+        return HttpResponseRedirect(referer_url)
 
 class CartoonView(ListView):
     template_name = "blog/cartoon.html"
