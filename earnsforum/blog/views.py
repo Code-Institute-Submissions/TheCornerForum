@@ -97,7 +97,10 @@ class ReadLaterView(LoginRequiredMixin, View):
                 stored_contents["cartoons"].append(content_id)
             else:
                 stored_contents["cartoons"].remove(content_id)
-        
+
+        request.session["stored_contents"] = stored_contents
+        request.session.modified = True
+
         referer_url = request.META.get('HTTP_REFERER', '/')
         return HttpResponseRedirect(referer_url)
 
