@@ -28,7 +28,8 @@
             {% if user.is_authenticated %}
                 <form action="{% url 'blog:read-later' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="post" value="{{ post }}" />
+                    <input type="hidden" name="content_id" value="{{ post.id }}" />
+                    <input type="hidden" name="content_type" value="post" />
                     <button type="submit">
                         {% if saved_for_later %}
                             Remove from Saved Article List               
