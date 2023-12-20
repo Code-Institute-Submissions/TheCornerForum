@@ -34,8 +34,8 @@ ALLOWED_HOSTS = [os.getenv("APP_HOST", 'earns-forum-c6b1585ec55f.herokuapp.com')
 INSTALLED_APPS = [
     'blog',
     'users1',
-    'blog.apps.BlogConfig',
-    'users1.apps.UserauthConfig',
+    # 'blog.apps.BlogConfig',
+    # 'users1.apps.UserauthConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
