@@ -85,14 +85,24 @@ def add_comment_to_post(request, comment_id):
         comment.save()
         return redirect("blog:post-detail-page", slug=comment.post.slug)
     return render(request, "blog/add_comment_to_post.html", {"comment": comment})
+
+
 @method_decorator(login_required)
 def edit_comment(request, comment_id):
-    comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if comment.user != request.user:
+        return HttpResponseForbidden("You are not allowed to edit this comment.")
+
     if request.method == "POST":
-        comment.text = request.POST.get("text")
-        comment.save()
-        return redirect("blog:post-detail-page", slug=comment.post.slug)
-    return render(request, "blog/edit_comment.html", {"comment": comment})
+        comment_form = CommentForm(request.POST, instance=comment)
+        if comment_form.is_valid():
+            comment_form.save()
+            return redirect("blog:post-detail-page", slug=comment.post.slug)
+    else:
+        comment_form = CommentForm(instance=comment)
+
+    return render(request, "blog/edit_comment.html", {"comment_form": comment_form, "comment": comment})
+
 
 @method_decorator(login_required)
 def save_post(request, post_id):
@@ -105,12 +115,17 @@ def save_post(request, post_id):
         saved_content.posts.add(post)
     return redirect("post_detail", pk=post_id)
 
+
+
 @method_decorator(login_required)
 def delete_comment(request, comment_id):
-    comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if comment.user != request.user:
+        return HttpResponseForbidden("You are not allowed to delete this comment.")
+
     post_id = comment.post.id
     comment.delete()
-    return redirect("post_detail", pk=post_id)
+    return redirect("blog:post-detail-page", slug=comment.post.slug)
 
 
 class ReadLaterView(LoginRequiredMixin, View):
