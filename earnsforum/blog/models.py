@@ -1,8 +1,9 @@
-from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
-from users1.models import UserProfile
-from django.dispatch import receiver
+from django.db import models
 from django.db.models.signals import post_save
+from django.dispatch import receiver
+from users1.models import UserProfile
 
 class Tag(models.Model):
     caption = models.CharField(max_length=20)
@@ -71,29 +72,14 @@ class CartoonPanel(models.Model):
     
 
 class SavedContent(models.Model):
-    # Use 'apps.get_model' to dynamically retrieve the UserProfile model
     user_profile = models.OneToOneField(
-        'users1.UserProfile', on_delete=models.CASCADE,
+        UserProfile,
+        on_delete=models.CASCADE,
         related_name='saved_content'
     )
     posts = models.ManyToManyField('Post', related_name='saved_by_users')
     cartoons = models.ManyToManyField('Cartoon', related_name='saved_by_users')
 
     def __str__(self):
-        return f"SavedContent for {self.user_profile}"
-    
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.user.username
-
-    def get_saved_content(self):
-        # Access SavedContent using the reverse relation 'saved_content'
-        saved_content, created = self.saved_content.get_or_create()
-        return saved_content
-
-@receiver(post_save, sender=UserProfile)
-def create_saved_content(sender, instance, created, **kwargs):
-    if created:
-        SavedContent.objects.get_or_create(user_profile=instance)    
+        return f"SavedContent for {self.user_profile.user.username}"
+      
