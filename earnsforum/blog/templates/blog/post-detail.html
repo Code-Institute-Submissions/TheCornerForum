@@ -69,12 +69,16 @@
 
   <section id="comments">
     <ul>
-      {% for comment in post.comments.all %}
-      <li class="comments-content">
-        <h2>{{ comment.user.username }}</h2>
-        <p class="comment-text">{{ comment.text|linebreaks }}</p>
-      </li>
-      {% endfor %}
+      {% for comment in comments %}
+<div class="comment">
+    <p>{{ comment.text }}</p>
+    <!-- Only show edit/delete options to the comment owner -->
+    {% if comment.user == request.user %}
+        <a href="{% url 'blog:edit_comment' comment.id %}">Edit</a>
+        <a href="{% url 'blog:delete_comment' comment.id %}">Delete</a>
+    {% endif %}
+</div>
+{% endfor %}
     </ul>
   </section>
 </div>

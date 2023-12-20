@@ -56,8 +56,9 @@ class SinglePostView(View):
     @method_decorator(login_required)
     def post(self, request, slug):
         # Handle comment submission for a single post
-        comment_form = CommentForm(request.POST)
         post = get_object_or_404(Post, slug=slug)
+        comment_form = CommentForm(request.POST)
+        
 
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
@@ -68,13 +69,48 @@ class SinglePostView(View):
 
         # Re-render the page with existing context and the invalid form
         context = {
-            "post": post,
-            "post_tags": post.tags.all(),
-            "comment_form": comment_form,
-            "comments": post.comments.all().order_by('-id'),
+            post": post,
+        "post_tags": post.tags.all(),
+        "comment_form": comment_form,
+        "comments": post.comments.all().order_by('-id'),
+        "saved_for_later": self.is_stored_posts(request, post.id)
         }
         return render(request, "blog/post-detail.html", context)
+    
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
+    if request.method == "POST":
+        comment.text = request.POST.get("text")
+        comment.save()
+        return redirect("blog:post-detail-page", slug=comment.post.slug)
+    return render(request, "blog/edit_comment.html", {"comment": comment})
 
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
+    if request.method == "POST":
+        comment.text = request.POST.get("text")
+        comment.save()
+        return redirect("post_detail", pk=comment.post.id)
+    return render(request, "blog/edit_comment.html", {"comment": comment})
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
+    post_id = comment.post.id
+    comment.delete()
+    return redirect("post_detail", pk=post_id)
+
+@login_required
+def save_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    saved_content = SavedContent.objects.get_or_create(user_profile=request.user.userprofile)[0]
+    if post in saved_content.posts.all():
+        saved_content.posts.remove(post)
+    else:
+        saved_content.posts.add(post)
+    return redirect("post_detail", pk=post_id)
 
 class ReadLaterView(LoginRequiredMixin, View):
 
@@ -117,17 +153,26 @@ class ReadLaterView(LoginRequiredMixin, View):
 
         return redirect(request.POST.get('next', '/'))
 
+class CartoonDetailView(View):
+    def get(self, request, slug):
+        cartoon = get_object_or_404(Cartoon, slug=slug)
+        cartoon_panels = cartoon.panels.all().order_by('order')
 
-class CartoonView(ListView):
-    template_name = "blog/cartoon.html"
-    model = Cartoon
-    context_object_name = "cartoons"
+        context = {
+            "cartoon": cartoon,
+            "cartoon_panels": cartoon_panels,
+        }
+        return render(request, "blog/cartoon-detail.html", context)
+# class CartoonView(ListView):
+#     template_name = "blog/cartoon.html"
+#     model = Cartoon
+#     context_object_name = "cartoons"
 
 
-def cartoon_detail(request, slug):
-    cartoon = get_object_or_404(Cartoon, slug=slug)
-    cartoon_panels = cartoon.panels.all().order_by('order')
-    return render(request, "blog/cartoon-detail.html", {
-        "cartoon": cartoon,
-        "cartoon_panels": cartoon_panels,
-    })
+# def cartoon_detail(request, slug):
+#     cartoon = get_object_or_404(Cartoon, slug=slug)
+#     cartoon_panels = cartoon.panels.all().order_by('order')
+#     return render(request, "blog/cartoon-detail.html", {
+#         "cartoon": cartoon,
+#         "cartoon_panels": cartoon_panels,
+#     })
