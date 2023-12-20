@@ -9,6 +9,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import Post, Cartoon, CartoonPanel, SavedContent
 from .form import CommentForm
 from users1.models import UserProfile
+from .models import Comment
 
 
 class StartingPageView(ListView):
@@ -69,7 +70,7 @@ class SinglePostView(View):
 
         # Re-render the page with existing context and the invalid form
         context = {
-            post": post,
+        "post": post,
         "post_tags": post.tags.all(),
         "comment_form": comment_form,
         "comments": post.comments.all().order_by('-id'),
