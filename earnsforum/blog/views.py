@@ -108,7 +108,7 @@ class ReadLaterView(LoginRequiredMixin, View):
     def post(self, request):
         content_type = request.POST.get("content_type")
         content_id = request.POST.get("content_id")
-        saved_content, _ = SavedContent.objects.get_or_create(user=request.user)
+        saved_content, _ = SavedContent.objects.get_or_create(user_profile=request.user.userprofile)
 
         if content_type == "post":
             post = get_object_or_404(Post, pk=content_id)

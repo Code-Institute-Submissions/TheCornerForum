@@ -33,7 +33,7 @@
           Save Article {% endif %}
         </button>
       </form>
-      {% endwith %} {% else %}
+      {% endif %} {% else %}
       <a href="{% url 'users1:login' %}?next={{ request.path }}"
         >Log in to save articles</a
       >
