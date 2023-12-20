@@ -77,25 +77,11 @@ class SinglePostView(View):
 
 
 class ReadLaterView(LoginRequiredMixin, View):
-    """ def get(self, request):
-        # stored_contents = request.session.get("stored_contents", {})
-        posts = Post.objects.filter(id__in=stored_contents.get("posts", []))
-        cartoons = Cartoon.objects.filter(
-            id__in=stored_contents.get("cartoons", []))
-
-        context = {
-            "posts": posts,
-            "cartoons": cartoons,
-            "has_contents": bool(posts or cartoons)
-        }
-        return render(request, "blog/stored-posts.html", context) """
 
     def get(self, request):
-        user_profile, created = UserProfile.objects.get_or_create(
-            user=request.user)
-        saved_content = user_profile.saved_content
-        saved_content, _ = SavedContent.objects.get_or_create(
-            user=request.user)
+        # Ensure a UserProfile exists for the user and get its associated SavedContent
+        user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+        saved_content, created = SavedContent.objects.get_or_create(user_profile=user_profile)
 
         # Get the saved posts and cartoons
         posts = saved_content.posts.all()
