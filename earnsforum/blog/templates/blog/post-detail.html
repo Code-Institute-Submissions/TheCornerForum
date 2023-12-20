@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
-{% load static %} {% block css_files %}
+
+{% load static %}
+
+{% block css_files %}
 <link rel="stylesheet" href="{% static 'blog/post-details.css' %}" />
-{% endblock %} {% block title %}
-{{ post.title }}{% endblock %}
+{% endblock %}
 
-{% block content%}
-{% comment %} {% if comment_form.errors %}
-  <div id="alert">
-    <strong>
-      Your comment wasn't submitted, please correct the following errors
-    </strong>
-  <a href="#comment-form">FIX!</a>
-</div>
-{% endif %} {% endcomment %}
+{% block title %}
+{{ post.title }}
+{% endblock %}
 
+{% block content %}
 <div class="article-post-content">
   <section id="summary">
     <h2>{{ post.title }}</h2>
@@ -23,24 +20,26 @@
       {% endfor %}
     </div>
     <div id="read-later">
-      {% if user.is_authenticated %} {% with
-        saved_posts=user.userprofile.saved_content.posts.all %}
-        <form action="{% url 'blog:read-later' %}" method="POST">
-          {% csrf_token %}
-          <input type="hidden" name="content_id" value="{{ post.id }}" />
-          <input type="hidden" name="content_type" value="post" />
-          <input type="hidden" name="next" value="{{ request.path }}" />
-          <button type="submit">
-          {% comment %} {% if saved_for_later %} Remove from Saved Article List
-          {% else %} Save Article {% endif %} {% endcomment %} {% if post in
-          user.savedcontent.posts.all %} Remove from Saved Articles {% else %}
-          Save Article {% endif %}
-          </button>
-        </form>
-      {% endif %} {% else %}
-      <a href="{% url 'users1:login' %}?next={{ request.path }}"
-        >Log in to save articles</a
-      >
+      {% if user.is_authenticated %}
+        {% with saved_posts=user.userprofile.saved_content.posts.all %}
+          <form action="{% url 'blog:read-later' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="content_id" value="{{ post.id }}" />
+            <input type="hidden" name="content_type" value="post" />
+            <input type="hidden" name="next" value="{{ request.path }}" />
+            <button type="submit">
+              {% if post in user.savedcontent.posts.all %}
+                Remove from Saved Articles
+              {% else %}
+                Save Article
+              {% endif %}
+            </button>
+          </form>
+        {% endwith %}
+      {% else %}
+        <a href="{% url 'users1:login' %}?next={{ request.path }}">
+          Log in to save articles
+        </a>
       {% endif %}
     </div>
 
@@ -62,11 +61,9 @@
 {% if user.is_authenticated %}
 <div class="comment-section">
   <section id="comment-form">
-    <form
-      action="{% url 'blog:post-detail-page' slug=post.slug %}"
-      method="post"
-    >
-      {% csrf_token %} {{ comment_form.as_p }}
+    <form action="{% url 'blog:post-detail-page' slug=post.slug %}" method="post">
+      {% csrf_token %}
+      {{ comment_form.as_p }}
       <button type="submit">Submit Comment</button>
     </form>
   </section>
@@ -74,22 +71,21 @@
   <section id="comments">
     <ul>
       {% for comment in comments %}
-<div class="comment">
-    <p>{{ comment.text }}</p>
-    <!-- Only show edit/delete options to the comment owner -->
-    {% if comment.user == request.user %}
-        <a href="{% url 'blog:edit_comment' comment.id %}">Edit</a>
-        <a href="{% url 'blog:delete_comment' comment.id %}">Delete</a>
-    {% endif %}
-</div>
-{% endfor %}
+      <div class="comment">
+        <p>{{ comment.text }}</p>
+        <!-- Only show edit/delete options to the comment owner -->
+        {% if comment.user == request.user %}
+          <a href="{% url 'blog:edit_comment' comment.id %}">Edit</a>
+          <a href="{% url 'blog:delete_comment' comment.id %}">Delete</a>
+        {% endif %}
+      </div>
+      {% endfor %}
     </ul>
   </section>
 </div>
 {% else %}
 <p>
-  Please
-  <a href="{% url 'users1:login' %}?next={{ request.path }}">log in</a> to post
-  a comment.
+  Please <a href="{% url 'users1:login' %}?next={{ request.path }}">log in</a> to post a comment.
 </p>
-{% endif %} {% endblock %}
+{% endif %}
+{% endblock %}
