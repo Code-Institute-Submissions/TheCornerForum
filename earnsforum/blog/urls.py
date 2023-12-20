@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import edit_comment, delete_comment, save_post
+from .views import add_comment_to_post, edit_comment, delete_comment, save_post
 
 
 app_name = 'blog'
