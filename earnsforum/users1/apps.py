@@ -1,9 +1,8 @@
 from django.apps import AppConfig
 
 
-class UserauthConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'users1'
+class BlogConfig(AppConfig):
+    name = 'blog'
 
     def ready(self):
-        import users1.signals
+        import blog.signals
