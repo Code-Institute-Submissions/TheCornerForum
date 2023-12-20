@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 from os import getenv
+from decouple import config
 import django_heroku
 import dj_database_url
 import cloudinary

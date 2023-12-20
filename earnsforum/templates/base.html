@@ -22,7 +22,7 @@
         {% if request.user.is_authenticated %}
         <span>{{ request.user.username }}!</span>
         <a href="{% url 'users1:logout' %}">Logout</a>
-        <a href="{% url 'blog:read-later' %}">Archive</a>
+        <a href="{% url 'blog:read-later' %}">Saved</a>
         <a href="{% url 'blog:cartoons-page' %}">Comics</a>
         {% else %}
         <a href="{% url 'users1:login' %}">Login</a>
