@@ -1,6 +1,13 @@
-{% extends "base.html" %} {% load static %} {% block css_files %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
 <link rel="stylesheet" href="{% static 'blog/cartoons.css' %}" />
-{% endblock %} {% block title %}Cartoons{% endblock %} {% block content %}
+{% endblock %}
+
+{% block title %}Cartoons{% endblock %}
+
+{% block content %}
 <div class="cartoons-list">
   {% for cartoon in cartoons %}
   <div class="cartoon">
@@ -8,28 +15,26 @@
     <img src="{{ cartoon.image.url }}" alt="{{ cartoon.title }}" />
     {% endif %}
     <h2>
-      <a href="{% url 'blog:cartoon_detail' slug=cartoon.slug %}"
-        >{{ cartoon.title }}</a
-      >
+      <a href="{% url 'blog:cartoon_detail' slug=cartoon.slug %}">{{ cartoon.title }}</a>
     </h2>
     <p>{{ cartoon.excerpt }}</p>
     <div id="read-later">
-      {% if user.is_authenticated %} {% with
-      saved_posts=user.userprofile.saved_content.posts.all %}
+      {% if user.is_authenticated %}
       <form action="{% url 'blog:read-later' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="content_type" value="cartoon" />
         <input type="hidden" name="content_id" value="{{ cartoon.id }}" />
         <input type="hidden" name="next" value="{{ request.path }}" />
         <button type="submit">
-          {% if cartoon in user.savedcontent.cartoons.all %} Remove from Saved
-          Cartoons {% else %} Save Cartoon {% endif %}
+          {% if cartoon in user.userprofile.saved_content.cartoons.all %}
+            Remove from Saved Cartoons
+          {% else %}
+            Save Cartoon
+          {% endif %}
         </button>
       </form>
-      {% endif %} {% else %}
-      <a href="{% url 'users1:login' %}?next={{ request.path }}"
-        >Log in to save cartoons</a
-      >
+      {% else %}
+      <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save cartoons</a>
       {% endif %}
     </div>
   </div>
