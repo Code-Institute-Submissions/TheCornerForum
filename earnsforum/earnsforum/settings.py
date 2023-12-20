@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [os.getenv("APP_HOST", 'earns-forum-c6b1585ec55f.herokuapp.com')]
 
@@ -32,6 +32,8 @@ ALLOWED_HOSTS = [os.getenv("APP_HOST", 'earns-forum-c6b1585ec55f.herokuapp.com')
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
+    'users1',
     'blog.apps.BlogConfig',
     'users1.apps.UserauthConfig',
     'django.contrib.admin',
