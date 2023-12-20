@@ -1,7 +1,11 @@
-{% extends 'base.html' %} {% load static %} {% block css_files %}
+{% extends 'base.html' %}
+{% load static %} {% block css_files %}
 <link rel="stylesheet" href="{% static 'blog/post-details.css' %}" />
-{% endblock %} {% block title %}{{ post.title }}{% endblock %} {% block content
-%} {% if comment_form.errors %}
+{% endblock %} {% block title %}
+{{ post.title }}{% endblock %}
+
+{% block content%}
+{% if comment_form.errors %}
 <div id="alert">
   <strong
     >Your comment wasn't submitted, please correct the following errors</strong
@@ -20,19 +24,19 @@
     </div>
     <div id="read-later">
       {% if user.is_authenticated %} {% with
-      saved_posts=user.userprofile.saved_content.posts.all %}
-      <form action="{% url 'blog:read-later' %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="content_id" value="{{ post.id }}" />
-        <input type="hidden" name="content_type" value="post" />
-        <input type="hidden" name="next" value="{{ request.path }}" />
-        <button type="submit">
+        saved_posts=user.userprofile.saved_content.posts.all %}
+        <form action="{% url 'blog:read-later' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="content_id" value="{{ post.id }}" />
+          <input type="hidden" name="content_type" value="post" />
+          <input type="hidden" name="next" value="{{ request.path }}" />
+          <button type="submit">
           {% comment %} {% if saved_for_later %} Remove from Saved Article List
           {% else %} Save Article {% endif %} {% endcomment %} {% if post in
           user.savedcontent.posts.all %} Remove from Saved Articles {% else %}
           Save Article {% endif %}
-        </button>
-      </form>
+          </button>
+        </form>
       {% endif %} {% else %}
       <a href="{% url 'users1:login' %}?next={{ request.path }}"
         >Log in to save articles</a
