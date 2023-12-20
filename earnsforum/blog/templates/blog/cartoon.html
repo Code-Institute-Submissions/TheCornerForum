@@ -23,7 +23,7 @@
                 <input type="hidden" name="content_id" value="{{ cartoon.id }}" />
                 <input type="hidden" name="next" value="{{ request.path }}" />
                 <button type="submit">
-                    {% if cartoon.id in request.session.stored_contents.cartoons %}
+                    {% if post in user.savedcontent.posts.all %}
                         Remove from Saved Cartoons
                     {% else %}
                         Save Cartoon

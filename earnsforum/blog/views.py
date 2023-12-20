@@ -1,14 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
-from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post, Cartoon, CartoonPanel
+from .models import Post, Cartoon, CartoonPanel, SavedContent
 from .form import CommentForm
+from django.views import View
+from django.shortcuts import redirect
 
 
 class StartingPageView(ListView):
@@ -77,9 +78,8 @@ class SinglePostView(View):
 
 
 class ReadLaterView(LoginRequiredMixin, View):
-    def get(self, request):
-        stored_contents = request.session.get("stored_contents", {})
-
+    """ def get(self, request):
+        # stored_contents = request.session.get("stored_contents", {})
         posts = Post.objects.filter(id__in=stored_contents.get("posts", []))
         cartoons = Cartoon.objects.filter(
             id__in=stored_contents.get("cartoons", []))
@@ -89,9 +89,42 @@ class ReadLaterView(LoginRequiredMixin, View):
             "cartoons": cartoons,
             "has_contents": bool(posts or cartoons)
         }
-        return render(request, "blog/stored-posts.html", context)
+        return render(request, "blog/stored-posts.html", context) """
 
+    def get(self, request):
+        saved_content, _ = SavedContent.objects.get_or_create(user=request.user)
+        posts = saved_content.posts.all()
+        cartoons = saved_content.cartoons.all()
+
+        context = {
+            "posts": posts,
+            "cartoons": cartoons,
+            "has_contents": bool(posts or cartoons)
+        }
+        return render(request, "blog/stored-posts.html", context)
+    
     def post(self, request):
+        content_type = request.POST.get("content_type")
+        content_id = request.POST.get("content_id")
+        saved_content, _ = SavedContent.objects.get_or_create(user=request.user)
+
+        if content_type == "post":
+            post = get_object_or_404(Post, pk=content_id)
+            if post in saved_content.posts.all():
+                saved_content.posts.remove(post)
+            else:
+                saved_content.posts.add(post)
+
+        elif content_type == "cartoon":
+            cartoon = get_object_or_404(Cartoon, pk=content_id)
+            if cartoon in saved_content.cartoons.all():
+                saved_content.cartoons.remove(cartoon)
+            else:
+                saved_content.cartoons.add(cartoon)
+
+        return redirect(request.POST.get('next', '/'))
+    
+    """ def post(self, request):
         stored_contents = request.session.get(
             "stored_contents", {"posts": [], "cartoons": []})
 
@@ -113,7 +146,7 @@ class ReadLaterView(LoginRequiredMixin, View):
         request.session.modified = True
 
         referer_url = request.META.get('HTTP_REFERER', '/')
-        return HttpResponseRedirect(referer_url)
+        return HttpResponseRedirect(referer_url) """
     
 # class ReadLaterView(LoginRequiredMixin, View):
 #     def get(self, request):

@@ -32,8 +32,13 @@
                     <input type="hidden" name="content_type" value="post" />
                     <input type="hidden" name="next" value="{{ request.path }}" />
                     <button type="submit">
-                        {% if saved_for_later %}
+                        {% comment %} {% if saved_for_later %}
                             Remove from Saved Article List               
+                        {% else %}
+                            Save Article
+                        {% endif %} {% endcomment %}
+                        {% if post in user.savedcontent.posts.all %}
+                            Remove from Saved Articles
                         {% else %}
                             Save Article
                         {% endif %}
