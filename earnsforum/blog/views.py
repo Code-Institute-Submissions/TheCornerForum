@@ -90,15 +90,11 @@ def add_comment_to_post(request, comment_id):
 
 @login_required
 def edit_comment(request, comment_id):
-    comment = get_object_or_404(Comment, pk=comment_id)
-    if comment.user != request.user:
-        return HttpResponseForbidden("You are not allowed to edit this comment.")
-
+    comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
     if request.method == "POST":
-        comment_form = CommentForm(request.POST, instance=comment)
-        if comment_form.is_valid():
-            comment_form.save()
-            return redirect("blog:post-detail-page", slug=comment.post.slug)
+        comment.text = request.POST.get("text")
+        comment.save()
+        return redirect("blog:post-detail-page", slug=comment.post.slug)
     else:
         comment_form = CommentForm(instance=comment)
 

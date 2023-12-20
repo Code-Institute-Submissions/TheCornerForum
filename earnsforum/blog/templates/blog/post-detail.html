@@ -73,13 +73,23 @@
       {% for comment in comments %}
       <div class="comment">
         <p>{{ comment.text }}</p>
-        <!-- Only show edit/delete options to the comment owner -->
+
+        <!-- Edit/Delete links -->
         {% if comment.user == request.user %}
-            <a href="{% url 'blog:edit_comment' comment.id %}">Edit</a>
+            <button class="edit-comment-button" data-comment-id="{{ comment.id }}">Edit</button>
             <a href="{% url 'blog:delete_comment' comment.id %}" onclick="return confirm('Are you sure?');">Delete</a>
         {% endif %}
-      </div>
-      {% endfor %}
+
+        <!-- Edit Comment Form -->
+        <div class="edit-comment-form" id="edit-comment-form-{{ comment.id }}" style="display:none;">
+            <form method="post" action="{% url 'blog:edit_comment' comment.id %}">
+                {% csrf_token %}
+                <textarea name="text">{{ comment.text }}</textarea>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+{% endfor %}
     </ul>
   </section>
 </div>
@@ -88,4 +98,14 @@
   Please <a href="{% url 'users1:login' %}?next={{ request.path }}">log in</a> to post a comment.
 </p>
 {% endif %}
+
+<script>
+  document.querySelectorAll('.edit-comment-button').forEach(button => {
+      button.addEventListener('click', function() {
+          var commentId = this.getAttribute('data-comment-id');
+          var form = document.getElementById('edit-comment-form-' + commentId);
+          form.style.display = 'block';
+      });
+  });
+</script>
 {% endblock %}
