@@ -10,6 +10,7 @@ from .models import Post, Cartoon, CartoonPanel, SavedContent
 from .form import CommentForm
 from users1.models import UserProfile
 from .models import Comment
+from django.http import HttpResponseForbidden
 
 
 class StartingPageView(ListView):
