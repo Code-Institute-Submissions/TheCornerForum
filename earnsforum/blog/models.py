@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from users1.models import UserProfile
 
 class Tag(models.Model):
     caption = models.CharField(max_length=20)
@@ -66,7 +67,11 @@ class CartoonPanel(models.Model):
     def __str__(self):
         return f"{self.cartoon.title} Panel {self.order}"
     
+# class SavedContent(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     posts = models.ManyToManyField(Post, related_name='saved_by_users')
+#     cartoons = models.ManyToManyField(Cartoon, related_name='saved_by_users')
 class SavedContent(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    posts = models.ManyToManyField(Post, related_name='saved_by_users')
-    cartoons = models.ManyToManyField(Cartoon, related_name='saved_by_users')    
+    user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
+    posts = models.ManyToManyField('Post', related_name='saved_by_users')
+    cartoons = models.ManyToManyField('Cartoon', related_name='saved_by_users')

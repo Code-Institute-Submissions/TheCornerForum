@@ -1,15 +1,15 @@
-from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 from django.views import View
 from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Post, Cartoon, CartoonPanel, SavedContent
 from .form import CommentForm
-from django.views import View
-from django.shortcuts import redirect
+from users1.models import UserProfile
+
 
 
 class StartingPageView(ListView):
@@ -92,6 +92,8 @@ class ReadLaterView(LoginRequiredMixin, View):
         return render(request, "blog/stored-posts.html", context) """
 
     def get(self, request):
+        user_profile = UserProfile.objects.get(user=request.user)
+        saved_content = user_profile.saved_content
         saved_content, _ = SavedContent.objects.get_or_create(user=request.user)
         posts = saved_content.posts.all()
         cartoons = saved_content.cartoons.all()
