@@ -5,14 +5,14 @@
 {{ post.title }}{% endblock %}
 
 {% block content%}
-{% if comment_form.errors %}
-<div id="alert">
-  <strong
-    >Your comment wasn't submitted, please correct the following errors</strong
-  >
+{% comment %} {% if comment_form.errors %}
+  <div id="alert">
+    <strong>
+      Your comment wasn't submitted, please correct the following errors
+    </strong>
   <a href="#comment-form">FIX!</a>
 </div>
-{% endif %}
+{% endif %} {% endcomment %}
 
 <div class="article-post-content">
   <section id="summary">
