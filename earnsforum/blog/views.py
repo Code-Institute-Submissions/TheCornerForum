@@ -52,7 +52,7 @@ class SinglePostView(View):
             return render(request, "user1/error.html", {"message": "An unexpected error occurred."})
 
 
-    @login_required
+    @method_decorator(login_required)
     def post(self, request, slug):
         # Handle comment submission for a single post
         post = get_object_or_404(Post, slug=slug)
