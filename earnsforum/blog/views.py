@@ -54,12 +54,13 @@ class SinglePostView(View):
             # Log the error here if you have logging setup
             return render(request, "user1/error.html", {"message": "An unexpected error occurred."})
 
+
 @method_decorator(login_required)
 def post(self, request, slug):
     # Handle comment submission for a single post
     post = get_object_or_404(Post, slug=slug)
     comment_form = CommentForm(request.POST)
-    
+
     if comment_form.is_valid():
         comment = comment_form.save(commit=False)
         comment.user = request.user
@@ -68,14 +69,15 @@ def post(self, request, slug):
         return HttpResponseRedirect(reverse("blog:post-detail-page", args=[slug]))
     # Re-render the page with existing context and the invalid form
     context = {
-    "post": post,
-    "post_tags": post.tags.all(),
-    "comment_form": comment_form,
-    "comments": post.comments.all().order_by('-id'),
-    "saved_for_later": self.is_stored_posts(request, post.id)
+        "post": post,
+        "post_tags": post.tags.all(),
+        "comment_form": comment_form,
+        "comments": post.comments.all().order_by('-id'),
+        "saved_for_later": self.is_stored_posts(request, post.id)
     }
     return render(request, "blog/post-detail.html", context)
-    
+
+
 @login_required
 def add_comment_to_post(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
@@ -84,6 +86,7 @@ def add_comment_to_post(request, comment_id):
         comment.save()
         return redirect("blog:post-detail-page", slug=comment.post.slug)
     return render(request, "blog/add_comment_to_post.html", {"comment": comment})
+
 
 @login_required
 def edit_comment(request, comment_id):
@@ -94,16 +97,21 @@ def edit_comment(request, comment_id):
         return redirect("blog:post-detail-page", slug=comment.post.slug)
     return render(request, "blog/edit_comment.html", {"comment": comment})
 # Remove one of the duplicate definitions of save_post
+
+
 @login_required
 def save_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    saved_content = SavedContent.objects.get_or_create(user_profile=request.user.userprofile)[0]
+    saved_content = SavedContent.objects.get_or_create(
+        user_profile=request.user.userprofile)[0]
     if post in saved_content.posts.all():
         saved_content.posts.remove(post)
     else:
         saved_content.posts.add(post)
     return redirect("post_detail", pk=post_id)
 # Remove one of the duplicate definitions of delete_comment
+
+
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
@@ -111,12 +119,15 @@ def delete_comment(request, comment_id):
     comment.delete()
     return redirect("post_detail", pk=post_id)
 
+
 class ReadLaterView(LoginRequiredMixin, View):
 
     def get(self, request):
         # Ensure a UserProfile exists for the user and get its associated SavedContent
-        user_profile, created = UserProfile.objects.get_or_create(user=request.user)
-        saved_content, created = SavedContent.objects.get_or_create(user_profile=user_profile)
+        user_profile, created = UserProfile.objects.get_or_create(
+            user=request.user)
+        saved_content, created = SavedContent.objects.get_or_create(
+            user_profile=user_profile)
 
         # Get the saved posts and cartoons
         posts = saved_content.posts.all()
@@ -152,6 +163,7 @@ class ReadLaterView(LoginRequiredMixin, View):
 
         return redirect(request.POST.get('next', '/'))
 
+
 class CartoonDetailView(View):
     def get(self, request, slug):
         cartoon = get_object_or_404(Cartoon, slug=slug)
@@ -162,7 +174,8 @@ class CartoonDetailView(View):
             "cartoon_panels": cartoon_panels,
         }
         return render(request, "blog/cartoon-detail.html", context)
-    
+
+
 class CartoonView(ListView):
     template_name = "blog/cartoon.html"
     model = Cartoon
