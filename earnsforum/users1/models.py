@@ -18,8 +18,5 @@ class UserProfile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
-        SavedContent = apps.get_model(
-            'blog', 'SavedContent')  # Use apps.get_model here
-        saved_content, _ = SavedContent.objects.get_or_create()
-        instance.userprofile.saved_content = saved_content
-        instance.userprofile.save()
+        SavedContent = apps.get_model('blog', 'SavedContent')
+        saved_content, _ = SavedContent.objects.get_or_create(user_profile=instance.userprofile)

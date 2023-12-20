@@ -71,7 +71,18 @@ class CartoonPanel(models.Model):
 #     user = models.ForeignKey(User, on_delete=models.CASCADE)
 #     posts = models.ManyToManyField(Post, related_name='saved_by_users')
 #     cartoons = models.ManyToManyField(Cartoon, related_name='saved_by_users')
-class SavedContent(models.Model):
+""" class SavedContent(models.Model):
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     posts = models.ManyToManyField('Post', related_name='saved_by_users')
+    cartoons = models.ManyToManyField('Cartoon', related_name='saved_by_users') """
+class SavedContent(models.Model):
+    # Use 'apps.get_model' to dynamically retrieve the UserProfile model
+    user_profile = models.OneToOneField(
+        'users1.UserProfile', on_delete=models.CASCADE,
+        related_name='saved_content'
+    )
+    posts = models.ManyToManyField('Post', related_name='saved_by_users')
     cartoons = models.ManyToManyField('Cartoon', related_name='saved_by_users')
+
+    def __str__(self):
+        return f"SavedContent for {self.user_profile}"
