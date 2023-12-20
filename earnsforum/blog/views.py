@@ -88,7 +88,7 @@ def add_comment_to_post(request, comment_id):
     return render(request, "blog/add_comment_to_post.html", {"comment": comment})
 
 
-@method_decorator(login_required)
+@login_required
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
     if comment.user != request.user:
@@ -118,7 +118,7 @@ def save_post(request, post_id):
 
 
 
-@method_decorator(login_required)
+@login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
     if comment.user != request.user:
