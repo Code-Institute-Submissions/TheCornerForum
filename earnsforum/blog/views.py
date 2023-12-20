@@ -164,8 +164,8 @@ class CartoonDetailView(View):
             "cartoon_panels": cartoon_panels,
         }
         return render(request, "blog/cartoon-detail.html", context)
-# class CartoonView(ListView):
-#     template_name = "blog/cartoon.html"
+ #class CartoonView(ListView):
+#   template_name = "blog/cartoon.html"
 #     model = Cartoon
 #     context_object_name = "cartoons"
 
