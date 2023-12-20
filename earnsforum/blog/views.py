@@ -77,7 +77,7 @@ class SinglePostView(View):
         stored_posts = request.session.get("stored_posts")
         return post_id in stored_posts if stored_posts else False
 
-@login_required
+@method_decorator(login_required)
 def add_comment_to_post(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
     if request.method == "POST":
@@ -85,7 +85,7 @@ def add_comment_to_post(request, comment_id):
         comment.save()
         return redirect("blog:post-detail-page", slug=comment.post.slug)
     return render(request, "blog/add_comment_to_post.html", {"comment": comment})
-@login_required
+@method_decorator(login_required)
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
     if request.method == "POST":
@@ -94,7 +94,7 @@ def edit_comment(request, comment_id):
         return redirect("blog:post-detail-page", slug=comment.post.slug)
     return render(request, "blog/edit_comment.html", {"comment": comment})
 
-@login_required
+@method_decorator(login_required)
 def save_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     saved_content = SavedContent.objects.get_or_create(
@@ -105,7 +105,7 @@ def save_post(request, post_id):
         saved_content.posts.add(post)
     return redirect("post_detail", pk=post_id)
 
-@login_required
+@method_decorator(login_required)
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
     post_id = comment.post.id
