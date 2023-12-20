@@ -22,7 +22,7 @@
         {% if post.image %}
         <img src="{{ post.image.url }}" alt="{{ post.title }}" />
         {% endif %}
-        <h2><a href="{% url 'blog:post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
+        <h2><a href="{% url 'blog:post-detail-page' slug=post.slug %}">{{ post.title }}</a></h2>
         <p>{{ post.excerpt }}</p>
         <div id="read-later">
             {% if user.is_authenticated %}
