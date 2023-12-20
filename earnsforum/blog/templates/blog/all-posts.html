@@ -3,7 +3,8 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/post.css" %}" />
-    <link rel="stylesheet" href="{% static "blog/all-posts.css" %}" />
+    {% comment %} <link rel="stylesheet" href="{% static "blog/all-posts.css" %}" /> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'blog/cartoons.css' %}" />
 {% endblock %}
 {% block title %}The Blog Posts{% endblock %}
 
