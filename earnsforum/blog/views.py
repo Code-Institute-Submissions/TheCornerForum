@@ -79,6 +79,15 @@ class SinglePostView(View):
         return render(request, "blog/post-detail.html", context)
     
     @login_required
+    def add_comment_to_post(request, comment_id):
+        comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
+        if request.method == "POST":
+            comment.text = request.POST.get("text")
+            comment.save()
+            return redirect("blog:post-detail-page", slug=comment.post.slug)
+        return render(request, "blog/add_comment_to_post.html", {"comment": comment})
+    
+    @login_required
     def edit_comment(request, comment_id):
         comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
         if request.method == "POST":
