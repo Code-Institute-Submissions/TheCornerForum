@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+    {% comment %} <link rel="stylesheet" href="{% static "blog/post.css" %}" /> {% endcomment %}
     {% comment %} <link rel="stylesheet" href="{% static "blog/all-posts.css" %}" /> {% endcomment %}
     <link rel="stylesheet" href="{% static 'blog/cartoons.css' %}" />
 {% endblock %}
