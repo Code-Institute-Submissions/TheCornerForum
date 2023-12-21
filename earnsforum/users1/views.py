@@ -81,14 +81,18 @@ from .models import UserProfile  # Import the UserProfile model
 
 @login_required
 def user_profile(request):
+    # Check if the profile exists, if not create one
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
     if request.method == 'POST':
-        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.users1_profile)
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully.')
             return redirect('profile')
     else:
-        form = UserProfileUpdateForm(instance=request.user.users1_profile)
+        form = UserProfileUpdateForm(instance=profile)
+
     return render(request, 'users1/profile.html', {'form': form})
 
 
