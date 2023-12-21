@@ -128,13 +128,19 @@ input:hover + .helptext {
     form input[type="text"],
     form input[type="password"],
     form button {
-        padding: 15px;
-        font-size: 1.2rem;
+        margin: 0.8rem auto;
+        font-size: 16px;
+        max-width: 30rem;
+        font-weight: 900;
+        letter-spacing: 1px;
+        padding: 20px 30px;
     }
 }
 
 /* Additional Media Queries for even larger screens */
 @media (min-width: 1024px) {
+    
+
     #comment-form {
         max-width: 700px;
     }
