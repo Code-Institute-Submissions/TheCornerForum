@@ -119,19 +119,38 @@ body {
   /* Add your media query styles here if needed */ /*
 } */
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
 
   body {
     font-size: 16px;
   }
 
+  .cartoons-list {
+    margin-top: 130px;
+
+  }
+
   .cartoon h2 {
     font-size: 26px;
+    margin: 20px 0;
   }
 
   .cartoon {
+    margin-bottom: 50px;
+    
+  }
+
+  
+  .cartoon p {
+    margin: 20px 0;
+
+  }
+
+  #read-later {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
   }
 
   #read-later button {
@@ -145,3 +164,7 @@ body {
 
 
   }
+
+@media (min-width: 1200px) {
+
+}
