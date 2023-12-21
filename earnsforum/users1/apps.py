@@ -7,3 +7,9 @@ class UserauthConfig(AppConfig):
 
     def ready(self):
         import users1.signals
+
+class Users1Config(AppConfig):
+    name = 'users1'
+
+    def ready(self):
+        import users1.signals        

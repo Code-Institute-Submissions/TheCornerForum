@@ -3,8 +3,9 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django.apps import apps
 from users1.models import UserProfile
+from django.conf import settings
 
-@receiver(post_save, sender=User)
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
