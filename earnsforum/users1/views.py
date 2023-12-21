@@ -81,8 +81,10 @@ from .models import UserProfile  # Import the UserProfile model
 
 @login_required
 def user_profile(request):
-    # Check if the profile exists, if not create one
-    profile, created = UserProfile.objects.get_or_create(user=request.user)
+    profile, created = UserProfile.objects.update_or_create(
+        user=request.user,
+        defaults={...}  # Add necessary default values here
+    )
 
     if request.method == 'POST':
         form = UserProfileUpdateForm(request.POST, request.FILES, instance=profile)
