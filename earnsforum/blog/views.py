@@ -57,30 +57,28 @@ class SinglePostView(View):
             # Log the error here if you have logging setup
             return render(request, "user1/error.html", {"message": "An unexpected error occurred."})
 
-    @method_decorator(login_required)
-    def post(self, request, slug):
-        # Handle comment submission for a single post
-        post = get_object_or_404(Post, slug=slug)
-        comment_form = CommentForm(request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.user = request.user
-            comment.post = post
-            comment.save()
-            return HttpResponseRedirect(reverse("blog:post-detail-page", args=[slug]))
-
-        context = {
-            "post": post,
-            "post_tags": post.tags.all(),
-            "comment_form": comment_form,
-            "comments": post.comments.all().order_by('-id'),
-            "saved_for_later": self.is_stored_posts(request, post.id)
-        }
-        return render(request, "blog/post-detail.html", context)
-
-    def is_stored_posts(self, request, post_id):
-        stored_posts = request.session.get("stored_posts")
-        return post_id in stored_posts if stored_posts else False
+@method_decorator(login_required)
+def post(self, request, slug):
+    # Handle comment submission for a single post
+    post = get_object_or_404(Post, slug=slug)
+    comment_form = CommentForm(request.POST)
+    if comment_form.is_valid():
+        comment = comment_form.save(commit=False)
+        comment.user = request.user
+        comment.post = post
+        comment.save()
+        return HttpResponseRedirect(reverse("blog:post-detail-page", args=[slug]))
+    context = {
+        "post": post,
+        "post_tags": post.tags.all(),
+        "comment_form": comment_form,
+        "comments": post.comments.all().order_by('-id'),
+        "saved_for_later": self.is_stored_posts(request, post.id)
+    }
+    return render(request, "blog/post-detail.html", context)
+def is_stored_posts(self, request, post_id):
+    stored_posts = request.session.get("stored_posts")
+    return post_id in stored_posts if stored_posts else False
 
 @method_decorator(login_required)
 def add_comment_to_post(request, comment_id):
