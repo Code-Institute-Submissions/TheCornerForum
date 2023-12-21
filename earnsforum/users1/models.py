@@ -7,7 +7,7 @@ from django.utils import timezone
 from cloudinary.models import CloudinaryField
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='users1_profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_admin = models.BooleanField(default=False)
     is_moderator = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
