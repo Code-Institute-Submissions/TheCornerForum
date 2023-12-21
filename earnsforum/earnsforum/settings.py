@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-from os import getenv
 from decouple import config
 import django_heroku
 import dj_database_url
@@ -26,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [os.getenv("APP_HOST", 'earns-forum-c6b1585ec55f.herokuapp.com')]
 
