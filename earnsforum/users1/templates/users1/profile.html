@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cloudinary %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "users1/profile.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <h2>User Profile</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Profile</button>
+    </form>
+
+    <!-- Display User Profile Information -->
+    <div class="user-profile">
+        <h3>{{ user.get_full_name }}</h3>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone:</strong> {{ user.userprofile.phone_number }}</p>
+        <p><strong>About Me:</strong> {{ user.userprofile.bio }}</p>
+        <div class="profile-picture">
+            {% cloudinary user.userprofile.profile_picture format="jpg" %}
+        </div>
+    </div>
+    
+{% endblock content %}

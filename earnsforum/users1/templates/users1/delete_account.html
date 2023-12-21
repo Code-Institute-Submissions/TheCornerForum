@@ -1,4 +1,5 @@
-{% extends 'base.html' %}  <!-- Replace with your base template if you have one -->
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <h2>Are you sure you want to delete your account?</h2>
@@ -6,5 +7,5 @@
         {% csrf_token %}
         <button type="submit">Confirm Account Deletion</button>
     </form>
-    <a href="{% url 'profile' %}">Cancel</a>  <!-- Replace 'profile' with the appropriate URL name -->
+    <a href="{% url 'users1:profile' %}">Cancel</a>  
 {% endblock %}
