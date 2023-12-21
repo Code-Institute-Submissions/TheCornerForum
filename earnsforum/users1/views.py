@@ -4,6 +4,7 @@ from .forms import UserCreationForm, LoginForm, UserProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import DeletedAccountLog
+from .models import UserProfile
 
 # Home page (guide)
 def index(request):
