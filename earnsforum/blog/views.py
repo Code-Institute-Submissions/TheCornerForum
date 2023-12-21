@@ -39,24 +39,22 @@ class AllPostsView(ListView):
 
 
 class SinglePostView(View):
-    template_name = "blog/post-detail.html"
+    def is_stored_posts(self, request, post_id):
+        # Logic to check if a post is in the user's 'read later' list
+        stored_posts = request.session.get("stored_posts")
+        return post_id in stored_posts if stored_posts else False
 
     def get(self, request, slug):
-        try:
-            post = get_object_or_404(Post, slug=slug)
-            context = {
-                "post": post,
-                "post_tags": post.tags.all(),
-                "comment_form": CommentForm(),
-                "comments": post.comments.all().order_by('-id'),
-                "saved_for_later": self.is_stored_posts(request, post.id)
-            }
-            return render(request, "blog/post-detail.html", context)
-        except Http404:
-            return render(request, "user1/404.html", {"message": "Post not found."})
-        except Exception as e:
-            # Log the error here if you have logging setup
-            return render(request, "user1/error.html", {"message": "An unexpected error occurred."})
+        # Display a single post details
+        post = get_object_or_404(Post, slug=slug)
+        context = {
+            "post": post,
+            "post_tags": post.tags.all(),
+            "comment_form": CommentForm(),
+            "comments": post.comments.all().order_by('-id'),
+            "saved_for_later": self.is_stored_posts(request, post.id)
+        }
+        return render(request, "blog/post-detail.html", context)
 
 @method_decorator(login_required)
 def post(self, request, slug):
