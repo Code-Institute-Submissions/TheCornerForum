@@ -81,10 +81,6 @@ from .models import UserProfile  # Import the UserProfile model
 
 @login_required
 def user_profile(request):
-    try:
-        profile = request.user.users1_profile
-    except UserProfile.DoesNotExist:
-        return redirect('some_view_to_handle_missing_profile')
     if request.method == 'POST':
         form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.users1_profile)
         if form.is_valid():
