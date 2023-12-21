@@ -30,11 +30,15 @@ class AllPostsView(ListView):
     template_name = "blog/all-posts.html"
     model = Post
     ordering = ['-date']
-    context_object_name = "all_posts"  # Contains all posts for the 'all-posts' page
+    context_object_name = "all_posts"
+
+    def get_queryset(self):
+        queryset = super(AllPostsView, self).get_queryset()
+        print(f"Queryset: {queryset}")
+        return queryset
 
 
 class SinglePostView(View):
-
     def get(self, request, slug):
         try:
             post = get_object_or_404(Post, slug=slug)
@@ -52,7 +56,6 @@ class SinglePostView(View):
             # Log the error here if you have logging setup
             return render(request, "user1/error.html", {"message": "An unexpected error occurred."})
 
-
     @method_decorator(login_required)
     def post(self, request, slug):
         # Handle comment submission for a single post
@@ -64,7 +67,7 @@ class SinglePostView(View):
             comment.post = post
             comment.save()
             return HttpResponseRedirect(reverse("blog:post-detail-page", args=[slug]))
-        # Re-render the page with existing context and the invalid form
+
         context = {
             "post": post,
             "post_tags": post.tags.all(),
@@ -186,11 +189,3 @@ class CartoonView(ListView):
     model = Cartoon
     context_object_name = "cartoons"
 
-
-# def cartoon_detail(request, slug):
-#     cartoon = get_object_or_404(Cartoon, slug=slug)
-#     cartoon_panels = cartoon.panels.all().order_by('order')
-#     return render(request, "blog/cartoon-detail.html", {
-#         "cartoon": cartoon,
-#         "cartoon_panels": cartoon_panels,
-#     })
