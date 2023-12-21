@@ -2,21 +2,11 @@
 {% load static %}
 
 {% block css_files %}
-    {% comment %} <link rel="stylesheet" href="{% static "blog/post.css" %}" /> {% endcomment %}
-    {% comment %} <link rel="stylesheet" href="{% static "blog/all-posts.css" %}" /> {% endcomment %}
     <link rel="stylesheet" href="{% static 'blog/cartoons.css' %}" />
 {% endblock %}
 {% block title %}The Blog Posts{% endblock %}
 
 {% block content %}
-{% comment %} <section id="all-posts">
-    <h2>Archive</h2>
-    <ul>
-        {% for post in all_posts %}
-            {% include "blog/includes/post.html" %}
-        {% endfor %}
-    </ul>
-</section> {% endcomment %}
 <section class="cartoons-list">
     {% for post in posts %}
     <div class="cartoon">
