@@ -7,6 +7,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.utils import timezone
 from .models import DeletedAccountLog
+from .forms import UserProfileForm
 
 
 # Home page (guide)
@@ -63,7 +64,7 @@ def edit_account(request):
     else:
         form = UserChangeForm(instance=request.user)
 
-    return render(request, 'users1/edit_account.html', {'form': form})
+    return render(request, 'users1/profile.html', {'form': form})
 
 
 @login_required
@@ -87,6 +88,19 @@ def delete_account(request):
         logout(request)
         messages.info(request, "Your account has been marked as deleted.")
         # Replace 'home' with the name of your home page URL
-        return redirect('home')
+        return redirect('starting-page')
 
-    return render(request, 'users1/delete_account.html')
+    return render(request, 'users1/profile.html')
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=request.user.users1_profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully.")
+            return redirect('profile')  # Replace with the URL name for the profile page
+    else:
+        form = UserProfileForm(instance=request.user.users1_profile)
+
+    return render(request, 'users1/profile.html', {'form': form})

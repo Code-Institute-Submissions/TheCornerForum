@@ -9,12 +9,25 @@
 {% endblock %}
 
 {% block content %}
-    <h2>User Profile</h2>
-    <form method="post" enctype="multipart/form-data">
+    <h2>Edit Account Details</h2>
+    <!-- User Account Edit Form -->
+    <form method="post" action="{% url 'edit_account' %}">
+        {% csrf_token %}
+        <!-- Include form fields for editing user account here -->
+        <button type="submit">Edit Account</button>
+    </form>
+
+    <hr>
+
+    <h2>Update User Profile</h2>
+    <!-- User Profile Update Form -->
+    <form method="post" action="{% url 'update_profile' %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Update Profile</button>
     </form>
+
+    <hr>
 
     <!-- Display User Profile Information -->
     <div class="user-profile">
@@ -26,5 +39,10 @@
             {% cloudinary user.userprofile.profile_picture format="jpg" %}
         </div>
     </div>
-    
+    <h2>Are you sure you want to delete your account?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Account Deletion</button>
+    </form>
+    <a href="{% url 'users1:profile' %}">Cancel</a>  
 {% endblock content %}
