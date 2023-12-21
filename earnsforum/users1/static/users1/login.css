@@ -115,6 +115,9 @@ input:hover + .helptext {
 
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
+    body {
+        font-size: 16px;
+    }
     #comment-form {
         margin-top: 10%;
         width: 50%;
@@ -139,7 +142,7 @@ input:hover + .helptext {
 
 /* Additional Media Queries for even larger screens */
 @media (min-width: 1024px) {
-    
+
 
     #comment-form {
         max-width: 700px;
