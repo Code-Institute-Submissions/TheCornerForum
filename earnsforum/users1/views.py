@@ -4,8 +4,6 @@ from .forms import UserCreationForm, LoginForm, UserProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import DeletedAccountLog
-from .forms import UserProfileUpdateForm
-from .forms import UserProfileForm
 
 # Home page (guide)
 def index(request):
@@ -70,15 +68,15 @@ def delete_account(request):
 @login_required
 def update_profile(request):
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=request.user.users1_profile)
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully.")
             return redirect('profile')
     else:
-        form = UserProfileForm(instance=request.user.users1_profile)
+        form = UserProfileUpdateForm(instance=request.user.userprofile)
 
-    return render(request, 'users1/profile.html', {'form': form})
+    return render(request, 'users1/profile.html', {'form': form})    
 
 @login_required
 def user_profile(request):
@@ -93,6 +91,7 @@ def user_profile(request):
         form = UserProfileUpdateForm(instance=request.user.userprofile)
 
     return render(request, 'users1/profile.html', {'form': form})
+
 
 @login_required
 def update_user_profile(request):
