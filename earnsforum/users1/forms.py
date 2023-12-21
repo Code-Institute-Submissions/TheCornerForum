@@ -18,9 +18,8 @@ class UserProfileUpdateForm(forms.ModelForm):
         fields = ['profile_picture', 'phone_number', 'bio']
 
     email = forms.EmailField(required=True)
-    first_name = forms.CharField(max_length=30, required=True)
-    last_name = forms.CharField(max_length=30, required=True)
-    password = forms.CharField(widget=forms.PasswordInput(), required=True)
+    first_name = forms.CharField(max_length=30, required=False)
+    last_name = forms.CharField(max_length=30, required=False)
     about = forms.CharField(widget=forms.Textarea, required=False)
 
     def __init__(self, *args, **kwargs):
@@ -36,10 +35,9 @@ class UserProfileUpdateForm(forms.ModelForm):
         user.email = self.cleaned_data['email']
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
-        user.set_password(self.cleaned_data['password'])  # Update password
-        user.save()
 
         if commit:
+            user.save()
             user_profile.save()
 
         return user_profile
