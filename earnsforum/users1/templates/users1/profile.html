@@ -1,5 +1,12 @@
-{% extends 'base.html' %} {% load static %} {% load cloudinary %} {% block title
-%}User Profile{% endblock %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% load cloudinary %}
+
+{% block title %}
+User Profile
+{% endblock %}
+
+{% block content %}
 <h2>Profile Information</h2>
 <div class="user-profile">
   <h3>{{ user.username }}</h3>
@@ -7,13 +14,18 @@
   <p><strong>Phone:</strong> {{ user.userprofile.phone_number }}</p>
   <p><strong>About Me:</strong> {{ user.userprofile.bio }}</p>
   <div class="profile-picture">
-    {% cloudinary user.userprofile.profile_picture format="jpg" %}
+    {% if user.userprofile.profile_picture %}
+        {% cloudinary user.userprofile.profile_picture format="jpg" %}
+    {% else %}
+        <p>No profile picture</p>
+    {% endif %}
   </div>
 </div>
 
 <h2>Update Profile</h2>
 <form method="post" enctype="multipart/form-data">
-  {% csrf_token %} {{ form.as_p }}
+  {% csrf_token %}
+  {{ form.as_p }}
   <button type="submit">Update</button>
 </form>
 
@@ -21,7 +33,7 @@
 
 <!-- Delete Account Section -->
 <h2>Delete Account</h2>
-<form method="post" action="{% url 'users1:profile' %}">
+<form method="post" action="{% url 'users1:delete_account' %}"> <!-- Ensure the URL name is correct -->
   {% csrf_token %}
   <button type="submit">Delete My Account</button>
 </form>
