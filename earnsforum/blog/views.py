@@ -39,6 +39,7 @@ class AllPostsView(ListView):
 
 
 class SinglePostView(View):
+    template_name = "blog/post-detail.html"
 
     def get(self, request, slug):
         try:
