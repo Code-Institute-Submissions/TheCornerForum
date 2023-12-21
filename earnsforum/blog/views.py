@@ -39,6 +39,7 @@ class AllPostsView(ListView):
 
 
 class SinglePostView(View):
+
     def get(self, request, slug):
         try:
             post = get_object_or_404(Post, slug=slug)
