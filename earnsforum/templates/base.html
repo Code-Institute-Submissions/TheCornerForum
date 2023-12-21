@@ -24,11 +24,11 @@
         <a href="{% url 'users1:logout' %}">Logout</a>
         <a href="{% url 'blog:read-later' %}">Saved</a>
         <a href="{% url 'blog:cartoons-page' %}">Comics</a>
+        <a href="{% url 'blog:posts-page' %}">Articles</a>
         {% else %}
         <a href="{% url 'users1:login' %}">Login</a>
         <a href="{% url 'users1:signup' %}">Signup</a>
         {% endif %}
-        <a href="{% url 'blog:posts-page' %}">Articles</a>
       </nav>
     </header>
 
