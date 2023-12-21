@@ -1,47 +1,28 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load cloudinary %}
+{% extends 'base.html' %} {% load static %} {% load cloudinary %} {% block title
+%}User Profile{% endblock %} {% block content %}
+<h2>Profile Information</h2>
+<div class="user-profile">
+  <h3>{{ user.username }}</h3>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Phone:</strong> {{ user.userprofile.phone_number }}</p>
+  <p><strong>About Me:</strong> {{ user.userprofile.bio }}</p>
+  <div class="profile-picture">
+    {% cloudinary user.userprofile.profile_picture format="jpg" %}
+  </div>
+</div>
 
-{% block title %}User Profile{% endblock %}
+<h2>Update Profile</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Update</button>
+</form>
 
-{% block content %}
-    <h2>Edit Account Details</h2>
-    <!-- User Account Edit Form -->
-    <form method="post" action="{% url 'users1:edit_account' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Edit Account</button>
-    </form>
+<hr />
 
-    <hr>
-
-    <h2>Update User Profile</h2>
-    <!-- User Profile Update Form -->
-    <form method="post" action="{% url 'users1:update_profile' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update Profile</button>
-    </form>
-
-    <hr>
-
-    <!-- Display User Profile Information -->
-    <div class="user-profile">
-        <h3>{{ user.username }}</h3>
-        <p><strong>Email:</strong> {{ user.email }}</p>
-        <p><strong>Phone:</strong> {{ user.userprofile.phone_number }}</p>
-        <p><strong>About Me:</strong> {{ user.userprofile.bio }}</p>
-        <div class="profile-picture">
-            {% cloudinary user.userprofile.profile_picture format="jpg" %}
-        </div>
-    </div>
-
-    <hr>
-
-    <!-- Delete Account Section -->
-    <h2>Delete Account</h2>
-    <form method="post" action="{% url 'users1:delete_account' %}">
-        {% csrf_token %}
-        <button type="submit">Delete My Account</button>
-    </form>
+<!-- Delete Account Section -->
+<h2>Delete Account</h2>
+<form method="post" action="{% url 'users1:profile' %}">
+  {% csrf_token %}
+  <button type="submit">Delete My Account</button>
+</form>
 {% endblock %}

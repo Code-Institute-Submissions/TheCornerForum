@@ -53,7 +53,7 @@ def edit_account(request):
             return redirect('users1:profile')
     else:
         form = UserProfileUpdateForm(instance=request.user.userprofile)
-    return render(request, 'users1/edit_account.html', {'form': form})
+    return render(request, 'users1/profile.html', {'form': form})
 
 @login_required
 def delete_account(request):
@@ -65,7 +65,7 @@ def delete_account(request):
         logout(request)
         messages.info(request, "Your account has been marked as deleted.")
         return redirect('starting-page')
-    return render(request, 'users1/delete_account.html')
+    return render(request, 'users1/profile.html')
 
 @login_required
 def update_profile(request):
@@ -82,12 +82,9 @@ def update_profile(request):
 
 @login_required
 def user_profile(request):
-    return render(request, 'users1/profile.html')
-
-@login_required
-def update_user_profile(request):
     if request.method == 'POST':
         form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
+
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully.')
@@ -95,4 +92,20 @@ def update_user_profile(request):
     else:
         form = UserProfileUpdateForm(instance=request.user.userprofile)
 
-    return render(request, 'users1/profile_update.html', {'form': form})
+    return render(request, 'users1/profile.html', {'form': form})
+
+@login_required
+def update_user_profile(request):
+    if not request.user.is_superuser:
+        if request.method == 'POST':
+            form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Profile updated successfully.')
+                return redirect('profile')
+        else:
+            form = UserProfileUpdateForm(instance=request.user.userprofile)
+    else:
+        messages.error(request, 'Superusers cannot use this form.')
+        form = None
+    return render(request, 'users1/profile.html', {'form': form})
