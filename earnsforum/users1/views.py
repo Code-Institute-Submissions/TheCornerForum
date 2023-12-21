@@ -81,14 +81,8 @@ def update_profile(request):
 
 @login_required
 def user_profile(request):
-    profile, created = UserProfile.objects.update_or_create(
-        user=request.user,
-        defaults={
-            'phone_number': request.POST.get('phone_number', profile.phone_number),
-            'bio': request.POST.get('bio', profile.bio),
-            'profile_picture': request.FILES.get('profile_picture', profile.profile_picture),
-        }
-    )
+    # Get the user's existing profile or create a new one if it doesn't exist
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
         form = UserProfileUpdateForm(request.POST, request.FILES, instance=profile)
