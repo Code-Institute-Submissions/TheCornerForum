@@ -77,7 +77,6 @@ def update_profile(request):
         form = UserProfileUpdateForm(instance=request.user.users1_profile)
     return render(request, 'users1/profile.html', {'form': form})    
 
-from .models import UserProfile  # Import the UserProfile model
 
 @login_required
 def user_profile(request):
