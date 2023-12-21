@@ -4,14 +4,10 @@
 
 {% block title %}User Profile{% endblock %}
 
-{% block css_files %}
-    <link rel="stylesheet" href="{% static "users1/profile.css" %}" />
-{% endblock %}
-
 {% block content %}
     <h2>Edit Account Details</h2>
     <!-- User Account Edit Form -->
-    <form method="post" action="{% url 'edit_account' %}">
+    <form method="post" action="{% url 'users1:edit_account' %}">
         {% csrf_token %}
         <!-- Include form fields for editing user account here -->
         <button type="submit">Edit Account</button>
@@ -21,9 +17,9 @@
 
     <h2>Update User Profile</h2>
     <!-- User Profile Update Form -->
-    <form method="post" action="{% url 'update_profile' %}" enctype="multipart/form-data">
+    <form method="post" action="{% url 'users1:update_profile' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ profile_form.as_p }}
         <button type="submit">Update Profile</button>
     </form>
 
@@ -31,7 +27,7 @@
 
     <!-- Display User Profile Information -->
     <div class="user-profile">
-        <h3>{{ user.get_full_name }}</h3>
+        <h3>{{ user.username }}</h3>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Phone:</strong> {{ user.userprofile.phone_number }}</p>
         <p><strong>About Me:</strong> {{ user.userprofile.bio }}</p>
@@ -39,10 +35,13 @@
             {% cloudinary user.userprofile.profile_picture format="jpg" %}
         </div>
     </div>
-    <h2>Are you sure you want to delete your account?</h2>
-    <form method="post">
+
+    <hr>
+
+    <!-- Delete Account Section -->
+    <h2>Delete Account</h2>
+    <form method="post" action="{% url 'users1:delete_account' %}">
         {% csrf_token %}
-        <button type="submit">Confirm Account Deletion</button>
+        <button type="submit">Delete My Account</button>
     </form>
-    <a href="{% url 'users1:profile' %}">Cancel</a>  
-{% endblock content %}
+{% endblock %}
