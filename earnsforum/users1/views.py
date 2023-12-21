@@ -44,19 +44,19 @@ def user_logout(request):
 @login_required
 def edit_account(request):
     if request.method == 'POST':
-        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.users1_profile)
         if form.is_valid():
             form.save()
             messages.success(request, "Account updated successfully.")
             return redirect('users1:profile')
     else:
-        form = UserProfileUpdateForm(instance=request.user.userprofile)
+        form = UserProfileUpdateForm(instance=request.user.users1_profile)
     return render(request, 'users1/profile.html', {'form': form})
 
 @login_required
 def delete_account(request):
     if request.method == 'POST':
-        profile = request.user.userprofile
+        profile = request.user.users1_profile
         profile.is_deleted = True
         profile.save()
         DeletedAccountLog.objects.create(user_id=request.user.id)
@@ -68,28 +68,31 @@ def delete_account(request):
 @login_required
 def update_profile(request):
     if request.method == 'POST':
-        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.users1_profile)
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully.")
             return redirect('profile')
     else:
-        form = UserProfileUpdateForm(instance=request.user.userprofile)
-
+        form = UserProfileUpdateForm(instance=request.user.users1_profile)
     return render(request, 'users1/profile.html', {'form': form})    
+
+from .models import UserProfile  # Import the UserProfile model
 
 @login_required
 def user_profile(request):
+    try:
+        profile = request.user.users1_profile
+    except UserProfile.DoesNotExist:
+        return redirect('some_view_to_handle_missing_profile')
     if request.method == 'POST':
-        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
-
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.users1_profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully.')
             return redirect('profile')
     else:
-        form = UserProfileUpdateForm(instance=request.user.userprofile)
-
+        form = UserProfileUpdateForm(instance=request.user.users1_profile)
     return render(request, 'users1/profile.html', {'form': form})
 
 
@@ -97,13 +100,13 @@ def user_profile(request):
 def update_user_profile(request):
     if not request.user.is_superuser:
         if request.method == 'POST':
-            form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
+            form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.users1_profile)
             if form.is_valid():
                 form.save()
                 messages.success(request, 'Profile updated successfully.')
                 return redirect('profile')
         else:
-            form = UserProfileUpdateForm(instance=request.user.userprofile)
+            form = UserProfileUpdateForm(instance=request.user.users1_profile)
     else:
         messages.error(request, 'Superusers cannot use this form.')
         form = None
