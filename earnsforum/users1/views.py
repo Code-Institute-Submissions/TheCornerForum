@@ -69,15 +69,15 @@ def delete_account(request):
 @login_required
 def update_profile(request):
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+        form = UserProfileForm(request.POST, request.FILES, instance=request.user.users1_profile)
         if form.is_valid():
             form.save()
             messages.success(request, "Profile updated successfully.")
-            return redirect('users1:profile')
+            return redirect('profile')
     else:
-        form = UserProfileForm(instance=request.user.userprofile)
+        form = UserProfileForm(instance=request.user.users1_profile)
 
-    return render(request, 'users1/profile.html', {'profile_form': form})
+    return render(request, 'users1/profile.html', {'form': form})
 
 @login_required
 def user_profile(request):

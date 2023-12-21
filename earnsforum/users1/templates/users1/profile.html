@@ -19,7 +19,7 @@
     <!-- User Profile Update Form -->
     <form method="post" action="{% url 'users1:update_profile' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ profile_form.as_p }}
+        {{ form.as_p }}
         <button type="submit">Update Profile</button>
     </form>
 
