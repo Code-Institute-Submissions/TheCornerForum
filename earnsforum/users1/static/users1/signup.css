@@ -113,9 +113,12 @@ form button:hover {
 
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
     #comment-form {
-        margin-top: 10%;
-        width: 50%;
+        margin: 2.5rem auto;
         max-width: 600px;
     }
 
@@ -126,8 +129,12 @@ form button:hover {
     form input[type="text"],
     form input[type="password"],
     form button {
-        padding: 15px;
-        font-size: 1.2rem;
+        margin: 0.8rem auto;
+        font-size: 16px;
+        max-width: 30rem;
+        font-weight: 900;
+        letter-spacing: 1px;
+        padding: 20px 30px;
     }
 }
 
