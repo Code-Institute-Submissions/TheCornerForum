@@ -9,7 +9,7 @@
     <!-- User Account Edit Form -->
     <form method="post" action="{% url 'users1:edit_account' %}">
         {% csrf_token %}
-        <!-- Include form fields for editing user account here -->
+        {{ form.as_p }}
         <button type="submit">Edit Account</button>
     </form>
 

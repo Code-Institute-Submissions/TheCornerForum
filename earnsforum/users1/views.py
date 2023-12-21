@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import UserProfile, DeletedAccountLog
+from .forms import UserProfileUpdateForm
 
 # Home page (guide)
 def index(request):
@@ -45,13 +46,13 @@ def user_logout(request):
 @login_required
 def edit_account(request):
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=request.user)
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
         if form.is_valid():
             form.save()
             messages.success(request, "Account updated successfully.")
             return redirect('users1:profile')
     else:
-        form = UserChangeForm(instance=request.user)
+        form = UserProfileUpdateForm(instance=request.user.userprofile)
     return render(request, 'users1/edit_account.html', {'form': form})
 
 @login_required
@@ -82,3 +83,16 @@ def update_profile(request):
 @login_required
 def user_profile(request):
     return render(request, 'users1/profile.html')
+
+@login_required
+def update_user_profile(request):
+    if request.method == 'POST':
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully.')
+            return redirect('profile')
+    else:
+        form = UserProfileUpdateForm(instance=request.user.userprofile)
+
+    return render(request, 'users1/profile_update.html', {'form': form})
