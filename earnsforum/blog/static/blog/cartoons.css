@@ -114,11 +114,34 @@ body {
 }
 
 
-
+/* WRITE IT BETTER *//*
 @media only screen and (max-width: 768px) and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
-  /* Add your media query styles here if needed */
-}
+  /* Add your media query styles here if needed */ /*
+} */
 
-@media only screen and (min-width: 769px) {
-  /* Add your media query styles here if needed */
-}
+@media only screen and (min-width: 768px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  .cartoon h2 {
+    font-size: 26px;
+  }
+
+  .cartoon {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #read-later button {
+    font-size: 16px;
+    max-width: 30rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 20px 30px;
+  }
+
+
+
+  }
