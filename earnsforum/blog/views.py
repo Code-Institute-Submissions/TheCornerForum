@@ -80,13 +80,25 @@ def is_stored_posts(self, request, post_id):
     return post_id in stored_posts if stored_posts else False
 
 @method_decorator(login_required)
-def add_comment_to_post(request, comment_id):
-    comment = get_object_or_404(Comment, pk=comment_id, user=request.user)
+def add_comment_to_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
     if request.method == "POST":
-        comment.text = request.POST.get("text")
-        comment.save()
-        return redirect("blog:post-detail-page", slug=comment.post.slug)
-    return render(request, "blog/add_comment_to_post.html", {"comment": comment})
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.user = request.user
+            new_comment.post = post
+            new_comment.save()
+            return redirect("blog:post-detail-page", slug=post.slug)
+    else:
+        comment_form = CommentForm()
+
+    return render(request, "blog/post_detail.html", {
+        "post": post,
+        "comment_form": comment_form,
+        "comments": post.comments.all()
+    })
 
 
 @login_required
