@@ -20,7 +20,6 @@ class UserProfileUpdateForm(forms.ModelForm):
     email = forms.EmailField(required=True)
     first_name = forms.CharField(max_length=30, required=False)
     last_name = forms.CharField(max_length=30, required=False)
-    about = forms.CharField(widget=forms.Textarea, required=False)
 
     def __init__(self, *args, **kwargs):
         super(UserProfileUpdateForm, self).__init__(*args, **kwargs)
