@@ -83,7 +83,11 @@ from .models import UserProfile  # Import the UserProfile model
 def user_profile(request):
     profile, created = UserProfile.objects.update_or_create(
         user=request.user,
-        defaults={...}  # Add necessary default values here
+        defaults={
+            'phone_number': request.POST.get('phone_number', profile.phone_number),
+            'bio': request.POST.get('bio', profile.bio),
+            'profile_picture': request.FILES.get('profile_picture', profile.profile_picture),
+        }
     )
 
     if request.method == 'POST':
