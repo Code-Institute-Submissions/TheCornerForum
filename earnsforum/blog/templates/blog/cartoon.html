@@ -34,7 +34,7 @@
         </button>
       </form>
       {% else %}
-      <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save Stories</a>
+        <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save Stories</a>
       {% endif %}
     </div>
   </div>

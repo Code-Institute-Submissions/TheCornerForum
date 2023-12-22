@@ -182,29 +182,22 @@ class ReadLaterView(LoginRequiredMixin, View):
 
         content_type = request.POST.get("content_type")
         content_id = request.POST.get("content_id")
-        is_saved = False  # Default state is not saved
 
-        # Check if it's a post or cartoon and add/remove from saved content
+        # Logic to save or remove content based on type
         if content_type == "post":
             post = get_object_or_404(Post, pk=content_id)
             if post in saved_content.posts.all():
                 saved_content.posts.remove(post)
             else:
                 saved_content.posts.add(post)
-                is_saved = True  # Set to true if saved
         elif content_type == "cartoon":
             cartoon = get_object_or_404(Cartoon, pk=content_id)
             if cartoon in saved_content.cartoons.all():
                 saved_content.cartoons.remove(cartoon)
             else:
                 saved_content.cartoons.add(cartoon)
-                is_saved = True  # Set to true if saved
 
-        # If the request is AJAX, return JsonResponse
-        if request.is_ajax():
-            return JsonResponse({'saved': is_saved})
-        
-        # If not AJAX, redirect as normal
+        # Redirect back to the referring page
         return redirect(request.POST.get('next', '/'))
 
     # def post(self, request):
