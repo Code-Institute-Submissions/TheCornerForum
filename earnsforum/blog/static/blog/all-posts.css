@@ -74,7 +74,7 @@ li {
     box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
-#read-later ul a button {
+#read-later button {
     text-decoration: none;
     background-color: var(--accent-color); /* Button background color */
     color: var(--secondary-color); /* Button text color */
