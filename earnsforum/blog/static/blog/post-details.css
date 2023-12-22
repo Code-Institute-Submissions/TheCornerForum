@@ -87,6 +87,7 @@ main {
     display: flex;
     align-content: stretch;
     justify-content: space-between;
+    padding-left: 1rem;
 
 }
 
@@ -105,6 +106,7 @@ main {
         display: flex;
         align-content: stretch;
         justify-content: space-between;
+        padding-left: 1rem;
 }
 
 #summary article {
@@ -171,6 +173,8 @@ main {
     transition: transform 0.3s ease;
     width: 100%;
     margin: 5px 0 5px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .article-content {
@@ -289,36 +293,32 @@ main {
 /* ... other styles ... */
 
 /* Media Queries */
-@media only screen and (max-width: 768px) {
-    /* Styles for smaller devices */
-}
-
-@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
-    /* Styles specific for Galaxy Fold */
+@media (min-width: 604px) {
+    /* Styles for tablets */
     body {
-        padding-top: 5rem; /* Space for the fixed header */
+        font-size: 16px;
     }
-    main,
-    #summary,
-    #comment-form,
-    #comments {
-        width: 100%;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+
+    .article-post-content {
+        width: 80%;
+        margin-top: 20%;
+        padding: 1.4rem;
     }
+
     #summary {
-        height: auto;
-        padding: 1rem;
+        padding: 1.4rem;
     }
-    #summary article img {
-        width: 100%;
-        max-width: 250px; /* Adjust this value as needed */
+
+    #summary h2 {
+        padding: 0 1rem;
     }
+
+
 }
 
-@media only screen and (min-width: 769px) {
-    /* Styles for larger screens */
-    main {
-        width: 70%;
-    }
+
+
+@media (min-width: 1024px) {
+    /* Styles for desktops */
+    
 }
