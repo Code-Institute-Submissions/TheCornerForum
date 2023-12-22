@@ -90,6 +90,7 @@ li {
     text-align: center;
     font-weight: bold;
     display: block;
+    width: 100%;
 }
 
 /* Media Queries for larger screens */
