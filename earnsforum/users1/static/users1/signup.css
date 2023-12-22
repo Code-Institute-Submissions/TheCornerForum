@@ -38,6 +38,11 @@ body {
     text-transform: uppercase;
 }
 
+#comment-form p {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Help Text for Input */
 #comment-form input:hover + ul,
 #comment-form input:focus + ul {
