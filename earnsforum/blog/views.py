@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.utils.decorators import method_decorator
@@ -173,29 +174,61 @@ class ReadLaterView(LoginRequiredMixin, View):
             "has_contents": bool(posts or cartoons)
         }
         return render(request, "blog/stored-posts.html", context)
-
+    
     def post(self, request):
         # Get user's UserProfile and associated SavedContent
-        user_profile = UserProfile.objects.get(user=request.user)
-        saved_content = user_profile.saved_content
+        user_profile, _ = UserProfile.objects.get_or_create(user=request.user)
+        saved_content, _ = SavedContent.objects.get_or_create(user_profile=user_profile)
 
         content_type = request.POST.get("content_type")
         content_id = request.POST.get("content_id")
+        is_saved = False  # Default state is not saved
 
+        # Check if it's a post or cartoon and add/remove from saved content
         if content_type == "post":
             post = get_object_or_404(Post, pk=content_id)
             if post in saved_content.posts.all():
                 saved_content.posts.remove(post)
             else:
                 saved_content.posts.add(post)
+                is_saved = True  # Set to true if saved
         elif content_type == "cartoon":
             cartoon = get_object_or_404(Cartoon, pk=content_id)
             if cartoon in saved_content.cartoons.all():
                 saved_content.cartoons.remove(cartoon)
             else:
                 saved_content.cartoons.add(cartoon)
+                is_saved = True  # Set to true if saved
 
+        # If the request is AJAX, return JsonResponse
+        if request.is_ajax():
+            return JsonResponse({'saved': is_saved})
+        
+        # If not AJAX, redirect as normal
         return redirect(request.POST.get('next', '/'))
+
+    # def post(self, request):
+    #     # Get user's UserProfile and associated SavedContent
+    #     user_profile = UserProfile.objects.get(user=request.user)
+    #     saved_content = user_profile.saved_content
+
+    #     content_type = request.POST.get("content_type")
+    #     content_id = request.POST.get("content_id")
+
+    #     if content_type == "post":
+    #         post = get_object_or_404(Post, pk=content_id)
+    #         if post in saved_content.posts.all():
+    #             saved_content.posts.remove(post)
+    #         else:
+    #             saved_content.posts.add(post)
+    #     elif content_type == "cartoon":
+    #         cartoon = get_object_or_404(Cartoon, pk=content_id)
+    #         if cartoon in saved_content.cartoons.all():
+    #             saved_content.cartoons.remove(cartoon)
+    #         else:
+    #             saved_content.cartoons.add(cartoon)
+
+    #     return redirect(request.POST.get('next', '/'))
 
 
 class CartoonDetailView(View):

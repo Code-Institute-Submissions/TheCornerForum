@@ -279,6 +279,13 @@ main {
 .comments-content p {
     text-align: center;
 }
+
+.saved-article-style {
+    /* Example styles for the 'Saved Article' state */
+    background-color: var(--accent-color); /* Light green background for saved state */
+    color: var(--primary-color); /* Dark green text for saved state */
+    /* Add any other styling you want for the saved state here */
+  }
 /* ... other styles ... */
 
 /* Media Queries */

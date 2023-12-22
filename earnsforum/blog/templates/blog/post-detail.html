@@ -100,12 +100,61 @@
 {% endif %}
 
 <script>
+  // Code for handling the display of the edit comment form
   document.querySelectorAll('.edit-comment-button').forEach(button => {
-      button.addEventListener('click', function() {
-          var commentId = this.getAttribute('data-comment-id');
-          var form = document.getElementById('edit-comment-form-' + commentId);
-          form.style.display = 'block';
-      });
+    button.addEventListener('click', function() {
+      var commentId = this.getAttribute('data-comment-id');
+      var form = document.getElementById('edit-comment-form-' + commentId);
+      form.style.display = 'block';
+    });
+  });
+
+  // Ensure the DOM is fully loaded before attaching event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    var readLaterForm = document.querySelector('#read-later form');
+    var readLaterButton = readLaterForm.querySelector('button[type="submit"]');
+
+    // Event listener for the read-later form submission
+    readLaterForm.onsubmit = function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', readLaterForm.action, true);
+      xhr.setRequestHeader('X-CSRFToken', readLaterForm.querySelector('[name=csrfmiddlewaretoken]').value);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      // Prepare the data from the form for sending
+      var formData = new FormData(readLaterForm);
+
+      // Handle the response from the server
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          // Parse the JSON response
+          var response = JSON.parse(xhr.responseText);
+          if (response.saved) {
+            readLaterButton.textContent = 'Remove from Saved Articles';
+            readLaterButton.classList.add('saved');
+          } else {
+            readLaterButton.textContent = 'Save Article';
+            readLaterButton.classList.remove('saved');
+          }
+        } else {
+          // Handle errors here
+          alert('An error occurred!');
+        }
+      };
+
+      // Convert FormData to URL encoded string
+      var urlEncodedData = "";
+      var urlEncodedDataPairs = [];
+      for(var pair of formData.entries()) {
+         urlEncodedDataPairs.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
+      }
+      urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+
+      // Send the form data
+      xhr.send(urlEncodedData);
+    };
   });
 </script>
 {% endblock %}
