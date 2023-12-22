@@ -74,6 +74,24 @@ li {
     box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
+#read-later ul a {
+    text-decoration: none;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+}
+
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
     #main-navigation {
