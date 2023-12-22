@@ -360,6 +360,32 @@ main {
         padding: 0 1rem;
     }
 
+    .comment-section h2 {
+        font-size: 30px;
+    }
+
+    #comment-form p {
+        max-width: 30rem;
+    }
+
+    #comment-form button {
+        max-width: 30rem;
+    }
+    
+    .comment {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+    }
+
+    .comment button, .comment a {
+        max-width: 30rem;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin: 10px 0;
+        width: 80%;
+    }
+
 
 }
 
@@ -390,30 +416,7 @@ main {
         padding 0 20rem;
     }
 
-    .comment-section h2 {
-        font-size: 30px;
-    }
-
-    #comment-form p {
-        max-width: 30rem;
-    }
-
-    #comment-form button {
-        max-width: 30rem;
-    }
     
-    .comment {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-    }
-
-    .comment button, .comment a {
-        max-width: 30rem;
-        border-radius: 8px;
-        padding: 10px 20px;
-        margin: 10px 0;
-        width: 80%;
-    }
     
 
 }
