@@ -19,6 +19,15 @@
       <span class="tag">{{ tag.caption }}</span>
       {% endfor %}
     </div>
+    <article>
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+      <address>
+        By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a>
+      </address>
+      <div class="last-updated">
+        Last updated on <time>{{ post.date|date:"d M Y" }}</time>
+      </div>
+    </article>
     <div id="read-later">
       {% if user.is_authenticated %}
         <form action="{% url 'blog:read-later' %}" method="POST">
@@ -38,16 +47,6 @@
           <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save articles</a>
         {% endif %}
     </div>
-
-    <article>
-      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-      <address>
-        By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a>
-      </address>
-      <div class="last-updated">
-        Last updated on <time>{{ post.date|date:"d M Y" }}</time>
-      </div>
-    </article>
   </section>
   <main>
     <div class="article-content">{{ post.content|linebreaks}}</div>
