@@ -17,4 +17,3 @@ urlpatterns = [
     path('delete_comment/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     path('save_post/<int:post_id>/', views.save_post, name='save_post'),
 ]
-
