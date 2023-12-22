@@ -21,14 +21,14 @@
         <input type="hidden" name="next" value="{{ request.path }}" />
         <button type="submit">
           {% if cartoon in user.userprofile.saved_content.cartoons.all %}
-            Remove from Saved Cartoons
+            Remove from Saved Stories
           {% else %}
-            Save Cartoon
+            Save Stories
           {% endif %}
         </button>
       </form>
       {% else %}
-      <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save cartoons</a>
+      <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save Stories</a>
       {% endif %}
     </div>
 

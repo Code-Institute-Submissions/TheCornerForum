@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'blog/cartoons.css' %}" />
 {% endblock %}
 
-{% block title %}Cartoons{% endblock %}
+{% block title %}Stories{% endblock %}
 
 {% block content %}
 <div class="cartoons-list">
@@ -27,14 +27,14 @@
         <input type="hidden" name="next" value="{{ request.path }}" />
         <button type="submit">
           {% if cartoon in user.userprofile.saved_content.cartoons.all %}
-            Remove from Saved Cartoons
+            Remove from Saved Stories
           {% else %}
-            Save Cartoon
+            Save Storie
           {% endif %}
         </button>
       </form>
       {% else %}
-      <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save cartoons</a>
+      <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save Stories</a>
       {% endif %}
     </div>
   </div>

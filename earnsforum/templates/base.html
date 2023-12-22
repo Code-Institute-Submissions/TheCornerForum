@@ -23,7 +23,7 @@
         <span>{{ request.user.username }}!</span>
         <a href="{% url 'users1:logout' %}">Logout</a>
         <a href="{% url 'blog:read-later' %}">Saved</a>
-        <a href="{% url 'blog:cartoons-page' %}">Comics</a>
+        <a href="{% url 'blog:cartoons-page' %}">Stories</a>
         <a href="{% url 'blog:posts-page' %}">Articles</a>
         <a href="{% url 'users1:profile' %}">Profile</a>
         {% else %}
