@@ -221,4 +221,3 @@ class CartoonView(ListView):
     template_name = "blog/cartoon.html"
     model = Cartoon
     context_object_name = "cartoons"
-
