@@ -31,8 +31,19 @@ def user_login(request):
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
             if user:
+                # Check if user profile is marked as deleted
+                try:
+                    if user.users1_profile.is_deleted:
+                        messages.error(request, "This account has been deleted.")
+                        return redirect('users1:login')
+                except UserProfile.DoesNotExist:
+                    # Handle case where UserProfile does not exist
+                    pass
+
                 login(request, user)
                 return redirect(next_page)
+            else:
+                messages.error(request, "Invalid username or password.")
     else:
         form = LoginForm()
     return render(request, 'users1/login.html', {'form': form})
