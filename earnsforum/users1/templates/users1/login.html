@@ -8,6 +8,15 @@
 {% endblock %}
 
 {% block content %}
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
 <section id="comment-form">
     <h1>Login</h1>
     <form method="POST">
