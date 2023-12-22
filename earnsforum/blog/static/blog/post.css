@@ -38,7 +38,7 @@ body {
     transition: all 0.2s ease;
     padding: 0.5rem;
     display: block;
-    background-color: var(--light-color); /* Light background for the link */
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 .post a:hover,
@@ -53,7 +53,7 @@ body {
     max-width: 80%;
     height: auto;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 12px;
     box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 

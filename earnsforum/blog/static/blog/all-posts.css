@@ -68,10 +68,10 @@ li {
 
 .post a {
     display: block;
-    background-color: var(--light-color);
     overflow: hidden;
     text-decoration: none;
     color: var(--secondary-color);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 /* Media Queries for larger screens */
