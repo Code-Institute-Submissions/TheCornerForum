@@ -104,7 +104,7 @@ li {
 }
 
 /* Additional Media Queries for even larger screens */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     #all-posts {
         max-width: 60rem;
     }

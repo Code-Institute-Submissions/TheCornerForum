@@ -53,6 +53,12 @@ body {
     background-color: var(--secondary-color);
    */
 
+.stored-content {
+    margin-top: 100px;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
 .saved-posts {
     margin: 2rem auto;
     padding: 1rem;
@@ -145,26 +151,50 @@ body {
 
 /* Media Queries */
 @media (min-width: 600px) {
-    #stored-posts {
-        max-width: 60rem;
+
+    body {
+        font-size: 16px;
     }
 
-    #stored-posts a {
-        font-size: 1.2rem;
+    #stored-content h2 {
+        font-size: 30px;
+        font-weight: bold;
     }
+
+    .saved-posts ul {
+        font-weight: bold;
+
+    }
+
+    .saved-cartoons ul a {
+        margin: 20px 10px;
+    }
+
+
+
 }
 
-@media (min-width: 768px) {
-    #stored-posts {
+@media (min-width: 1024px) {
+    #stored-content {
         padding: 3rem;
         margin-top: 10rem;
     }
+
+    #stored-content h2 {
+        font-size: 36px;
+    }
+
+
+
+
+
+
 }
 
-/* Media Queries for Galaxy Fold */
+/* Media Queries for Galaxy Fold */ /*
 @media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
     #stored-posts {
         margin: 6rem auto;
         padding: 1rem;
     }
-}
+}  */
