@@ -1,31 +1,31 @@
 
 <li>
-    <a href="{% url 'blog:post-detail-page' post.slug %}">
-        <article class="post">
+    <article class="post">
+        <a href="{% url 'blog:post-detail-page' post.slug %}">
             <img src="{{ post.image.url }}" alt="{{ post.title }}">
             <div class="post__content">
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.excerpt }}</p>
             </div>
-        </article>
+        </a>
         <div id="read-later">
             {% if user.is_authenticated %}
-              <form action="{% url 'blog:read-later' %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="content_id" value="{{ post.id }}" />
-                <input type="hidden" name="content_type" value="post" />
-                <input type="hidden" name="next" value="{{ request.path }}" />
-                <button type="submit">
-                  {% if post in user.userprofile.saved_content.posts.all %}
-                    Remove from Saved Articles
-                  {% else %}
-                    Save Article
-                  {% endif %}
-                </button>
-              </form>
-              {% else %}
+                <form action="{% url 'blog:read-later' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="content_id" value="{{ post.id }}" />
+                    <input type="hidden" name="content_type" value="post" />
+                    <input type="hidden" name="next" value="{{ request.path }}" />
+                    <button type="submit">
+                        {% if post in user.userprofile.saved_content.posts.all %}
+                            Remove from Saved Articles
+                        {% else %}
+                            Save Article
+                        {% endif %}
+                    </button>
+                </form>
+            {% else %}
                 <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save articles</a>
-              {% endif %}
-          </div>
-    </a>
+            {% endif %}
+        </div>
+    </article>
 </li>
