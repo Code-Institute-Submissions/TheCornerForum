@@ -33,7 +33,7 @@ def user_login(request):
             if user:
                 # Check if user profile is marked as deleted
                 try:
-                    if user.users1_profile.is_deleted:
+                    if user.userprofile.is_deleted:
                         messages.error(request, "This account has been deleted.")
                         return redirect('users1:login')
                 except UserProfile.DoesNotExist:
