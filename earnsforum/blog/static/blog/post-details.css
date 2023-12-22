@@ -289,7 +289,7 @@ main {
     text-align: center;
 }
 
-.#comment-form button {
+#comment-form button {
     text-decoration: none;
     margin: 0;
     background-color: var(--accent-color); /* Button background color */
@@ -411,11 +411,11 @@ main {
     }
 
     #summary address {
-        padding 0 20rem;
+        padding: 0 20rem;
     }
 
     summary time {
-        padding 0 20rem;
+        padding: 0 20rem;
     }
 
     
