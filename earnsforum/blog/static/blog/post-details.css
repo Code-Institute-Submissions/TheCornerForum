@@ -258,13 +258,15 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #000;
+    color: var(--text-color);
 }
 
 #comments ul {
     list-style: none;
     width: 100%;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .comments-content {
@@ -306,6 +308,25 @@ main {
     font-weight: bold;
 }
 
+.comment button, .comment a {
+    text-decoration: none;
+    margin: 0;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
+}
+
 .saved-article-style {
     /* Example styles for the 'Saved Article' state */
     background-color: var(--accent-color); /* Light green background for saved state */
@@ -316,7 +337,7 @@ main {
 main {
     max-width: 60rem;
 }
-/* ... other styles ... */
+
 
 /* Media Queries */
 @media (min-width: 604px) {
@@ -380,5 +401,19 @@ main {
     #comment-form button {
         max-width: 30rem;
     }
+    
+    .comment {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .comment button, .comment a {
+        max-width: 30rem;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin: 10px 0;
+        width: 80%;
+    }
+    
 
 }
