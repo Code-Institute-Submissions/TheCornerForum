@@ -39,6 +39,27 @@ class AllPostsView(ListView):
 
 
 class SinglePostView(View):
+    def post(self, request, slug):
+        # This method will handle POST requests to your SinglePostView
+        # Typically, this would be for submitting comments
+        post = get_object_or_404(Post, slug=slug)
+        comment_form = CommentForm(request.POST or None)
+
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.user = request.user
+            comment.save()
+            return redirect('blog:post-detail-page', slug=slug)
+        else:
+            # If form is not valid, render the page with the invalid form
+            comments = post.comments.all()
+            return render(request, "blog/post-detail.html", {
+                "post": post,
+                "comments": comments,
+                "comment_form": comment_form
+            })
+
     def is_stored_posts(self, request, post_id):
         # Logic to check if a post is in the user's 'read later' list
         stored_posts = request.session.get("stored_posts")
@@ -79,7 +100,7 @@ def is_stored_posts(self, request, post_id):
     stored_posts = request.session.get("stored_posts")
     return post_id in stored_posts if stored_posts else False
 
-@method_decorator(login_required)
+@method_decorator(login_required, name='dispatch')
 def add_comment_to_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
 
@@ -94,11 +115,13 @@ def add_comment_to_post(request, post_id):
     else:
         comment_form = CommentForm()
 
-    return render(request, "blog/post_detail.html", {
+    return redirect('blog:post-detail-page', slug=post.slug)    
+
+    """ return render(request, "blog/post_detail.html", {
         "post": post,
         "comment_form": comment_form,
         "comments": post.comments.all()
-    })
+    }) """
 
 
 @login_required
