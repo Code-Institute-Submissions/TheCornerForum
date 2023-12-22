@@ -55,6 +55,7 @@
 
 {% if user.is_authenticated %}
 <div class="comment-section">
+  <h2>Comment Anonymously</h2>
   <section id="comment-form">
     <form action="{% url 'blog:post-detail-page' slug=post.slug %}" method="post">
       {% csrf_token %}

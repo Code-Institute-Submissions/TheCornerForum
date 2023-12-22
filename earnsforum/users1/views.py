@@ -57,13 +57,24 @@ def edit_account(request):
 @login_required
 def delete_account(request):
     if request.method == 'POST':
-        profile = request.user.users1_profile
+        profile, created = UserProfile.objects.get_or_create(user=request.user)
+        if created:
+            # Handle the case where the profile didn't exist
+            profile.is_deleted = True
+            profile.save()
+
+        # Marking the profile as deleted
         profile.is_deleted = True
         profile.save()
+
+        # Log the deletion
         DeletedAccountLog.objects.create(user_id=request.user.id)
+
+        # Log out the user
         logout(request)
         messages.info(request, "Your account has been marked as deleted.")
         return redirect('starting-page')
+
     return render(request, 'users1/profile.html')
 
 @login_required
