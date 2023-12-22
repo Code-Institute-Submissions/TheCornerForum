@@ -2,6 +2,11 @@
 {% load static %}
 {% load cloudinary %}
 
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'user1/profile.css' %}" />
+{% endblock %}
+
 {% block title %}
 User Profile
 {% endblock %}
