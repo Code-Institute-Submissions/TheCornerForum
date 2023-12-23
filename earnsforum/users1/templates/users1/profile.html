@@ -2,7 +2,6 @@
 {% load static %}
 {% load cloudinary %}
 
-
 {% block css_files %}
 <link rel="stylesheet" href="{% static 'users1/profile.css' %}" type="text/css" />
 {% endblock %}
@@ -27,6 +26,15 @@ User Profile
   </div>
 </div>
 
+<!-- Display messages -->
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
 <h2>Update Profile</h2>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
@@ -38,7 +46,7 @@ User Profile
 
 <!-- Delete Account Section -->
 <h2>Delete Account</h2>
-<form method="post" action="{% url 'users1:delete_account' %}"> <!-- Ensure the URL name is correct -->
+<form method="post" action="{% url 'users1:delete_account' %}">
   {% csrf_token %}
   <button type="submit">Delete My Account</button>
 </form>
