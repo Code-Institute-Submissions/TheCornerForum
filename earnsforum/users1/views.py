@@ -30,7 +30,9 @@ def user_login(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
+
             if user:
+                # Check if user's profile is marked as deleted
                 try:
                     if user.userprofile.is_deleted:
                         messages.error(request, "This account no longer exists. Please sign up again.")
@@ -39,14 +41,19 @@ def user_login(request):
                     # If UserProfile does not exist, let the user log in as normal
                     pass
 
-                login(request, user)
-                return redirect(next_page)
+                # Check if user account is active
+                if user.is_active:
+                    login(request, user)
+                    return redirect(next_page)
+                else:
+                    messages.error(request, "Your account is inactive.")
             else:
                 messages.error(request, "Invalid username or password.")
         else:
             messages.error(request, "Please correct the error below.")
     else:
         form = LoginForm()
+
     return render(request, 'users1/login.html', {'form': form})
 
 @login_required
