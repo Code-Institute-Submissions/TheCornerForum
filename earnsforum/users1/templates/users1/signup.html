@@ -10,7 +10,6 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <p class="passwordinfo">Use at least 8 characters, mixing uppercase, lowercase, numbers, and symbols are needed.</p>
         <button type="submit">Signup</button>
         <a href="{% url 'users1:login' %}">Already have an account?</a>
     </form>
