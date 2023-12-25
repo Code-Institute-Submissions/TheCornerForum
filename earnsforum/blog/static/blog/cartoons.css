@@ -173,6 +173,9 @@ body {
   .cartoons-list {
     margin: 10rem auto 0 auto;
     max-width: 105rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
   }
 
   .cartoon {
