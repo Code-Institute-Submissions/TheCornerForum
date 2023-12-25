@@ -15,6 +15,7 @@ Earn's is a unique storytelling platform where creativity and imagination meet i
 - [Technologies Used](#technologies-used)
 - [Deployment and Local Development](#deployment-and-local-development)
 - [Testing](#testing)
+- [Setups] (#setups)
 - [Credits](#credits)
 
 ### Design
@@ -56,20 +57,126 @@ And after deciding how i wanted it i asked AI to make it under this condissions 
 - **Deployment:** Heroku
 
 ### Deployment
-The deployed version of it can be visit here: https://deploy-earns-c68fad364740.herokuapp.com/
+[The deployed version of it can be visit here:](https://deploy-earns-c68fad364740.herokuapp.com/) 
 
 
 ### Testing
 Testing was carried out throughout the development process. Please see the Testing Document for details. Some is not perfect and could be i just had a couple of days more.
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png
+[test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png)
+[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
+
+
+### Setups
+
+## Prerequisites
+
+- Python installed on your system
+- Code editor of your choice (e.g., VSCode, Sublime Text)
+- Heroku CLI installed
+- Git version control installed
+- Cloudinary account
+
+## Setting Up Django
+
+1. **Install Django**:
+    ```bash
+    pip install django
+    ```
+2. **Create a New Django Project**:
+    ```bash
+    django-admin startproject your_project_name
+    ```
+3. **Create a New Django App**:
+    ```bash
+    cd your_project_name
+    python manage.py startapp your_app_name
+    ```
+
+## Configure PostgreSQL on Heroku
+
+1. **Create a New Heroku App**:
+    ```bash
+    heroku create your_heroku_app_name
+    ```
+2. **Add Heroku PostgreSQL**:
+    ```bash
+    heroku addons:create heroku-postgresql:hobby-dev --app your_heroku_app_name
+    ```
+3. **Get Your Database URL**:
+    ```bash
+    heroku config --app your_heroku_app_name
+    ```
+
+## Configure Cloudinary for Media Storage
+
+1. **Install Cloudinary's Python Library**:
+    ```bash
+    pip install cloudinary
+    ```
+2. **Configure Cloudinary**:
+    - Set up the Cloudinary environment variables with your API credentials.
+
+## Deploying to Heroku
+
+1. **Prepare your application for deployment**:
+    - Use `pip` to install `gunicorn`, `dj-database-url`, `whitenoise`, and `psycopg2`.
+    - Create a `requirements.txt` file.
+    - Configure `settings.py` for Heroku deployment.
+    - Create a `Procfile` for Heroku.
+
+2. **Initialize Git**:
+    ```bash
+    git init
+    git add .
+    git commit -m "Initial commit"
+    ```
+
+3. **Deploy to Heroku**:
+    ```bash
+    heroku git:remote -a your_heroku_app_name
+    git push heroku master
+    ```
+
+4. **Run Migrations**:
+    ```bash
+    heroku run python manage.py migrate
+    ```
+
+## Linking the Project
+
+1. **Set Environment Variables on Heroku**:
+    - Set `DJANGO_SECRET_KEY`, `CLOUDINARY_URL`, and other required environment variables using Heroku's dashboard or CLI.
+
+2. **Update Your Code Editor Settings** (if needed):
+    - This step varies based on the code editor, but you may need to update settings for the Python interpreter or linters.
+
+## Setting Up
+
+1. **Finalize Your Application's Settings**:
+    - Make sure all configurations for Django settings are complete, including allowed hosts, database configurations, and static files handling.
+
+2. **Create Superuser for Django Admin**:
+    ```bash
+    heroku run python manage.py createsuperuser
+    ```
+
+3. **Launch Your App**:
+    - Open your Heroku app URL in the browser.
+
+## Additional Resources
+
+- [Django Documentation](https://docs.djangoproject.com/en/3.2/)
+- [Heroku Python Support](https://devcenter.heroku.com/articles/python-support)
+- [Cloudinary Documentation](https://cloudinary.com/documentation)
+
+Remember to replace placeholder text with your actual project and account details. Good luck with your Django project!
 
 
 ### Credits
