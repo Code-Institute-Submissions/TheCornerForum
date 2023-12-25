@@ -146,7 +146,8 @@ form button:hover {
 /* Additional Media Queries for even larger screens */
 @media (min-width: 1024px) {
     #comment-form {
-        max-width: 700px;
+        max-width: 100rem;
+        margin-top: 12rem;
     }
 
     #comment-form h1 {
