@@ -107,9 +107,10 @@ body {
         display: none;
     }
 
-    #main-navigation a {
+    .logo-text {
         font-size: 3rem;
     }
+
     #nav-menu {
         display: flex; /* Always show nav menu */
         justify-content: center; /* Center menu items */
