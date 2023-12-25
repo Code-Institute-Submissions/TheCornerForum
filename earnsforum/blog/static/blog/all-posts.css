@@ -28,7 +28,7 @@ body {
 #all-posts {
     margin: 2rem auto;
     width: 90%;
-    margin-top: 100px;
+    margin-top: 10rem;
     text-transform: uppercase;
 }
 
@@ -41,7 +41,7 @@ body {
     letter-spacing: 2.3px;
 }
 
-ul {
+.list-of-posts {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -50,7 +50,7 @@ ul {
     flex-direction: column;
 }
 
-li {
+.list-of-posts li {
     background-color: var(--secondary-color);
     border: none;
     padding: 10px;
