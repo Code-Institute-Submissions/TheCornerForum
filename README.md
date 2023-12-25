@@ -1,10 +1,9 @@
 # Earn's - Creative Articles and Stories Platform
 
-Earn's is a unique storytelling platform where creativity and imagination meet interactive reading. Dive into a universe of engaging articles, comic-style stories, and vivid narratives. Explore, read, and become part of a community where every story matters, and every reader is valued.
-
-**Live demo:** View Earn's live site [here](#)
+**Live demo:** [View Earn's live site here](#)
 
 ## Table of Contents
+- [Introduction](#introduction)
 - [Design](#design)
 - [Colour Scheme](#colour-scheme)
 - [Typography](#typography)
@@ -15,25 +14,27 @@ Earn's is a unique storytelling platform where creativity and imagination meet i
 - [Technologies Used](#technologies-used)
 - [Deployment and Local Development](#deployment-and-local-development)
 - [Testing](#testing)
-- [Scrum - progress](#scrum-progress)
-- [Setups] (#setups)
+- [Scrum - Progress](#scrum-progress)
+- [Setups](#setups)
 - [Credits](#credits)
+- [The End Story](#the-end-story)
+
+### Introduction
+Earn's is a unique storytelling platform where creativity and imagination meet interactive reading. It offers a universe of engaging articles, comic-style stories, and vivid narratives. Perfect for parents to read as a saga or in the stories folder, and also to read about other topics like news, history, or religion. The platform targets two groups: the Superuser, who can quickly create stories for the user, resulting in numerous articles and stories, and the user who reads perhaps for themselves or their children. The platform maintains a neutral stance on political or religious thoughts, catering to a world that really needs it.
 
 ### Design
-The design of Earn's embraces a comic book aesthetic with a modern twist, ensuring an immersive reading experience. The platform is built with the user in mind, focusing on simplicity and ease of navigation.
+Earn's design embraces a comic book aesthetic with a modern twist, ensuring an immersive reading experience. The platform is built with the user in mind, focusing on simplicity and ease of navigation.
 
 #### Colour Scheme
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1702813191/themecolor_earns_jf2ewk.png
+![Colour Palette](https://res.cloudinary.com/dzxr3hsus/image/upload/v1702813191/themecolor_earns_jf2ewk.png)
 The colour palette is a mix of earthy tones and vibrant highlights, creating a balance between comfort and excitement.
-
 
 #### Typography
 We use a combination of serif and sans-serif fonts to delineate between story narration and user interface elements.
 
 #### Wireframes
-https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507093/Sk%C3%A4rmbild_2023-12-25_132358_cunbld.png
-Wireframes for Earn's were developed to plan the layout and user flow for both desktop and mobile views.
-And after deciding how i wanted it i asked AI to make it under this condissions and this was the resault i have been working from.
+![Wireframes](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507093/Sk%C3%A4rmbild_2023-12-25_132358_cunbld.png)
+Wireframes for Earn's were developed to plan the layout and user flow for both desktop and mobile views. After deciding on the desired design, AI was used to create the final layout, which has been the basis for the work.
 
 ### User Experience (UX)
 
@@ -46,7 +47,7 @@ And after deciding how i wanted it i asked AI to make it under this condissions 
 - **Dynamic Reading Lists:** Curate your reading experience by saving stories and articles for later enjoyment.
 - **Interactive Comments:** Engage with the content by posting anonymous comments.
 - **User Profiles:** Customize your profile to reflect your reading preferences and interests.
-- **Super User Capabilities:** Create and manage content with the ability to add images and text to your stories and articles. With this admin panel & AI, you can make an article within minutes.
+- **Super User Capabilities:** Create and manage content with the ability to add images and text to your stories and articles. The admin panel & AI enable you to create an article within minutes.
 - **Content Tagging:** Utilize tags to categorize and navigate through the variety of content available.
 
 ### Technologies Used
@@ -58,34 +59,32 @@ And after deciding how i wanted it i asked AI to make it under this condissions 
 - **Deployment:** Heroku
 
 ### Deployment
-[The deployed version of it can be visit here:](https://deploy-earns-c68fad364740.herokuapp.com/) 
-
+[The deployed version can be visited here](https://deploy-earns-c68fad364740.herokuapp.com/)
 
 ### Testing
-Testing was carried out throughout the development process. Please see the Testing Document for details. Some is not perfect and could be i just had a couple of days more.
-[test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
+Testing was carried out throughout the development process. Please see the Testing Document for details. Some aspects are not perfect and could benefit from a couple more days of development.
+1. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png)
+2. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png)
+3. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png)
+4. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png)
+5. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png)
+6. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png)
+7. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png)
+8. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png)
+9. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
+10. [Tests like issues in github](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703511654/Sk%C3%A4rmbild_2023-12-25_143947_eb9zxc.png)
 
-
-### Scrum Progress
+### Scrum - Progress
 
 [The Issues](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703510074/Sk%C3%A4rmbild_2023-12-25_140621_plc989.png)
-These are without any milestones sense the milestone where so obvius and because its a MVP i havent been afriad of leaving some of issues for future work.
-But they are labeled and very easy to view and to point out whats need to be done. Tests for examples are something that never will be done but who has labels for (Todo after TEST) that should be choosen if an issue has come up after running an test. PRIO is also obvious. Bacause when you see that yello label you know thats where you should begin. 
+The issues are organized without specific milestones since the goals were obvious. As a MVP, some issues may be left for future work. They are labeled for easy identification. The PRIO label indicates priority tasks.
 
 [The Dashboard](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703510073/Sk%C3%A4rmbild_2023-12-25_140523_k80fjf.png)
-In the dashboard you have now: Inprogress, PRIO, testing and "wontfix or future feature". Before there was also a todo, but since have started on all issues already this one is no more. But will be added the day there are Todo to do.
+The dashboard currently displays: In Progress, PRIO, Testing, and "Won't Fix or Future Feature". The Todo category has been removed since all issues have been started. It will be added again when new tasks arise.
+
 ### Setups
 
 ## Prerequisites
-
 - Python installed on your system
 - Code editor of your choice (e.g., VSCode, Sublime Text)
 - Heroku CLI installed
@@ -196,4 +195,15 @@ Earn's is not just a platform but a community, and it wouldn't be possible witho
 - **Udemy Course:** Mega Web Development Course: Full stack web application 2023 by Pouya Eli
 - **Christoffer Hurtig:** A good friend who has guide me thru problems when I have been stuck or searching for sulotions for features.
 - **My Girlfriend:** Who has been very supporting ang given me time to work on the project even on christmas eve. And made miricals at home with the kids while i have been stuck with the project.
+
+All these contributors have inspired the project and helped me build the project as it is.
+
+### The End Story
+This project has truly been a challenge. Initially, I admit I despised Django, as I couldn't quite grasp it and saw only limitations. However, through Code Institute's instructional videos and some preliminary projects I worked on, my perspective shifted. Today, I appreciate Django immensely and could even envision working with it on a daily basis.
+
+Working on this school project, my primary focus was learning. Without a deadline, I believe my approach would have been different. My innate tendency to invent and create constantly leads me to think of more and more functions. This experience has clarified my future career aspirations. I've learned a great deal about organizing work theoretically, but in practice, without colleagues, this organization served mainly as a tool at the beginning and end of the work process.
+
+Initially, my goal was to become a full-stack developer, and I still adhere to that. However, it's the project management and backend development that truly ignite my passion. My interest in design is practical. I believe I am better suited to work on ideas and functions. AI has also been a key focus in my work, and I've concluded that it will be an essential resource in my future endeavors. The AI available today requires knowledge of its capabilities and understanding of how and when to make specific requests. I feel increasingly proficient in this area.
+
+Without a doubt, AI will be a faithful companion throughout my career. With the knowledge I've already gained in using it, I believe my skills will grow rapidly. Project 4 has been incredibly developmental and gratifying. Although time hasn't been on my side, I hope that a discerning reader can see the awareness and understanding in my work.
 

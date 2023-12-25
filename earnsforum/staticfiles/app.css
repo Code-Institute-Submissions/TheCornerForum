@@ -85,7 +85,7 @@ body {
     border-top: 1px solid var(--hover-color);
 }
 
-@media screen and (max-width: 600px) {
+@media (min-width: 600px) {
     #hamburger-btn {
         display: block;
     }
@@ -101,6 +101,15 @@ body {
 
 @media (min-width: 1024px) {
     /* Tablet and larger screens */
+    #main-navigation {
+        padding: 0 80px;
+        height: 10rem;
+        gap: 10rem;
+    }
+
+    #main-navigation a {
+        font-size: 3rem;
+    }
     #nav-menu {
         display: flex; /* Always show nav menu */
         justify-content: center; /* Center menu items */
@@ -117,6 +126,8 @@ body {
         border: none;
         color: var(--body-text-color);
         text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
     }
 
     #nav-menu a:hover {
