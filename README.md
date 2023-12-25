@@ -63,15 +63,16 @@ And after deciding how i wanted it i asked AI to make it under this condissions 
 
 ### Testing
 Testing was carried out throughout the development process. Please see the Testing Document for details. Some is not perfect and could be i just had a couple of days more.
-[test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png)
-[Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
+1. [test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png)
+2. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png)
+3. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png)
+4. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png)
+5. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png)
+6. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png)
+7. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png)
+8. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png)
+9. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
+10. [Tests made or planned in one way or another](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703511654/Sk%C3%A4rmbild_2023-12-25_143947_eb9zxc.png)
 
 
 ### Scrum Progress
