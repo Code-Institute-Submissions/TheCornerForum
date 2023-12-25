@@ -42,8 +42,8 @@ class UserAccountTests(TestCase):
         response = self.client.get(self.profile_url)
         self.assertEqual(response.status_code, 200)
 
-        update_data = {'field1': 'value1', 'field2': 'value2'}  # Replace with actual field names and values
+        update_data = {'field1': 'value1', 'field2': 'value2'}
         response = self.client.post(self.profile_url, update_data)
-        self.assertRedirects(response, 'users1:profile')  # Update as per your redirection logic
+        self.assertRedirects(response, 'users1:profile')
         updated_profile = UserProfile.objects.get(user=self.user)
         self.assertEqual(updated_profile.field1, 'value1')  # Replace with actual

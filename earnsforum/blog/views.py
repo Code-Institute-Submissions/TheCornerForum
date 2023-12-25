@@ -41,8 +41,6 @@ class AllPostsView(ListView):
 
 class SinglePostView(View):
     def post(self, request, slug):
-        # This method will handle POST requests to your SinglePostView
-        # Typically, this would be for submitting comments
         post = get_object_or_404(Post, slug=slug)
         comment_form = CommentForm(request.POST or None)
 
@@ -199,29 +197,6 @@ class ReadLaterView(LoginRequiredMixin, View):
 
         # Redirect back to the referring page
         return redirect(request.POST.get('next', '/'))
-
-    # def post(self, request):
-    #     # Get user's UserProfile and associated SavedContent
-    #     user_profile = UserProfile.objects.get(user=request.user)
-    #     saved_content = user_profile.saved_content
-
-    #     content_type = request.POST.get("content_type")
-    #     content_id = request.POST.get("content_id")
-
-    #     if content_type == "post":
-    #         post = get_object_or_404(Post, pk=content_id)
-    #         if post in saved_content.posts.all():
-    #             saved_content.posts.remove(post)
-    #         else:
-    #             saved_content.posts.add(post)
-    #     elif content_type == "cartoon":
-    #         cartoon = get_object_or_404(Cartoon, pk=content_id)
-    #         if cartoon in saved_content.cartoons.all():
-    #             saved_content.cartoons.remove(cartoon)
-    #         else:
-    #             saved_content.cartoons.add(cartoon)
-
-    #     return redirect(request.POST.get('next', '/'))
 
 
 class CartoonDetailView(View):

@@ -1,283 +1,83 @@
-Earn´s 
+# Earn's - Creative Articles and Stories Platform
 
+Earn's is a unique storytelling platform where creativity and imagination meet interactive reading. Dive into a universe of engaging articles, comic-style stories, and vivid narratives. Explore, read, and become part of a community where every story matters, and every reader is valued.
 
-
-
----------------------amiresponsive------------------------------------
-
-
-
-
-
-
-
-
-Introduction
-Welcome to Earn's , a dynamic platform where imagination flows freely through captivating articles and stories. Our blog is a unique space where readers can immerse themselves in a world of fantasy, creativity, and knowledge. Whether you're looking for a quick read or an in-depth story, Earn's offer a rich and varied collection of content.
-
-Features
-Articles & Stories: Dive into a variety of imaginative articles and stories, each offering a unique escape into realms of fantasy and creativity.
-Save Favorites: Logged-in users can save articles and stories for later reading.
-Anonymous Comments: Engage with the community through anonymous comments on articles and stories.
-Profile Customization: Personalize your experience by modifying your profile.
-Super User Story Creation: As a super user, easily create stories by adding images and text. Craft your content almost like a comic book with multiple images and minimal text, or opt for article-style with one image and extensive text.
-Tags for Content: Categorize your articles and stories with tags like 'History', 'News', and more, to clarify and organize the content.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Deployment and Setup Guide
-Deploying on Heroku
-Create a Heroku Account: If you don’t have an account, sign up at Heroku.
-Install Heroku CLI: Download and install the Heroku CLI.
-Login to Heroku: Run heroku login and follow the prompts to log in.
-Create a Heroku App: Run heroku create to create a new app on Heroku.
-Push Code to Heroku: Deploy your code using Git. Run git push heroku main.
-Migrate Database: Migrate your Django models to Heroku’s PostgreSQL with heroku run python manage.py migrate.
-Setting Up PostgreSQL on Heroku
-Add PostgreSQL: Add Heroku Postgres from the 'Resources' tab in your Heroku dashboard or use heroku addons:create heroku-postgresql:hobby-dev.
-Configure Database: Set up your database URL in settings.py to use the DATABASE_URL environment variable provided by Heroku.
-Setting Up Cloudinary
-Create Cloudinary Account: Sign up at Cloudinary.
-
-Get API Credentials: From your Cloudinary dashboard, obtain your API key, API secret, and cloud name.
-
-Configure in Django: In your Django settings.py, configure Cloudinary:
-
-python
-Copy code
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'your_cloud_name',
-    'API_KEY': 'your_api_key',
-    'API_SECRET': 'your_api_secret',
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-Install Cloudinary Libraries: Run pip install django-cloudinary-storage pillow.
-
-Running the Application
-Collect Static Files: Run heroku run python manage.py collectstatic.
-Launch the App: Open your Heroku app’s URL in the browser.
-Contributions
-Contributions to Earns Blog are welcome! Please read our contributing guidelines for more information.
-
-License
-[Your chosen license]
-
-
-
-
-
-
-
-# Project Title
-
-## Introduction / Summary
-
-Briefly describe what your project is about. Explain the main objective and the problem it solves.
+**Live demo:** View Earn's live site [here](#)
 
 ## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
+- [Design](#design)
+- [Colour Scheme](#colour-scheme)
+- [Typography](#typography)
+- [Wireframes](#wireframes)
+- [User Experience (UX)](#user-experience-ux)
+- [User Stories](#user-stories)
 - [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
+- [Technologies Used](#technologies-used)
+- [Deployment and Local Development](#deployment-and-local-development)
+- [Testing](#testing)
+- [Credits](#credits)
 
-## Installation
+### Design
+The design of Earn's embraces a comic book aesthetic with a modern twist, ensuring an immersive reading experience. The platform is built with the user in mind, focusing on simplicity and ease of navigation.
 
-Provide step-by-step instructions on how to install your project:
+#### Colour Scheme
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1702813191/themecolor_earns_jf2ewk.png
+The colour palette is a mix of earthy tones and vibrant highlights, creating a balance between comfort and excitement.
 
-```bash
-git clone https://yourproject/repository.git
-cd repository
-npm install
-Usage
-Explain how to use your project after installation:
 
-bash
-Copy code
-npm start
-# or
-python manage.py runserver
-Configuration
-Detail any configuration necessary to run the project.
+#### Typography
+We use a combination of serif and sans-serif fonts to delineate between story narration and user interface elements.
 
-Features
-List the key features of your project. What does it do? What are its major functionalities?
+#### Wireframes
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507093/Sk%C3%A4rmbild_2023-12-25_132358_cunbld.png
+Wireframes for Earn's were developed to plan the layout and user flow for both desktop and mobile views.
+And after deciding how i wanted it i asked AI to make it under this condissions and this was the resault i have been working from.
 
-Feature 1
-Feature 2
-Feature 3
-Contributing
-Instructions for how to contribute to the project. You can also link to a separate CONTRIBUTING.md file.
+### User Experience (UX)
 
-License
-State the license under which your project is available. Example:
+#### User Stories
+- As a First-Time Visitor, I want to easily understand the main purpose of the site and learn more about the content provided.
+- As a Reader, I want to explore different stories and articles, so I can enjoy reading in my leisure time.
+- As a Registered User, I want to save my favorite reads and manage my profile, so I can personalize my experience on the platform.
 
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+### Features
+- **Dynamic Reading Lists:** Curate your reading experience by saving stories and articles for later enjoyment.
+- **Interactive Comments:** Engage with the content by posting anonymous comments.
+- **User Profiles:** Customize your profile to reflect your reading preferences and interests.
+- **Super User Capabilities:** Create and manage content with the ability to add images and text to your stories and articles. With this admin panel & AI, you can make an article within minutes.
+- **Content Tagging:** Utilize tags to categorize and navigate through the variety of content available.
 
-vbnet
-Copy code
+### Technologies Used
+- **Languages:** HTML5, CSS3, JavaScript, Python
+- **Framework:** Django
+- **Database:** PostgreSQL, SQLite (development)
+- **Static File Storage:** WhiteNoise
+- **Media Storage:** Cloudinary
+- **Deployment:** Heroku
 
-Feel free to adapt and expand this template according to the specifics and comp
+### Deployment
+The deployed version of it can be visit here: https://deploy-earns-c68fad364740.herokuapp.com/
+
+
+### Testing
+Testing was carried out throughout the development process. Please see the Testing Document for details. Some is not perfect and could be i just had a couple of days more.
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png
+https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png
+
+
+### Credits
+Earn's is not just a platform but a community, and it wouldn't be possible without the contributions from our readers and writers alike. A special thank you to:
+- **Contributors:** To all the wonderful people who have invested time in making Earn's rich with content.
+- **Code Institute:** For providing the knowledge base to embark on building this project.
+- **Udemy Course:** Python Django - The Practical Guide by Maximilian Schwarzmüller
+- **Udemy Course:** Mega Web Development Course: Full stack web application 2023 by Pouya Eli
+- **Christoffer Hurtig:** A good friend who has guide me thru problems when I have been stuck or searching for sulotions for features.
+- **My Girlfriend:** Who has been very supporting ang given me time to work on the project even on christmas eve. And made miricals at home with the kids while i have been stuck with the project.
+
