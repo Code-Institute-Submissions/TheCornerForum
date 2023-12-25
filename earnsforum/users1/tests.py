@@ -46,4 +46,4 @@ class UserAccountTests(TestCase):
         response = self.client.post(self.profile_url, update_data)
         self.assertRedirects(response, 'users1:profile')
         updated_profile = UserProfile.objects.get(user=self.user)
-        self.assertEqual(updated_profile.field1, 'value1')  # Replace with actual
+        self.assertEqual(updated_profile.field1, 'value1')
