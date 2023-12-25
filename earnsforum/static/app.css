@@ -93,6 +93,10 @@ body {
         width: 100%;
         overflow-y: auto;
     }
+
+    #main-navigation {
+        padding: 0 2rem;
+    }
 }
 
 @media (min-width: 1024px) {
