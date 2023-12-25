@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+    --button-bg-color: #007bff; /* Blue for buttons */
+    --button-hover-bg-color: #0056b3; /* Darker blue on hover */
+    --input-border-focus-color: #3759f1; /* Highlight color for input focus */
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+#comment-form {
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: var(--light-color); /* Lighter background for form */
+    border: solid 1px #4d4d4d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 6px; /* Rounded corners for form */
+}
+
+/* Form Title */
+#comment-form h1 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+/* Help Text for Input */
+#comment-form input:hover + ul,
+#comment-form input:focus + ul {
+    display: block;
+    background-color: var(--light-color);
+    color: var(--secondary-color);
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+ul {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Input and Button Styles */
+form input[type="text"],
+form input[type="password"],
+form button {
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    box-shadow: inset 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
+}
+
+form input[type="text"]::placeholder,
+form input[type="password"]::placeholder{
+    color: var(--secondary-color)
+}
+
+/* Input Focus Styles */
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: var(--input-border-focus-color);
+    box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
+    outline: none;
+}
+
+/* Button Styles */
+form button {
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px; /* Rounded corners for button */
+    font-weight: bold;
+}
+
+/* Button Hover Effect */
+form button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+    #comment-form {
+        margin-top: 10%;
+        width: 50%;
+        max-width: 600px;
+    }
+
+    #comment-form h1 {
+        font-size: 2em;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form button {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Additional Media Queries for even larger screens */
+@media (min-width: 1024px) {
+    #comment-form {
+        max-width: 700px;
+    }
+
+    #comment-form h1 {
+        font-size: 2.5em;
+    }
+}

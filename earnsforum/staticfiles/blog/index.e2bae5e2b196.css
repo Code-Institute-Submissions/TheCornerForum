@@ -1,0 +1,172 @@
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+    min-height: 50vh;
+}
+
+#welcome header,
+#latest-posts,
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+#welcome img,
+#latest-posts img {
+    border: 5px solid var(--text-color);
+    border-radius: 12px;
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    margin-top: 2rem;
+}
+
+#welcome p {
+    margin: 0;
+    text-shadow:  0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+}
+
+#welcome p,
+#latest-posts h2,
+#about p {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+#latest-posts,
+#about {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+#latest-posts img {
+    margin: 0 auto;
+}
+
+#latest-posts ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#latest-posts li {
+    border-radius: 12px;
+    background-color: var(--secondary-color);
+    box-shadow: 0.1rem 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#latest-posts li a {
+    text-decoration: none;
+    margin: 0;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
+}
+
+#about {
+    min-height: 30vh;
+    margin-top: 2rem;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    text-align: center;
+}
+/* Media Queries */ /*
+@media (max-width: 768px) {
+    #welcome,
+    #latest-posts,
+    #about {
+        padding: 1rem;
+        margin-top: 5rem; *//* Adjust this if your header's height is different */ /*
+    }
+
+    #welcome img,
+    #latest-posts img {
+        width: 95%;
+    }
+}
+
+@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+   */ /* Adjustments for Galaxy Fold */ /*
+    #welcome,
+    #latest-posts,
+    #about {
+        min-height: calc(100vh - 5rem); /* Adjust for fixed header */ /*
+        padding: 1rem;
+        margin-top: 5rem; /* Push content below the header */ /*
+    }
+
+    #welcome img,
+    #latest-posts img {
+        width: 100%;
+    }
+
+    #welcome p,
+    #latest-posts h2,
+    #about p {
+        font-size: 1.2rem; */ /* Smaller font size for smaller screens */ /*
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    #welcome,
+    #latest-posts,
+    #about {
+        width: 70%;
+    }
+}
+
+*/

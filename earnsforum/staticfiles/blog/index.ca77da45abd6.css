@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Arial:400,700,400italic,700italic&subset=latin');
+
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#welcome {
+    background: linear-gradient(to right top, #6305dd, #390281);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+    min-height: 50vh;
+}
+
+#welcome header,
+#latest-posts,
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+#welcome img,
+#latest-posts img {
+    border: 5px solid var(--text-color);
+    border-radius: 12px;
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    margin-top: 2rem;
+}
+
+#welcome p,
+#latest-posts h2,
+#about p {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+#latest-posts,
+#about {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+#about {
+    min-height: 30vh;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    #welcome,
+    #latest-posts,
+    #about {
+        padding: 1rem;
+        margin-top: 5rem; /* Adjust this if your header's height is different */
+    }
+
+    #welcome img,
+    #latest-posts img {
+        width: 95%;
+    }
+}
+
+@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+    /* Adjustments for Galaxy Fold */
+    #welcome,
+    #latest-posts,
+    #about {
+        min-height: calc(100vh - 5rem); /* Adjust for fixed header */
+        padding: 1rem;
+        margin-top: 5rem; /* Push content below the header */
+    }
+
+    #welcome img,
+    #latest-posts img {
+        width: 100%;
+    }
+
+    #welcome p,
+    #latest-posts h2,
+    #about p {
+        font-size: 1.2rem; /* Smaller font size for smaller screens */
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    #welcome,
+    #latest-posts,
+    #about {
+        width: 70%;
+    }
+}

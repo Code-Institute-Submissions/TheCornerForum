@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Open Sans', 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5; /* Added a background color for contrast */
+}
+
+h1, h2, h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+#main-navigation {
+  background: #390281;
+  color: #fff;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  z-index: 1000;
+}
+
+#main-navigation a {
+  text-decoration: none;
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.6rem;
+}
+
+header#main-navigation {
+  width: 280px;
+}
+#main-navigation a:hover,
+#main-navigation a:active {
+    color: #cf79f1;
+}
+
+#hamburger-btn {
+    display: none; /* Hide initially */
+    font-size: 2rem; /* Size of hamburger icon */
+    cursor: pointer;
+    border: none; /* Remove button border */
+    background: transparent; /* Remove button background */
+}
+
+#nav-menu {
+    display: none; /* Hide initially */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#nav-menu.active {
+    display: flex; /* Show when active */
+}
+
+@media (max-width: 768px) {
+    #hamburger-btn {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+
+    #nav-menu.active {
+        position: absolute;
+        right: 0;
+        top: 5rem; /* Height of the nav bar */
+        background-color: #333;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #nav-menu.active a {
+        padding: 10px 0;
+        border-top: 1px solid #444;
+        width: 100%; /* Full width links */
+        text-align: center;
+    }
+}

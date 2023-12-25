@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Arial:400,700,400italic,700italic&subset=latin');
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    /* color: var(--text-color); */
+}
+#main-navigation {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+/*  ****** COMMENTED OUT BECAUSE WRONG ID NAME *******
+#stored-posts {
+    margin: 8rem auto 3rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--light-color);
+    width: 90%;
+    max-width: 30rem;
+}
+
+#stored-posts ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#stored-posts li {
+    margin: 1rem 0;
+}
+
+#stored-posts a {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    color: var(--secondary-color);
+    font-weight: bold;
+    background-color: var(--accent-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#stored-posts a:hover,
+#stored-posts a:active {
+    background-color: var(--secondary-color);
+   */
+
+.saved-posts {
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+    width: 90%;
+    max-width: 30rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
+}
+
+.saved-posts ul {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    background-color: transparent;
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.saved-posts ul a {
+    text-decoration: none;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+}
+
+.saved-cartoons {
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+    width: 90%;
+    max-width: 30rem;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
+}
+
+.saved-cartoons ul {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    background-color: transparent;
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.saved-cartoons ul a {
+    text-decoration: none;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+    #stored-posts {
+        max-width: 60rem;
+    }
+
+    #stored-posts a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    #stored-posts {
+        padding: 3rem;
+        margin-top: 10rem;
+    }
+}
+
+/* Media Queries for Galaxy Fold */
+@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+    #stored-posts {
+        margin: 6rem auto;
+        padding: 1rem;
+    }
+}

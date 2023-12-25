@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from .models import Cartoon, CartoonPanel
 from .models import Author, Post, Tag, Comment
 
 
@@ -10,8 +10,18 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ("user_name", "post", "date",)
-    list_filter = ("user_name", "post", "date",)
+    list_display = ("user", "post", "text", "date")
+    list_filter = ("user", "post", "date")
+
+class CartoonPanelInline(admin.TabularInline):
+    model = CartoonPanel
+    extra = 1
+
+@admin.register(Cartoon)
+class CartoonAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date')
+    inlines = [CartoonPanelInline]
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Author)

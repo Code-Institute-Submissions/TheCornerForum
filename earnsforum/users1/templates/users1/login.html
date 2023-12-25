@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "users1/login.css" %}" />
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+<section id="comment-form">
+    <h1>Login</h1>
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Login</button>
+        <a href="{% url 'users1:signup' %}">Don't have an account? Create one</a>
+    </form>
+</section>
+
+{% endblock content %}

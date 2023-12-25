@@ -1,92 +1,164 @@
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+}
+
 body {
-  background-color: #e7e7e7;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 #main-navigation {
-  background-color: #390281;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-color);
 }
 
 #all-posts {
-  margin: 7rem auto;
-  width: 90%;
-  max-width: 60rem;
+    margin: 2rem auto;
+    width: 90%;
+    margin-top: 100px;
+    text-transform: uppercase;
 }
 
 #all-posts h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: #2e2e2e;
-  margin: 3rem 0;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-color);
+    margin: 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 2.3px;
 }
 
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-  gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+li {
+    background-color: var(--secondary-color);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .post img {
-  width: 7rem;
-  height: 7rem;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 .post a {
-  height: 22rem;
-  transform-origin: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-  background-color: white;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--secondary-color);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
-  /* Responsive Styles */
-  
-  /* Small devices (phones, less than 768px) */
-  @media (max-width: 768px) {
-    #all-posts {
-      margin: 3rem auto;
-      width: 95%;
+#read-later button {
+    text-decoration: none;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+    #main-navigation {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10%;
     }
-  
+
     #all-posts h2 {
-      font-size: 1.5rem;
-      margin: 2rem 0;
+        font-size: 2rem;
+        margin: 3rem 0;
     }
-  
-    .post img {
-      width: 5rem;
-      height: 5rem;
-    }
-  
-    .post a {
-      height: 20rem;
-    }
-  
+
     ul {
-      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+        gap: 1.5rem;
     }
-  }
-  
-  /* Medium devices (tablets, 768px and up) */
-  @media (min-width: 768px) {
-    #all-posts {
-      width: 80%;
+
+    .post img {
+        width: 7rem;
+        height: 7rem;
     }
-  
+
     .post a {
-      height: 20rem;
+        height: 22rem;
     }
-  }
-  
-  /* Large devices (desktops, 992px and up) */
-  @media (min-width: 992px) {
-    /* Custom styles for large devices can be added here if needed */
-  }
-  
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {
-    /* Custom styles for extra large devices can be added here if needed */
-  }
+}
+
+/* Additional Media Queries for even larger screens */
+@media (min-width: 1024px) {
+    #all-posts {
+        max-width: 60rem;
+    }
+
+
+}
+
+/* Media Queries for Galaxy Fold */
+
+
+/* comment out for now *********************************************
+
+
+@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+    #main-navigation {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    #all-posts {
+        width: 100%;
+        margin-top: 5rem; /* Adjust for fixed header */ /*
+    }
+
+    ul {
+        flex-direction: column;
+    }
+
+    .post img {
+        width: 100%;
+    }
+
+    .post a {
+        height: auto;
+    }
+}
+
+***************** */
