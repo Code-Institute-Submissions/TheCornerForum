@@ -171,7 +171,7 @@ body {
 
 @media (min-width: 1024px) {
   .cartoons-list {
-    margin-top: 10rem auto 0 auto;
+    margin: 10rem auto 0 auto;
     max-width: 105rem;
   }
 
