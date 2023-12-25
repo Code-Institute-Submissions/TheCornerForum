@@ -20,20 +20,19 @@
       <button id="hamburger-btn" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
       </button>
-      <div class="nav-box">
-        <nav id="nav-menu">
-          {% if request.user.is_authenticated %}
-            <span>{{ request.user.username }}!</span>
-            <a href="{% url 'users1:logout' %}">Logout</a>
-            <a href="{% url 'blog:read-later' %}">Saved</a>
-            <a href="{% url 'blog:cartoons-page' %}">Stories</a>
-            <a href="{% url 'blog:posts-page' %}">Articles</a>
-            <a href="{% url 'users1:profile' %}">Profile</a>
-          {% else %}
-            <a href="{% url 'users1:login' %}">Login</a>
-            <a href="{% url 'users1:signup' %}">Signup</a>
-          {% endif %}
-        </nav>
+       <nav id="nav-menu">
+         {% if request.user.is_authenticated %}
+          <span>{{ request.user.username }}!</span>
+           <a href="{% url 'users1:logout' %}">Logout</a>
+           <a href="{% url 'blog:read-later' %}">Saved</a>
+           <a href="{% url 'blog:cartoons-page' %}">Stories</a>
+           <a href="{% url 'blog:posts-page' %}">Articles</a>
+           <a href="{% url 'users1:profile' %}">Profile</a>
+         {% else %}
+           <a href="{% url 'users1:login' %}">Login</a>
+           <a href="{% url 'users1:signup' %}">Signup</a>
+         {% endif %}
+       </nav>
       </div>
     </header>
 
