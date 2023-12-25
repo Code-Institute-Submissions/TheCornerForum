@@ -41,6 +41,7 @@ body {
   border: none;
   border-radius: 4px;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
+  background-color: var(--primary-color);
 }
 
 .cartoon h2 a {
@@ -50,7 +51,10 @@ body {
 }
 
 .cartoon h2 a:hover {
-  color: var(--link-hover-color); /* Color change on hover */
+  color: var(--primary-color); 
+  background-color: var(--text-color);/* Color change on hover */
+  transform: scale(1.3);
+
 }
 
 .cartoon p {
