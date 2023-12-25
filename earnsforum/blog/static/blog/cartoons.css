@@ -42,15 +42,15 @@ body {
   border-radius: 4px;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
   background-color: var(--primary-color);
+  transition: color 0.3s ease;
 }
 
 .cartoon h2 a {
   color: inherit; /* Inherits the parent color */
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-.cartoon h2 a:hover {
+.cartoon h2:hover {
   color: var(--primary-color); 
   background-color: var(--text-color);/* Color change on hover */
   transform: scale(1.3);
@@ -82,7 +82,7 @@ body {
 }
 
 #read-later button:hover {
-  transform: scale(1.1); /* Scale button on hover */
+  transform: scale(1.2); /* Scale button on hover */
 }
 
 #read-later button:active {
@@ -166,7 +166,6 @@ body {
     max-width: 30rem;
     font-weight: 900;
     letter-spacing: 1px;
-    padding: 20px 30px;
   }
 
 
