@@ -1,210 +1,424 @@
-body {
-  background-color: #f10f0f;
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+    --error-color: #d6000b; /* Error color */
+    --error-bg: #ffe6e7; /* Error background color */
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    
+}
+
+/* ADDED NEW ARTICLE_CONTENT CLASS INSTEAD OF THIS
+main {
+    width: 90%;
+    max-width: 90rem;
+    margin: 7rem 3rem 3rem;
+    background-color: var(--light-color);
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border: 5px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+    align-content: flex-start;
+    justify-content: flex-end;
+}
+*/
+
 #main-navigation {
-  background-color: #390281;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.article-post-content {
+    width: 90%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-color);
+    border-radius: 3px;
 }
 
 #summary {
-  margin: 8rem auto 3rem auto;
-  padding: 2rem;
-  width: 90%;
-  max-width: 90rem;
-  border-radius: 16px;
-  background-color: #5706c0;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  height: 22rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
 }
 
-#summary h2 {
-  position: relative;
-  z-index: 2;
-  color: white;
-  font-size: 3.5rem;
-  margin-bottom: 0.25rem;
-  padding: 2rem;
-  text-shadow: #464646 0 2px 8px;
+#summary h2{
+    color: var(--text-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 26px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    text-align: right;
+    text-transform: uppercase;
+    margin: 0;
 }
 
-#summary article {
-  position: absolute;
-  top: 2rem;
-  right: 3rem;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  text-align: right;
-  color: white;
+#summary address{
+    /* color: var(--text-color); */
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+    padding-left: 1rem;
+
 }
 
-#summary article img {
-  position: relative;
-  z-index: 1;
-  width: 12rem;
-  height: 12rem;
-  border-radius: 12px;
-  transform: rotateZ(5deg);
-  border: 5px solid white;
-  margin-bottom: 1rem;
-}
+#summary a{
+    /* color: var(--text-color); */
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
 
-#summary address {
-  font-weight: bold;
-}
-
-#summary a {
-  color: white;
-  text-decoration: none;
 }
 
 #summary time {
-  font-weight: bold;
+        /* color: var(--text-color); */
+        width: 100%;
+        display: flex;
+        align-content: stretch;
+        justify-content: space-between;
+        padding-left: 1rem;
 }
 
-#read-later {
-  margin: 2rem 0;
+#summary article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    align-content: stretch;
+    justify-content: space-between
 }
 
-#read-later button {
-  background-color: transparent;
-  border: 1px solid white;
-  padding: 0.5rem 2rem;
-  font: inherit;
-  color: white;
-  cursor: pointer;
+#summary article img {
+    width: 90%;
+    max-width: 30rem;
+    height: auto;
+    border: none;
+    border-radius: 3px;
+    margin: 1rem;
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
 }
 
-#read-later button:hover,
-#read-later button:active {
-  background-color: white;
-  color: #390281;
-}
+#summary form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-main {
-  width: 90%;
-  max-width: 90rem;
-  margin: 3rem auto;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .tag {
-  background-color: white;
-  color: #390281;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    font-size: 10px;
+    margin: 5px 0 5px  0;
 }
 
-#comment-form {
-  margin: 3rem auto;
-  width: 90%;
-  max-width: 40rem;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 1rem;
+.last-updated{
+    width: 100%;
+    letter-spacing: 1.7px;
+    font-size: 10px;
+    margin: 5px 0 5px  0;
+    text-align: center;
 }
 
-#comment-form button {
-  font: inherit;
-  background-color: #390281;
-  color: white;
-  border: 1px solid #390281;
-  padding: 0.5rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
+#read-later {
+    width: 100%;
 }
 
-#comment-form button:hover,
-#comment-form button:active {
-  background-color: #4f0ba7;
-  border-color: #4f0ba7;
+#read-later button {
+    background-color: var(--light-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
+    margin: 5px 0 5px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.form-control {
-  margin-bottom: 1rem;
+.article-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: justify;
+    background-color: var(--light-color);
+    color: #000;
+    line-height: 22px;
+    letter-spacing: 0.3px;
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
 }
 
-.form-control label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  display: block;
+.comment-section{
+    width: 90%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--secondary-color);
+    border-radius: 3px;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.form-control input,
-.form-control textarea {
-  display: block;
-  width: 100%;
-  font: inherit;
-  padding: 0.25rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+ #comment-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.errorlist {
-  list-style: none;
-  margin: 0.5rem 0;
-  padding: 0;
-  color: #d6000b;
+#comment-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    background-color: var(--light-color);
+    padding: 0rem 1rem 0 1rem;
 }
 
-.invalid label {
-  color: #d6000b;
+#comment-form input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
 }
 
-.invalid input,
-.invalid textarea {
-  border-color: #d6000b;
-  background-color: #ffe6e7;
+#comment-form button{
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px; /* Rounded corners for button */
+    font-weight: bold;
+    width: 100%;
 }
 
-#alert {
-  margin: 8rem auto 3rem auto;
-  border: 1px solid #d6000b;
-  background-color: #ffe6e7;
-  padding: 1rem;
-  width: 90%;
-  max-width: 40rem;
-}
-
-#alert a {
-  text-decoration: none;
-  border: 1px solid #d6000b;
-  background-color: #d6000b;
-  color: white;
-  padding: 0.25rem 1.5rem;
-  border-radius: 6px;
-}
-
-#comments {
-  margin: 3rem auto;
-  width: 90%;
-  max-width: 60rem;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 1rem 2rem;
+#comments{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
 }
 
 #comments ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-#comments li {
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #ccc;
+.comments-content {
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    background-color: var(--accent-color);
 }
 
-#comments li:last-of-type {
-  border-bottom: none;
+.comments-content h2 {
+    border-radius: 3px;
+    box-shadow: 0.1rem 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-#comments h2 {
-  color: #464646;
+.comments-content p {
+    text-align: center;
+}
+
+#comment-form button {
+    text-decoration: none;
+    margin: 0;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.comment button, .comment a {
+    text-decoration: none;
+    margin: 0;
+    background-color: var(--accent-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    font-weight: bold;
+    text-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0.1rem 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+    width: 80%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.saved-article-style {
+    /* Example styles for the 'Saved Article' state */
+    background-color: var(--accent-color); /* Light green background for saved state */
+    color: var(--primary-color); /* Dark green text for saved state */
+    /* Add any other styling you want for the saved state here */
+  }
+
+main {
+    max-width: 60rem;
+}
+
+
+/* Media Queries */
+@media (min-width: 604px) {
+    /* Styles for tablets */
+    body {
+        font-size: 16px;
+    }
+
+    .article-post-content {
+        width: 80%;
+        margin-top: 15%;
+        padding: 1.4rem;
+    }
+
+    #summary {
+        padding: 1.4rem;
+    }
+
+    #summary h2 {
+        padding: 0 1rem;
+    }
+
+    .comment-section h2 {
+        font-size: 30px;
+    }
+
+    #comment-form p {
+        max-width: 30rem;
+    }
+
+    #comment-form button {
+        max-width: 30rem;
+    }
+    
+    .comment {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .comment button, .comment a {
+        max-width: 30rem;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin: 10px 0;
+        width: 80%;
+    }
+
+
+}
+
+
+
+@media (min-width: 1024px) {
+    /* Styles for desktops */
+    .article-post-content {
+        margin-top: 10%;
+        padding: 1.4rem;
+    }
+
+    #summary {
+        padding: 2.4rem;
+
+    }
+
+    #summary article {
+        justify-content: center;
+
+    }
+
+    #summary address {
+        padding: 0 20rem;
+    }
+
+    summary time {
+        padding: 0 20rem;
+    }
+
+    
+    
+
 }

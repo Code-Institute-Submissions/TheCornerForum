@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+    background-color: #e7e7e7;
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+#comment-form {
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f5f5f5; /* Lighter background for form */
+    border: solid 1px #4d4d4d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 6px; /* Rounded corners for form */
+}
+
+/* Form Title */
+#comment-form h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+/* Help Text for Input */
+#comment-form input:hover + ul,
+#comment-form input:focus + ul {
+    display: block;
+    background-color: #f5f5f5;
+    color: #333;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+ul {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input and Button Styles */
+form input[type="text"],
+form input[type="password"],
+form button {
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Input Focus Styles */
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #3759f1; /* Highlight color */
+    box-shadow: 0 0 5px rgba(55, 89, 241, 0.5);
+    outline: none;
+}
+
+/* Button Styles */
+form button {
+    background-color: #007bff; /* Blue background for button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px; /* Rounded corners for button */
+}
+
+/* Button Hover Effect */
+form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+    #comment-form {
+        margin-top: 10%;
+        width: 50%;
+        max-width: 600px;
+    }
+
+    #comment-form h1 {
+        font-size: 2em;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form button {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Additional Media Queries for even larger screens */
+@media (min-width: 1024px) {
+    #comment-form {
+        max-width: 700px;
+    }
+
+    #comment-form h1 {
+        font-size: 2.5em;
+    }
+}

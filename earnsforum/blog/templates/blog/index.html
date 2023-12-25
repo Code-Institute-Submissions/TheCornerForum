@@ -1,35 +1,39 @@
-{% extends "base.html "%}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}The Blog{% endblock %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static "blog/post.css" %}" /> 
-    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+<link rel="stylesheet" href="{% static "blog/post.css" %}"> 
+<link rel="stylesheet" href="{% static "blog/index.css" %}">
 {% endblock %}
 
 {% block content %}
-<section id="welcome">
+<div id="welcome">
     <header>
         <img src="{% static "images/ras4.png" %}" alt="The Earn's founder">
-        <h2>Everthing can be Fiction!</h2>
-
     </header>
-    <p>Lets talk about alernitive truth!</p>
+    <p>The Latest stuff</p>
 
-</section>
+</div>
 <section id="latest-posts">
-    <h2>The Latest stuff</h2>
     <ul>
         {% for post in posts %}
-        {% include "blog/includes/post.html" %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <!-- Other post details -->
+                
+                <!-- Link to the post detail page -->
+                <a href="{% url 'blog:post-detail-page' slug=post.slug %}">Read More</a>
+            </li>
         {% endfor %}
     </ul>
 </section>
 <section id="about">
-    <h2>What I do</h2>
-    <p>This page info about why the blog exists</p>
-    <p>more text about goals and shit</p>
+    <h2>Their will always be a story to be told, true or false...</h2>
 </section>
 
 {% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cloudinary %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post-details.css' %}" />
+{% endblock %}
+
+{% block title %}{{ cartoon.title }}{% endblock %}
+
+{% block content %}
+<div class="article-post-content">
+  <section id="summary">
+    <h2>{{ cartoon.title }}</h2>
+    <p>{{ cartoon.excerpt }}</p>
+    <div id="read-later">
+      {% if user.is_authenticated %}
+      <form action="{% url 'blog:read-later' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="content_type" value="cartoon" />
+        <input type="hidden" name="content_id" value="{{ cartoon.id }}" />
+        <input type="hidden" name="next" value="{{ request.path }}" />
+        <button type="submit">
+          {% if cartoon in user.userprofile.saved_content.cartoons.all %}
+            Remove from Saved Stories
+          {% else %}
+            Save Stories
+          {% endif %}
+        </button>
+      </form>
+      {% else %}
+      <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save Stories</a>
+      {% endif %}
+    </div>
+
+    <article>
+      <div class="cartoon-panels">
+        {% for panel in cartoon_panels %}
+          <div class="cartoon-panel">
+              <img src="{{ panel.image.url }}" alt="Panel {{ forloop.counter }}">
+              <p>{{ panel.caption }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </article>
+  </section>
+</div>
+{% endblock %}

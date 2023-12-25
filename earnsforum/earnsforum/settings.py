@@ -9,43 +9,40 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
-from pathlib import Path
-from os import getenv
-import dj_database_url
 import os
+from pathlib import Path
+from decouple import config
+import django_heroku
+import dj_database_url
+import cloudinary
+import cloudinary_storage
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key-if-none-found')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(rqimx9l_d@3hept8wrz=fd_)-#3v%1+to@t8h6ls+19c*h410'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
 
-DEBUG = True
-
-ALLOWED_HOSTS = [
-    getenv("APP_HOST"),
-]
+ALLOWED_HOSTS = [os.getenv("APP_HOST", 'earns-forum-c6b1585ec55f.herokuapp.com')]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'users1',
     'blog',
+    'users1',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # whitenoise
 ]
 
 ROOT_URLCONF = 'earnsforum.urls'
@@ -63,9 +61,7 @@ ROOT_URLCONF = 'earnsforum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / "templates",  # Path: earnsforum/earnsforum/templates
-        ],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,13 +80,8 @@ WSGI_APPLICATION = 'earnsforum.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 
@@ -112,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -127,25 +117,32 @@ USE_L10N = True
 USE_TZ = True
 
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+
+
+
+
 # Static files (CSS, JavaScript, Images)
-STATIC_ROOT = BASE_DIR / "staticfiles"  # Path: earnsforum/earnsforum/staticfiles
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Path: earnsforum/earnsforum/static
-]
 
-MEDIA_URL = BASE_DIR / "uploads"  # Path: earnsforum/earnsforum/uploads
-MEDIA_URL = "/uploads/" # Path: /uploads/
-
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = BASE_DIR / "uploads"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#django-heroku
-import django_heroku
+
 django_heroku.settings(locals())
 
 

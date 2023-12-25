@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Arial:400,700,400italic,700italic&subset=latin');
+
+:root {
+    --primary-color: #163020; /* Dark green */
+    --secondary-color: #304D30; /* Medium green */
+    --accent-color: #B6C4B6; /* Light green */
+    --light-color: #EEF0E5; /* Very light green */
+    --text-color: #ffff; /* White */
+    --error-color: #d6000b; /* Error color */
+    --error-bg: #ffe6e7; /* Error background color */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    
+}
+
+main {
+    width: 90%;
+    max-width: 90rem;
+    margin: 7rem 3rem 3rem;
+    background-color: var(--light-color);
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border: 5px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+    align-content: flex-start;
+    justify-content: flex-end;
+}
+
+#main-navigation {
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#summary {
+    margin-top: 30%;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#summary h2{
+    color: var(--text-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: xxx-large;
+    margin: 0;
+}
+
+#summary article{
+    /* color: var(--text-color); */
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+
+}
+
+#summary address{
+    /* color: var(--text-color); */
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+
+}
+
+#summary a{
+    /* color: var(--text-color); */
+    width: 100%;
+    display: flex;
+    align-content: stretch;
+    justify-content: space-between;
+
+}
+
+#summary time {
+        /* color: var(--text-color); */
+        width: 100%;
+        display: flex;
+        align-content: stretch;
+        justify-content: space-between;
+}
+
+#summary article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#summary article img {
+    width: 65%;
+    height: auto;
+    border: 5px solid var(--text-color);
+}
+
+#summary div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#summary form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tag{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+ #comments-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#comments-form p{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#comments-form input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#comments-form button{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#comments{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* ... other styles ... */
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    /* Styles for smaller devices */
+}
+
+@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+    /* Styles specific for Galaxy Fold */
+    body {
+        padding-top: 5rem; /* Space for the fixed header */
+    }
+    main,
+    #summary,
+    #comment-form,
+    #comments {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    #summary {
+        height: auto;
+        padding: 1rem;
+    }
+    #summary article img {
+        width: 100%;
+        max-width: 250px; /* Adjust this value as needed */
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    /* Styles for larger screens */
+    main {
+        width: 70%;
+    }
+}

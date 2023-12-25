@@ -1,81 +1,108 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
 {% load static %}
 
-{% block title %}{{ post.title }}{% endblock %}
-
 {% block css_files %}
-<link href="{% static 'blog/post-details.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'blog/post-details.css' %}">
+{% endblock %}
+
+{% block title %}
+{{ post.title }}
 {% endblock %}
 
 {% block content %}
-
-{% if comment_form.errors %}
-    <div id="alert">
-        <strong>Your comment wasn't submitted, please correct the following error</strong>
-        <a href="#comment-form">FIX!</a>
-    </div>
-{% endif %}
-
-<section id="summary">
+<div class="article-post-content">
+  <section id="summary">
     <h2>{{ post.title }}</h2>
     <div>
-        {% for tag in post_tags %}
-        <span class="tag">{{ tag.caption }}</span>
-        {% endfor %}
+      {% for tag in post_tags %}
+      <span class="tag">{{ tag.caption }}</span>
+      {% endfor %}
     </div>
-    <div id="read-later">
-        <form action="{% url "read-later" %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="post_id" value="{{ post.id }}" />
-            <button>
-                {% if saved_for_later %}
-                    Remove from Saved Article List               
-                {% else %}
-                    Save Article
-                {% endif %}
-            
-            </button>
-        </form>
-    </div>
-
     <article>
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" />
-        <address>By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a></address>
-        <div>
-            Last updated on <time>{{ post.date|date:"d M Y" }}</time>
-        </div>
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+      <address>
+        By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a>
+      </address>
+      <div class="last-updated">
+        Last updated on <time>{{ post.date|date:"d M Y" }}</time>
+      </div>
     </article>
-</section>
-
-<main>
-    {{ post.content|linebreaks}}
-</main>
-
-<section id="comments">
-    <ul>
-        {% for comment in post.comments.all %}
-        <li>
-            <h2>{{ comment.user_name }}</h2>
-            <p>{{ comment.text|linebreaks }}</p>
-        </li> <!-- Close the list item here -->
-        {% endfor %} <!-- Close the for loop here -->
-    </ul>
-</section> <!-- Close the section here -->
-
-<section id="comment-form">
-    <h2>Your Comments</h2>
-    <div>
-        <form action="{% url "post-detail-page" post.slug %}" method="POST">
-            {% csrf_token %}
-            {% for form_field in comment_form %}
-            <div class="form-control {% if form_field.errors %}invalid{% endif %}">
-                {{ form_field.label_tag }}
-                {{ form_field }}
-                {{ form_field.errors }}
-            </div>
-            {% endfor %}
-            <button>Submit</button>
+    <div id="read-later">
+      {% if user.is_authenticated %}
+        <form action="{% url 'blog:read-later' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="content_id" value="{{ post.id }}" />
+          <input type="hidden" name="content_type" value="post" />
+          <input type="hidden" name="next" value="{{ request.path }}" />
+          <button type="submit">
+            {% if post in user.userprofile.saved_content.posts.all %}
+              Remove from Saved Articles
+            {% else %}
+              Save Article
+            {% endif %}
+          </button>
         </form>
+        {% else %}
+          <a href="{% url 'users1:login' %}?next={{ request.path }}">Log in to save articles</a>
+        {% endif %}
     </div>
-</section>
+  </section>
+  <main>
+    <div class="article-content">{{ post.content|linebreaks}}</div>
+  </main>
+</div>
+
+{% if user.is_authenticated %}
+<div class="comment-section">
+  <h2>Comment Anonymously</h2>
+  <section id="comment-form">
+    <form action="{% url 'blog:post-detail-page' slug=post.slug %}" method="post">
+      {% csrf_token %}
+      {{ comment_form.as_p }}
+      <button type="submit">Submit Comment</button>
+    </form>
+  </section>
+
+  <section id="comments">
+    <ul>
+      {% for comment in comments %}
+      <div class="comment">
+        <p>{{ comment.text }}</p>
+
+        <!-- Edit/Delete links -->
+        {% if comment.user == request.user %}
+            <button class="edit-comment-button" data-comment-id="{{ comment.id }}">Edit</button>
+            <a href="{% url 'blog:delete_comment' comment.id %}" onclick="return confirm('Are you sure?');">Delete</a>
+        {% endif %}
+
+        <!-- Edit Comment Form -->
+        <div class="edit-comment-form" id="edit-comment-form-{{ comment.id }}" style="display:none;">
+            <form method="post" action="{% url 'blog:edit_comment' comment.id %}">
+                {% csrf_token %}
+                <textarea name="text">{{ comment.text }}</textarea>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+{% endfor %}
+    </ul>
+  </section>
+</div>
+{% else %}
+<p>
+  Please <a href="{% url 'users1:login' %}?next={{ request.path }}">log in</a> to post a comment.
+</p>
+{% endif %}
+
+<script>
+  // Code for handling the display of the edit comment form
+  document.querySelectorAll('.edit-comment-button').forEach(button => {
+    button.addEventListener('click', function() {
+      var commentId = this.getAttribute('data-comment-id');
+      var form = document.getElementById('edit-comment-form-' + commentId);
+      form.style.display = 'block';
+    });
+  });
+</script>
 {% endblock %}

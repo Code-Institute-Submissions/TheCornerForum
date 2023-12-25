@@ -1,0 +1,102 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e7e7e7;
+}
+
+.cartoons-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will center the cartoons horizontally */
+    justify-content: center; /* This will center the cartoons vertically */
+    padding: 20px;
+    min-height: 100vh; /* This ensures that the cartoons-list takes up at least the full height of the viewport */
+    margin-top: 5rem; /* Adjusted to account for the fixed header */
+}
+
+.cartoon {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.cartoon h2 {
+    color: #390281;
+    margin: 0 0 10px 0;
+}
+
+.cartoon h2 a {
+    color: inherit; /* Use the parent color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cartoon h2 a:hover {
+    color: #007bff;
+}
+
+.cartoon p {
+    color: #333;
+    font-size: 16px;
+}
+/* Cartoon Detail Styles */
+article.cartoon {
+    margin-top: 80px;
+    margin-left: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* margin: 20px auto; */
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.cartoon-panels {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.cartoon-panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.cartoon-panel p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+/* Media query for tablets and smaller devices */
+@media only screen and (max-width: 768px) {
+    .cartoons-list, .cartoon, article.cartoon {
+        width: 95%; /* Slightly narrower on smaller screens */
+    }
+}
+
+/* Media query for Galaxy Fold */
+@media only screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+    body {
+        font-size: 14px; /* Smaller font size for Galaxy Fold */
+    }
+    .cartoons-list {
+        margin-top: 5rem; /* Height of the navigation bar, adjust if different */
+        padding-top: 1rem; /* Additional padding if required */
+        min-height: calc(100vh - 5rem); /* Adjust the height calculation based on the height of the navigation */
+    }
+    .cartoon-panels {
+        grid-gap: 15px; /* Reduce gap size */
+    }
+}
+
+/* Media query for desktops */
+@media only screen and (min-width: 769px) {
+    .cartoons-list, .cartoon, article.cartoon {
+        width: 70%; /* Wider for desktop screens */
+    }
+}

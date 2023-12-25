@@ -1,0 +1,74 @@
+/* General Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif; /* You can change the font family */
+}
+
+/* Form Section Styles */
+section#comment-form {
+    width: 100%;
+    max-width: 400px; /* Maximum width of the form */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+/* Form Title */
+section#comment-form h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input and Button Styles */
+form input[type="text"], form input[type="password"], form button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+/* Button Hover Effect */
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Link Styles */
+form a {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Link Hover Effect */
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section#comment-form {
+        margin: 10px;
+        box-shadow: none;
+    }
+}

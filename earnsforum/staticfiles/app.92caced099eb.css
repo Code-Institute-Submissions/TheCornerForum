@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+  --background-color: #163020; /* Dark green */
+  --nav-background-color: #304D30; /* Medium green */
+  --element-background-color: #B6C4B6; /* Light green */
+  --body-text-color: #ffff; /* White */
+  --hover-color: #EEF0E5; /* Very light green */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Open Sans', 'Lato', sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    background: var(--background-color);
+    color: var(--body-text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#main-navigation {
+    background: var(--nav-background-color);
+    color: var(--body-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#main-navigation a {
+    text-decoration: none;
+    color: var(--body-text-color);
+    font-size: 1.6rem;
+}
+
+#main-navigation a:hover,
+#main-navigation a:active {
+    background-color: var(--hover-color);
+    color: var(--nav-background-color);
+}
+
+#hamburger-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--body-text-color); /* White hamburger icon */
+}
+
+#nav-menu {
+    display: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: var(--element-background-color);
+    position: absolute;
+    top: 5rem;
+    right: 0;
+    z-index: 999;
+}
+
+#nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nav-menu a {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--hover-color);
+}
+
+@media screen and (max-width: 768px) {
+    #hamburger-btn {
+        display: block;
+    }
+    #nav-menu.active {
+        position: fixed;
+        right: 0;
+        top: 5rem;
+        width: 100%;
+        height: calc(100% - 5rem);
+        overflow-y: auto;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #nav-menu {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        position: static;
+        height: auto;
+        background: none;
+    }
+    #nav-menu a {
+        margin: 0 10px;
+        padding: 0;
+        border: none;
+    }
+}
+
+/* For devices with unusual dimensions like Galaxy Fold */
+@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
+    #nav-menu.active {
+        height: calc(100% - 5rem);
+        overflow-y: auto;
+    }
+    #nav-menu a {
+        padding: 15px 0;
+    }
+}

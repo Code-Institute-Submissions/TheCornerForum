@@ -1,0 +1,87 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.post a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s ease;
+  padding: 0.5rem; /* Adjust padding for smaller screen */
+  display: block; /* Ensure the link covers the content for transform effect */
+}
+
+.post a:hover,
+.post a:active {
+  transform: scale(1.05); /* Slightly reduced scale effect for small screen */
+  background-color: #390281;
+  color: white;
+}
+
+.post img {
+  width: 100%; /* Full width for responsive design */
+  max-width: 5rem; /* Maximum width to maintain design */
+  height: auto; /* Adjust height automatically to keep aspect ratio */
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.post h3 {
+  margin: 0.25rem 0;
+  font-size: 1rem; /* Adjust font-size for readability on small screens */
+}
+
+.post time {
+  color: #666;
+  margin: 0.25rem;
+  font-style: italic;
+  font-size: 0.75rem; /* Smaller font-size for time element */
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 600px) {
+  .post {
+    margin-bottom: 1.5rem; /* More space between posts on larger screens */
+  }
+
+  .post a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .post a:hover,
+  .post a:active {
+    transform: scale(1.1); /* Larger scale effect for larger screens */
+  }
+
+  .post img {
+    max-width: 7rem; /* Larger images for larger screens */
+  }
+
+  .post h3 {
+    font-size: 1.25rem; /* Larger font-size for titles */
+  }
+
+  .post time {
+    font-size: 0.85rem; /* Slightly larger font-size for time */
+  }
+}
+
+/* Additional Media Queries for even larger screens */
+@media (min-width: 768px) {
+  .post img {
+    max-width: 10rem; /* Even larger images for larger screens */
+  }
+
+  .post h3 {
+    font-size: 1.5rem; /* Larger font-size for larger screens */
+  }
+}
