@@ -79,7 +79,7 @@ body {
     width: 80%;
     margin: 0 auto;
     border-radius: 8px;
-    max-width: 20rem;
+    max-width: 105rem;
 }
 
 #latest-posts img {
@@ -131,6 +131,10 @@ body {
 }
 
 @media (min-width: 1040px) {
+    #welcome {
+        padding-bottom: 3rem;
+        margin-top: 10rem;
+    }
     #latest-posts ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
