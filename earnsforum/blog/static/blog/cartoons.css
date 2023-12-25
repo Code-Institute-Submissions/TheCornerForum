@@ -170,9 +170,14 @@ body {
   }
 
 @media (min-width: 1024px) {
+  .cartoons-list {
+    margin-top: 10rem auto 0 auto;
+    max-width: 105rem;
+  }
 
   .cartoon {
     padding: 30px 90px;
+    width: 100%;
   }
 
   cartoon h2 {
