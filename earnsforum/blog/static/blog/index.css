@@ -129,3 +129,11 @@ body {
     padding: 2rem;
     text-align: center;
 }
+
+@media (min-width: 1040px) {
+    #latest-posts ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
+}
