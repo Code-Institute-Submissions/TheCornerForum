@@ -45,11 +45,15 @@ body {
     background-color: var(--accent-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     width: 80%;
-    max-width: 600px;
+    max-width: 20rem;
     height: auto;
     object-fit: cover;
     object-position: top;
     margin-top: 2rem;
+}
+
+#weldome img {
+    max-width: 20rem;
 }
 
 #welcome p {
@@ -75,6 +79,7 @@ body {
     width: 80%;
     margin: 0 auto;
     border-radius: 8px;
+    max-width: 20rem;
 }
 
 #latest-posts img {
@@ -124,49 +129,3 @@ body {
     padding: 2rem;
     text-align: center;
 }
-/* Media Queries */ /*
-@media (max-width: 768px) {
-    #welcome,
-    #latest-posts,
-    #about {
-        padding: 1rem;
-        margin-top: 5rem; *//* Adjust this if your header's height is different */ /*
-    }
-
-    #welcome img,
-    #latest-posts img {
-        width: 95%;
-    }
-}
-
-@media screen and (min-height: 659px) and (max-height: 673px) and (max-width: 280px) {
-   */ /* Adjustments for Galaxy Fold */ /*
-    #welcome,
-    #latest-posts,
-    #about {
-        min-height: calc(100vh - 5rem); /* Adjust for fixed header */ /*
-        padding: 1rem;
-        margin-top: 5rem; /* Push content below the header */ /*
-    }
-
-    #welcome img,
-    #latest-posts img {
-        width: 100%;
-    }
-
-    #welcome p,
-    #latest-posts h2,
-    #about p {
-        font-size: 1.2rem; */ /* Smaller font size for smaller screens */ /*
-    }
-}
-
-@media only screen and (min-width: 769px) {
-    #welcome,
-    #latest-posts,
-    #about {
-        width: 70%;
-    }
-}
-
-*/
