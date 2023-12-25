@@ -92,7 +92,7 @@ body {
     }
 
     .post img {
-        max-width: 7rem;
+        max-width: 20rem;
     }
 
     .post h3 {
@@ -105,11 +105,7 @@ body {
 }
 
 /* Additional Media Queries for even larger screens */
-@media (min-width: 768px) {
-    .post img {
-        max-width: 10rem;
-    }
-
+@media (min-width: 1042px) {
     .post h3 {
         font-size: 1.5rem;
     }
