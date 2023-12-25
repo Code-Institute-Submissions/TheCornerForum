@@ -2,17 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="comic stories, creative articles, imaginative writing, illustrated narratives, storytelling blog, unique comics, engaging articles, fictional tales" />
-    <meta name="description" content="Welcome to a realm of creativity! Explore our engaging comic-style stories and imaginative articles, all in one place. Dive into a world where vivid illustrations meet captivating narratives." />
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'app.css' %}" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="comic stories, creative articles, imaginative writing, illustrated narratives, storytelling blog, unique comics, engaging articles, fictional tales">
+    <meta name="description" content="Welcome to a realm of creativity! Explore our engaging comic-style stories and imaginative articles, all in one place. Dive into a world where vivid illustrations meet captivating narratives.">
+    <title>{% block title %}{% endblock %}</title> <!-- Title moved inside the <head> -->
+    <link rel="stylesheet" href="{% static 'app.css' %}" type="text/css">
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     {% block css_files %}{% endblock %}
-</head>
+  </head>
   <body>
+    
+
     <header id="main-navigation">
       <h1><a href="{% url 'blog:starting-page' %}">The Earn's</a></h1>
       <button id="hamburger-btn" aria-label="Toggle menu">
@@ -20,15 +22,15 @@
       </button>
       <nav id="nav-menu">
         {% if request.user.is_authenticated %}
-        <span>{{ request.user.username }}!</span>
-        <a href="{% url 'users1:logout' %}">Logout</a>
-        <a href="{% url 'blog:read-later' %}">Saved</a>
-        <a href="{% url 'blog:cartoons-page' %}">Stories</a>
-        <a href="{% url 'blog:posts-page' %}">Articles</a>
-        <a href="{% url 'users1:profile' %}">Profile</a>
+          <span>{{ request.user.username }}!</span>
+          <a href="{% url 'users1:logout' %}">Logout</a>
+          <a href="{% url 'blog:read-later' %}">Saved</a>
+          <a href="{% url 'blog:cartoons-page' %}">Stories</a>
+          <a href="{% url 'blog:posts-page' %}">Articles</a>
+          <a href="{% url 'users1:profile' %}">Profile</a>
         {% else %}
-        <a href="{% url 'users1:login' %}">Login</a>
-        <a href="{% url 'users1:signup' %}">Signup</a>
+          <a href="{% url 'users1:login' %}">Login</a>
+          <a href="{% url 'users1:signup' %}">Signup</a>
         {% endif %}
       </nav>
     </header>
