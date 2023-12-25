@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 10vh auto 10px auto;
 }
 
 .user-profile h3 {
@@ -21,6 +21,14 @@
     max-width: 100%;
     height: auto;
     border-radius: 50%; /* Optional: makes the image circular */
+}
+
+.update-container {
+    max-width: 100rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 form {
@@ -42,7 +50,24 @@ form button {
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: var(--light-color); /* Button background color */
+    color: var(--secondary-color); /* Button text color */
+    box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.delete-container {
+    max-width: 100rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Responsive styles */

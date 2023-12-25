@@ -35,7 +35,8 @@ User Profile
   </ul>
 {% endif %}
 
-<h2>Update Profile</h2>
+<div class="update-container">
+  <h2>Update Profile</h2>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
@@ -43,11 +44,13 @@ User Profile
 </form>
 
 <hr />
-
-<!-- Delete Account Section -->
+</div>
+<div class="delete-container">
+  <!-- Delete Account Section -->
 <h2>Delete Account</h2>
 <form method="post" action="{% url 'users1:delete_account' %}">
   {% csrf_token %}
   <button type="submit">Delete My Account</button>
 </form>
 {% endblock %}
+</div>
