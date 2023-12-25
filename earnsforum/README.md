@@ -15,6 +15,7 @@ Earn's is a unique storytelling platform where creativity and imagination meet i
 - [Technologies Used](#technologies-used)
 - [Deployment and Local Development](#deployment-and-local-development)
 - [Testing](#testing)
+- [Scrum - progress](#scrum-progress)
 - [Setups] (#setups)
 - [Credits](#credits)
 
@@ -73,6 +74,14 @@ Testing was carried out throughout the development process. Please see the Testi
 [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
 
 
+### Scrum Progress
+
+[The Issues](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703510074/Sk%C3%A4rmbild_2023-12-25_140621_plc989.png)
+These are without any milestones sense the milestone where so obvius and because its a MVP i havent been afriad of leaving some of issues for future work.
+But they are labeled and very easy to view and to point out whats need to be done. Tests for examples are something that never will be done but who has labels for (Todo after TEST) that should be choosen if an issue has come up after running an test. PRIO is also obvious. Bacause when you see that yello label you know thats where you should begin. 
+
+[The Dashboard](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703510073/Sk%C3%A4rmbild_2023-12-25_140523_k80fjf.png)
+In the dashboard you have now: Inprogress, PRIO, testing and "wontfix or future feature". Before there was also a todo, but since have started on all issues already this one is no more. But will be added the day there are Todo to do.
 ### Setups
 
 ## Prerequisites
