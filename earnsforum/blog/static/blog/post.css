@@ -76,8 +76,7 @@ body {
 /* Media Queries for larger screens */
 @media (min-width: 600px) {
     .post {
-        margin-bottom: 1.5rem;    
-        flex-direction: row-reverse;
+        margin-bottom: 1.5rem;
         justify-content: space-between;
         padding: 5px 15px;
     }
