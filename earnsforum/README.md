@@ -1,6 +1,6 @@
 # Earn's - Creative Articles and Stories Platform
 
-**Live demo:** [View Earn's live site here](#)
+**Live demo:** [Earn's Hompage](https://deploy-earns-c68fad364740.herokuapp.com/)
 
 ## Table of Contents
 - [Introduction](#introduction)
