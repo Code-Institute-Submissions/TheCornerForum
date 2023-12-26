@@ -42,6 +42,9 @@ Wireframes for Earn's were developed to plan the layout and user flow for both d
 - As a First-Time Visitor, I want to easily understand the main purpose of the site and learn more about the content provided.
 - As a Reader, I want to explore different stories and articles, so I can enjoy reading in my leisure time.
 - As a Registered User, I want to save my favorite reads and manage my profile, so I can personalize my experience on the platform.
+- As a new user, I want to see a comprehensive signing info page so that I can understand the benefits and requirements of creating an account before I sign up.
+- As an administrator, I want to set up a 3-day backup server, so that our data is regularly backed up and can be restored in case of an emergency.
+- As a user attempting to log in, I want to receive clear and specific messages when my login attempt fails, so that I know whether I've entered an incorrect username, password, or if my account does not exist. This will help me understand the problem and guide me on how to proceed, whether I need to re-attempt the login, reset my password, or create a new account.
 
 ### Features
 - **Dynamic Reading Lists:** Curate your reading experience by saving stories and articles for later enjoyment.
@@ -63,16 +66,21 @@ Wireframes for Earn's were developed to plan the layout and user flow for both d
 
 ### Testing
 Testing was carried out throughout the development process. Please see the Testing Document for details. Some aspects are not perfect and could benefit from a couple more days of development.
-1. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png)
-2. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png)
-3. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png)
-4. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png)
-5. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png)
-6. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png)
-7. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png)
-8. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png)
-9. [Test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
+1. [Test Performance](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003443_gurebg.png)
+2. [Test Performance](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-23_003540_plp9q2.png)
+3. [Test Lighthouse](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507090/Sk%C3%A4rmbild_2023-12-22_160540_jg35oo.png)
+4. [Test Performance](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003216_ubim3h.png)
+5. [Test Performance](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-23_003355_n6wrzv.png)
+6. [Test Webpage Performance](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161547_ubhm3w.png)
+7. [Test Performance Pages](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_161602_xa2vo4.png)
+8. [sqlMap test](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507091/Sk%C3%A4rmbild_2023-12-22_164925_tr8ppc.png)
+9. [W3C Validator](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507092/Sk%C3%A4rmbild_2023-12-25_123145_mx52uy.png)
 10. [Tests like issues in github](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703511654/Sk%C3%A4rmbild_2023-12-25_143947_eb9zxc.png)
+11. [W3C CSS](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703551934/Sk%C3%A4rmbild_2023-12-26_011730_ssvwe1.png)
+12. [DevTools Conslole](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703551934/Sk%C3%A4rmbild_2023-12-26_012239_rcizrg.png)
+13. [DevTools Performance Recorded](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703551935/Sk%C3%A4rmbild_2023-12-26_012148_j0b0zt.png)
+14, [DevTools Overall](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703551935/Sk%C3%A4rmbild_2023-12-26_012518_mxmave.png)
+
 
 ### Scrum - Progress
 
