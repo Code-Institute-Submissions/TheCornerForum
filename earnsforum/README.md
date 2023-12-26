@@ -11,6 +11,7 @@
 - [User Experience (UX)](#user-experience-ux)
 - [User Stories](#user-stories)
 - [Features](#features)
+- [Admin](#admin-panel)
 - [Technologies Used](#technologies-used)
 - [Deployment and Local Development](#deployment-and-local-development)
 - [Testing](#testing)
@@ -35,9 +36,9 @@ We use a combination of serif and sans-serif fonts to delineate between story na
 #### Wireframes
 ![Wireframes color and inspiration](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507093/Sk%C3%A4rmbild_2023-12-25_132358_cunbld.png)
 Wireframes for Earn's were developed to plan the layout and user flow for both desktop and mobile views. After deciding on the desired design, AI was used to create an inspirational layout, which has been the basis for the work.
-[Startingpage](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553594/Sk%C3%A4rmbild_2023-12-26_021928_kaffnq.png)
-[Articles page](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553593/Sk%C3%A4rmbild_2023-12-26_021916_quxkza.png)
-[Stories page](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553593/Sk%C3%A4rmbild_2023-12-26_021907_fmtr6d.png)
+![Startingpage](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553594/Sk%C3%A4rmbild_2023-12-26_021928_kaffnq.png)
+![Articles page](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553593/Sk%C3%A4rmbild_2023-12-26_021916_quxkza.png)
+![Stories page](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553593/Sk%C3%A4rmbild_2023-12-26_021907_fmtr6d.png)
 Theses are mine..
 
 
@@ -57,6 +58,12 @@ Theses are mine..
 - **User Profiles:** Customize your profile to reflect your reading preferences and interests.
 - **Super User Capabilities:** Create and manage content with the ability to add images and text to your stories and articles. The admin panel & AI enable you to create an article within minutes.
 - **Content Tagging:** Utilize tags to categorize and navigate through the variety of content available.
+
+### Admin panel:
+1. ![Admin Panel](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703554354/Sk%C3%A4rmbild_2023-12-26_022803_snurha.png)
+2. ![Admin create posts/articles](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703554355/Sk%C3%A4rmbild_2023-12-26_022853_yx9q8v.png)
+3. ![Admin posted articles](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703554355/Sk%C3%A4rmbild_2023-12-26_022906_rekofm.png)
+4. ![Admin storiy creating function](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703554356/Sk%C3%A4rmbild_2023-12-26_022942_cinw1m.png)
 
 ### Technologies Used
 - **Languages:** HTML5, CSS3, JavaScript, Python
@@ -92,7 +99,7 @@ Testing was carried out throughout the development process. Please see the Testi
 [The Issues](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703510074/Sk%C3%A4rmbild_2023-12-25_140621_plc989.png)
 The issues are organized without specific milestones since the goals were obvious. As a MVP, some issues may be left for future work. They are labeled for easy identification. The PRIO label indicates priority tasks.
 
-[The Dashboard](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703510073/Sk%C3%A4rmbild_2023-12-25_140523_k80fjf.png)
+![The Dashboard](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703510073/Sk%C3%A4rmbild_2023-12-25_140523_k80fjf.png)
 The dashboard currently displays: In Progress, PRIO, Testing, and "Won't Fix or Future Feature". The Todo category has been removed since all issues have been started. It will be added again when new tasks arise.
 
 ### Setups
