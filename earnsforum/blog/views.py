@@ -22,8 +22,8 @@ class StartingPageView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        # Display only the top 3 posts on the starting page
-        data = queryset[:3]
+        # Display only the top 4 posts on the starting page
+        data = queryset[:4]
         return data
 
 
