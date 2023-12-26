@@ -33,8 +33,13 @@ The colour palette is a mix of earthy tones and vibrant highlights, creating a b
 We use a combination of serif and sans-serif fonts to delineate between story narration and user interface elements.
 
 #### Wireframes
-![Wireframes](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507093/Sk%C3%A4rmbild_2023-12-25_132358_cunbld.png)
-Wireframes for Earn's were developed to plan the layout and user flow for both desktop and mobile views. After deciding on the desired design, AI was used to create the final layout, which has been the basis for the work.
+![Wireframes color and inspiration](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703507093/Sk%C3%A4rmbild_2023-12-25_132358_cunbld.png)
+Wireframes for Earn's were developed to plan the layout and user flow for both desktop and mobile views. After deciding on the desired design, AI was used to create an inspirational layout, which has been the basis for the work.
+[Startingpage](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553594/Sk%C3%A4rmbild_2023-12-26_021928_kaffnq.png)
+[Articles page](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553593/Sk%C3%A4rmbild_2023-12-26_021916_quxkza.png)
+[Stories page](https://res.cloudinary.com/dzxr3hsus/image/upload/v1703553593/Sk%C3%A4rmbild_2023-12-26_021907_fmtr6d.png)
+Theses are mine..
+
 
 ### User Experience (UX)
 
